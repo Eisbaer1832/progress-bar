@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-bright bg-bright fixed-top">
+        <div class="container-fluid">
+          <img class="navbar-brand" src="/public/assets/Lotz.png" alt="Lotz">
+            <button class="btn btn-primary" id="sidebarCollapse" class="float-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button" aria-label="Toggle menu">Menü</button>
+        </div>
+      </nav>   
+
+      <!--Offcanvas-->
+      <nav class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="true" data-bs-scroll="true">
+        <div class="offcanvas-header border-bottom">
+          <a href="/" class="d-flex align-items-center text-decoration-none offcanvas-title d-sm-block">
+            <h3>
+              <i class="offcanvas-body"></i>
+              Menü
+            </h3>
+          </a>
+        </div>
+        <div class="offcanvas-body px-0">
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div class="d-grid gap-2 col-8 mx-auto">
+                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="höher();">Hinzufügen!</button></button>
+                <button type="button" class="btn btn-primary" data-bs-target="#resetModal" data-bs-toggle="modal">Reset</button></button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas2" aria-label="Close">Ziele</button>
+                <div class="collapse show" id="home-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  </ul>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" name="maxHöhe" id="inputGroup-sizing-sm">Maximale Anzahl</span>
+                  <input type="text" class="form-control"  id="maxHöhe" aria-describedby="inputGroup-sizing-sm">
+                  <button class="btn btn-outline-secondary" onclick="MaximaleHöhe()" type="button">Los</button>
+                </div>
+              </div>
+            </li>
+        </div>
+      </nav>
+
+      <!--Ziel Offcanvas-->
+      <nav class="offcanvas offcanvas-start" data-bs-target tabindex="-1" id="offcanvas2" data-bs-keyboard="false" data-bs-backdrop="true" data-bs-scroll="true">
+        <div class="offcanvas-header border-bottom">
+          <a href="/" class="d-flex align-items-center text-decoration-none offcanvas-title d-sm-block">
+            <h3>
+              <i class="offcanvas-body"></i>
+              Ziele
+
+            </h3>
+
+          </a>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
+                <button class="btn btn-primary"  onclick="goal(), setgoal()"  type="button" >Fertig</button>
+              </div>
+        </div>
+        <div class="offcanvas-body px-0" id="goals">
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div>              
+                <h4>Ziel 1</h4>
+                <div class="input-group mb-3">
+                  <input id="goal-name-1" type="text" class="form-control" placeholder="Belohnung">
+                </div>
+                
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="goal-height-1"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                </div>
+            </div>
+          </ul>
+
+            <p></p>  
+
+            <ul class="list-unstyled ps-0">
+              <li class="offcanvas-body">
+                <div>              
+                  <h4>Ziel 2</h4>
+                  <div class="input-group mb-3">
+                    <input id="goal-name-2" type="text" class="form-control" placeholder="Belohnung">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="goal-height-2"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                  </div>
+              </div>
+            </ul>
+
+              <p></p>
+            
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div>              
+                <h4>Ziel 3</h4>
+                <div class="input-group mb-3">
+                  <input id="goal-name-3" type="text" class="form-control" placeholder="Belohnung">
+                </div>
+                
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="goal-height-3"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                </div>
+            </div>
+          </ul> 
+
+          <p></p>
+
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div>              
+                <h4>Ziel 4</h4>
+                <div class="input-group mb-3">
+                  <input id="goal-name-4" type="text" class="form-control" placeholder="Belohnung">
+                </div>
+                
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="goal-height-4"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                </div>
+            </div>
+          </ul>
+
+            <p></p>
+
+            <ul class="list-unstyled ps-0">
+              <li class="offcanvas-body">
+                <div>              
+                  <h4>Ziel 4</h4>
+                  <div class="input-group mb-3">
+                    <input id="goal-name-5" type="text" class="form-control" placeholder="Belohnung">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="goal-height-5"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                  </div>
+              </div>
+            </ul>     
+
+            <p></p>
+
+            <ul class="list-unstyled ps-0">
+              <li class="offcanvas-body">
+                <div>              
+                  <h4>Ziel 6</h4>
+                  <div class="input-group mb-3">
+                    <input id="goal-name-6" type="text" class="form-control" placeholder="Belohnung">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="goal-height-6"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                  </div>
+              </div>
+            </ul>            
+        </div>
+      </nav>
+
+      <!--Reset Modal-->
+      <div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Möchtest du den Vortschritt wirklich zurücksetzen?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button data-bs-target="#maxHöheModal" data-bs-toggle="modal" class="btn btn-primary" data-bs-dismiss="modal" onclick="reset()" type="button">Ja</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Nein</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--maxHöhe-->
+      <div class="modal fade" id="maxHöheModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Gib deinen neuen Höchstwert ein!</h5>
+            </div>
+            <div class="modal-body">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <input type="text" class="form-control"  id="maxHöhe2">
+                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="MaximaleHöhe2()" type="button">Los</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!--List group-->
+      <table style="width:100%">
+
+        <tr>       
+           <div class="list-group list" style="margin-top: 0.8%" >
+            <div style="margin-top: 40%;" class="list-group-item " aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Schon geschafft:</h5>
+              </div>
+              <p class="mb-1" id="erledigt"></p>
+              <small>Sehr gut 👍</small>
+            </div>
+
+            <div class="list-group-item " aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Noch zu erledigen:</h5>
+              </div>
+              <p class="mb-1" id="nochzutuen"></p>
+              <small></small>
+            </div>
+
+            <div class="list-group-item " aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Noch bis zum nächsten Ziel:</h5>
+              </div>
+              <p class="mb-1" id="bis-nächstes-ziel"></p>
+              <small></small>
+            </div>
+
+            <div class="list-group-item " aria-current="true">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1" >Nächste Belohnung:</h5>
+              </div>
+              <p class="mb-1" id="goal-text"></p>
+              <small></small>
+            </div>
+          </div>
+        </div>        
+      </tr>
+      
+       <!--Termometer-->
+        <tr>      
+          <div class="image-div" style="position:relative; margin-top: 1%">
+            <img class="center " id="Termometer"  src="/public/assets/Termometer.png" alt="Termometer,animated">
+            <div class="line" id="line1"></div>
+
+          </div>
+        </tr>
+
+      <!--Goal-->
+        <tr>        
+          <div class="goal-class" style="margin-top: -23%;">
+            <h1 id="currentgift" class=""></h1>
+            <img class=" " id="gift" src="/public/assets/Gift.png" alt="gift" style=" margin-left:5%; width: 80%;">
+          </div>
+        </tr>
+
+      </table>
+
+
+            
+
+      <!--addToast-->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="" class="rounded me-2" alt="&#127777;&#65039">
+            <strong class="me-auto">Hinzugefügt!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Es ist wärmer geworden. 😎
+          </div>
+        </div>
+      </div>
+
+
+      <!--addToastZiel-->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="" class="rounded me-2" alt="&#127777;&#65039">
+            <strong class="me-auto">Geschafft!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Du hast ein Ziel erreicht 🎉
+          </div>
+        </div>
+      </div>
+      <script src="/public/css/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/public/js/script.js"></script>
+</body>
+</html>
