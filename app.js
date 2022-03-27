@@ -25,7 +25,6 @@ app.listen(port, () => {
 app.post('/public/data', function(req, res) {
   let maxHöhe = req.body;
   console.log("maxHöhe: "+maxHöhe );
-  console.log(req)
   res.redirect('/');
 });
 

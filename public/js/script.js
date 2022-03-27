@@ -72,7 +72,7 @@ function MaximaleHöhe()
     data: maxHöhe,
     url: '/public/data',
     success: function (data) {
-        console.log("Klappt" + data);
+        console.log("Klappt: " + maxHöhe);
     }
   });
 }
