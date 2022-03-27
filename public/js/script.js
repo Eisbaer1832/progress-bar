@@ -1,12 +1,38 @@
-var höhe = localStorage.getItem("höhe")
-var maxHöhe = localStorage.getItem("maxHöhe")
+let höhe
+let maxHöhe = 1
+let maxHöhe2
+let name
+let name2
+let name3
+let name4
+let name5 
+let name6
+let height
+let height2
+let height3
+let height4
+let height5
+let height6
+let erledigt
+let currentgoal
+let nochzutuen
+
+
+$.ajax({
+  type: 'post',
+  data:{maxHöhe},
+  url: '../',
+  success: function (data) {
+      alert(data);
+  }
+});
+
+
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
-var currentgoal = localStorage.getItem("currentgoal")
 const termometer = document.getElementById("Termometer");
 var toastLiveExample2 = document.getElementById('liveToast2')      
 const gift = document.querySelector('#gift');
-let jsonFile = require('jsonfile');
 
 console.log("Maximale Höhe " + maxHöhe)
 console.log("Schon Erledigt " + erledigt) 
@@ -20,6 +46,7 @@ goal();
 document.getElementById("goal-text").innerHTML = currentgoal;
 
 min = (Math.min(height, height2, height3, height4, height5, height6));
+
 
 
 if (erledigt < min) {
@@ -37,23 +64,26 @@ if (erledigt < min) {
 }
 
 
+
 function MaximaleHöhe()
 { 
-  var maxHöhe = document.getElementById("maxHöhe").value;
-  localStorage.setItem("maxHöhe", maxHöhe)
+  let maxHöhe 
+
+  maxHöhe = document.getElementById("maxHöhe").value;
   console.log(maxHöhe)
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt;
+
 
 }
 
 function MaximaleHöhe2()
 { 
-  var maxHöhe = document.getElementById("maxHöhe2").value;
-  localStorage.setItem("maxHöhe", maxHöhe)
+  maxHöhe = document.getElementById("maxHöhe2").value;
   console.log(maxHöhe)
   document.getElementById("erledigt").innerHTML = erledigt;
-  document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt;
+  document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt
+
 
 }
 
@@ -74,7 +104,6 @@ function reset()
 
 function höher() 
 { 
-  var maxHöhe = localStorage.getItem("maxHöhe")
   var toast = new bootstrap.Toast(toastLiveExample)
   höhe = höhe - (630 / maxHöhe)
   
@@ -89,13 +118,12 @@ function höher()
   document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt;
 
   toast.show()
-goal()
+  goal()
 }
 
 function setgoal()
 {
     
-    var maxHöhe = localStorage.getItem("maxHöhe")
     var name = document.getElementById("goal-name-1").value 
     var height = document.getElementById("goal-height-1").value 
     const line1 = document.getElementById("line1");
@@ -133,7 +161,6 @@ function goal()
 {
 
     console.log("goal function executed")
-    var currentgift = localStorage.getItem("currentgift")
     var toast2 = new bootstrap.Toast(toastLiveExample2)
     
  
@@ -167,10 +194,8 @@ function goal()
         console.log("height: " + height)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name2;
         var currentgoal = name2
-        localStorage.setItem("currentgoal", currentgoal)
-        var currentgift = name
-        localStorage.setItem("currentgift", currentgift)
 
+        
         
     }
 
@@ -220,14 +245,7 @@ function goal()
 
     }
     
-   
 
-    localStorage.setItem("height", height)
-    localStorage.setItem("height2", height2)
-    localStorage.setItem("height3", height3)
-    localStorage.setItem("height4", height4)
-    localStorage.setItem("height5", height5)
-    localStorage.setItem("height6", height6)
     console.log(height, height2, height3, height4, height5, height6)
     console.log(name, name2, name3, name4, name5, name6)
 }
