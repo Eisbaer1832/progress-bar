@@ -62,14 +62,13 @@ function MaximaleHöhe()
   let maxHöhe 
 
   maxHöhe = document.getElementById("maxHöhe").value;
-  console.log(maxHöhe)
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt;
 
 
   $.ajax({
     type: 'POST',
-    data: maxHöhe,
+    data: JSON.stringify(maxHöhe),
     url: '/public/data',
     success: function (data) {
         console.log("Klappt: " + maxHöhe);

@@ -5,7 +5,6 @@ const port = 3000;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -23,9 +22,8 @@ app.listen(port, () => {
   
 
 app.post('/public/data', function(req, res) {
-  let maxHöhe = req.body;
-  console.log("maxHöhe: "+maxHöhe );
-  res.redirect('/');
+  let maxHöhe = JSON.stringify(req.body);
+  console.log("maxHöhe: "+ maxHöhe );
 });
 
 function save(){
