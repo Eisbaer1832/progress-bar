@@ -18,14 +18,6 @@ let currentgoal
 let nochzutuen
 
 
-$.ajax({
-  type: 'post',
-  data:{maxHöhe},
-  url: '../../data',
-  success: function (data) {
-      alert(data);
-  }
-});
 
 
 var toastTrigger = document.getElementById('liveToastBtn')
@@ -75,6 +67,14 @@ function MaximaleHöhe()
   document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt;
 
 
+  $.ajax({
+    type: 'POST',
+    data: maxHöhe,
+    url: '/public/data',
+    success: function (data) {
+        console.log("Klappt" + data);
+    }
+  });
 }
 
 function MaximaleHöhe2()

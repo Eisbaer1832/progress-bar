@@ -20,10 +20,13 @@ app.listen(port, () => {
 });
 
 
+  
 
-app.post('./data', function(req, res) {
-  var reqData = req.body;
-  console.log("maxHöhe: "+reqData );
+app.post('/public/data', function(req, res) {
+  let maxHöhe = req.body;
+  console.log("maxHöhe: "+maxHöhe );
+  console.log(req)
+  res.redirect('/');
 });
 
 function save(){
