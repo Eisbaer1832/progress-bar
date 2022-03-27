@@ -21,7 +21,7 @@ let nochzutuen
 $.ajax({
   type: 'post',
   data:{maxHöhe},
-  url: '../',
+  url: '../data',
   success: function (data) {
       alert(data);
   }
