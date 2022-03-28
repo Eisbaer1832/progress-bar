@@ -23,15 +23,20 @@ app.listen(port, () => {
 
 app.post('/public/data', function(req, res) {
   let maxHöhe = req.body.maxHöhe;
-  //let nmaxHöhe= maxHöhe.replace(/[^0-9 ]/g,"")
-  console.log(maxHöhe)
-  fs.writeFileSync(Object.keys({maxHöhe})+".txt", maxHöhe)
-});
+  console.log("maxHöhe: "+ maxHöhe );
+  
+  try {
+    fs.writeFileSync(Object.keys({maxHöhe})+".txt", maxHöhe);
+  } catch (err) {
+    console.error(err);
+  };
 
+});
 
 app.post('/public/smaxmoehe', function(req, res) {
     console.log("klappt")
     let maxHöhe = fs.readFileSync(("maxHöhe")+ ".txt")
     console.log("gelesene maxhöhe : " +maxHöhe)
     res.json(maxHöhe);
+
 });

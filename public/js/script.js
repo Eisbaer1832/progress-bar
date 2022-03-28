@@ -61,6 +61,7 @@ if (erledigt < min) {
 function MaximaleHöhe()
 { 
   let maxHöhe = Number(document.getElementById("maxHöhe").value); ;
+
   document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt;
 
   $.ajax({
@@ -76,17 +77,13 @@ function MaximaleHöhe()
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    cache: false,
-    url: '/public/smaxmoehe'
-  }).done (function (smaxmoehe) {
-    console.log(maxHöhe);
-    });
-  };
-
-
-
-
-
+    data: { maxHöhe: maxHöhe },
+    url: '/public/data',
+    success: function (data) {
+        console.log("Klappt: " + maxHöhe);
+    }
+  });
+}
 
 function MaximaleHöhe2()
 { 
