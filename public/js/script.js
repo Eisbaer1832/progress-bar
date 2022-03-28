@@ -77,10 +77,9 @@ function MaximaleHöhe()
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    data: { maxHöhe: maxHöhe },
-    url: '/public/data',
-    success: function (data) {
-        console.log("Klappt: " + maxHöhe);
+    url: '/public/smaxhoehe',
+    success: function (maxHöhe) {
+      console.log(maxHöhe);
     }
   });
 }

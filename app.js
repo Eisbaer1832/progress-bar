@@ -33,10 +33,10 @@ app.post('/public/data', function(req, res) {
 
 });
 
-app.post('/public/smaxmoehe', function(req, res) {
+app.post('/public/smaxhoehe', function(req, res) {
     console.log("klappt")
     let maxHöhe = fs.readFileSync(("maxHöhe")+ ".txt")
     console.log("gelesene maxhöhe : " +maxHöhe)
-    res.json(maxHöhe);
+    res.send(maxHöhe);
 
 });
