@@ -67,32 +67,14 @@ function MaximaleHöhe()
 
 
   $.ajax({
-    dataType: "JSON",
-    traditional: true,
     type: 'POST',
-    data:{'value': maxHöhe},
-    cache: false,
-    url: '/public/maxHöhe',
+    data:JSON.stringify({maxHöhe: maxHöhe}),
+    url: '/public/data',
     success: function (data) {
         console.log("Klappt: " + maxHöhe);
     }
   });
 }
-
-
-
-$.ajax({
-  dataType: "JSON",
-  traditional: true,
-  type: 'POST',
-  data:{'value': "data"},
-  cache: false,
-  url: '/public/rmaxHöhe',
-  success: function (data) {
-      console.log("Klappt: " + maxHöhe);
-  let maxHöhe = 
-  }
-});
 
 function MaximaleHöhe2()
 { 
