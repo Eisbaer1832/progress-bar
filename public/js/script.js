@@ -67,8 +67,11 @@ function MaximaleHöhe()
 
 
   $.ajax({
+    dataType: "JSON",
+    traditional: true,
     type: 'POST',
-    data: JSON.stringify(maxHöhe),
+    data:{'value': maxHöhe},
+    cache: false,
     url: '/public/data',
     success: function (data) {
         console.log("Klappt: " + maxHöhe);
