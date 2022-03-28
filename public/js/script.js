@@ -59,16 +59,14 @@ if (erledigt < min) {
 
 function MaximaleHöhe()
 { 
-  let maxHöhe 
-
-  maxHöhe = document.getElementById("maxHöhe").value;
+  let maxHöhe = Number(document.getElementById("maxHöhe").value);
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHöhe-erledigt;
 
 
   $.ajax({
     type: 'POST',
-    data:JSON.stringify({maxHöhe: maxHöhe}),
+    data: { maxHöhe: maxHöhe },
     url: '/public/data',
     success: function (data) {
         console.log("Klappt: " + maxHöhe);
