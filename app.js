@@ -22,7 +22,7 @@ app.listen(port, () => {
 
 
 
-app.post('/public/data', function(req, res) {
+app.post('/public/maxHöhe', function(req, res) {
   let maxHöhe = JSON.stringify(req.body);
   let nmaxHöhe= maxHöhe.replace(/[^0-9 ]/g, "")
   console.log(nmaxHöhe)
@@ -37,15 +37,27 @@ app.post('/public/data', function(req, res) {
     var data = fs.readFileSync(Object.keys({nmaxHöhe})+ ".txt");
     nmaxHöhe = data.toString()
     console.log("gelesene maxhöhe : " +nmaxHöhe)
+    
 
   } catch(e) {
     console.log('Error:', e.stack);
   }
 }
-
-
 );
 
 
 
 
+app.post('/public/rmaxHöhe', function(req, res) {
+  try {  
+    var data = fs.readFileSync(Object.keys({nmaxHöhe})+ ".txt");
+    nmaxHöhe = data.toString()
+    console.log("gelesene maxhöhe : " +nmaxHöhe)
+    
+
+  } catch(e) {
+    console.log('Error:', e.stack);
+  }
+  let res = nmaxHöhe
+}
+);
