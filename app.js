@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const { json } = require('express');
 
 app.use(express.json())
 
@@ -20,33 +21,17 @@ app.listen(port, () => {
   console.log(`App listening on port ${port}!`)
 });
 
-
-
 app.post('/public/data', function(req, res) {
-  let maxHöhe = JSON.parse(req.body).maxHöhe;
-  //let nmaxHöhe= maxHöhe.replace(/[^0-9 ]/g, "")
-  console.log("maxHöhe: "+ maxHöhe );
-  
-  try {
-    fs.writeFileSync(Object.keys({maxHöhe})+".txt", maxHöhe)
-  } catch (err) {
-    console.error(err)
-  };
+  let maxHöhe = req.body.maxHöhe;
+  //let nmaxHöhe= maxHöhe.replace(/[^0-9 ]/g,"")
+  console.log(maxHöhe)
+  fs.writeFileSync(Object.keys({maxHöhe})+".txt", maxHöhe)
+});
 
 
-
-
-app.post('/public/rmaxHöhe', function(req, res) {
-  try {  
-    var data = fs.readFileSync(Object.keys({nmaxHöhe})+ ".txt");
-    nmaxHöhe = data.toString()
-    console.log("gelesene maxhöhe : " +nmaxHöhe)
-    
-
-  } catch(e) {
-    console.log('Error:', e.stack);
-  }
-
-//  let res = nmaxHöhe
-}
-)});
+app.post('/public/smaxmoehe', function(req, res) {
+    console.log("klappt")
+    let maxHöhe = fs.readFileSync(("maxHöhe")+ ".txt")
+    console.log("gelesene maxhöhe : " +maxHöhe)
+    res.json(maxHöhe);
+});
