@@ -1,23 +1,25 @@
-let hoehe 
-let maxHoehe 
-let maxHoehe2 
-let name1 
-let name2 
-let name3 
-let name4
-let name5
-let name6
-let height1
-let height2
-let height3
-let height4
-let height5
-let height6
-let erledigt
-let currentgoal
-let nochzutuen
+let hoehe = 77
+let maxHoehe1 = 77
+let maxHoehe2 = 77
+let name1 = 77
+let name2 = 77
+let name3 = 77
+let name4 = 77
+let name5 = 77
+let name6 = 77
+let height1 = 77
+let height2 = 77 
+let height3 = 77
+let height4 = 77
+let height5 = 77
+let height6 = 77
+let erledigt = 77
+let currentgoal = 77
+let nochzutuen = 77
 
-load()
+for (var i = 1; i <= 18; ++i) {
+  save(i)
+}
 
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
@@ -25,14 +27,14 @@ const termometer = document.getElementById("Termometer");
 var toastLiveExample2 = document.getElementById('liveToast2')      
 const gift = document.querySelector('#gift');
 
-console.log("Maximale Hoehe " + maxHoehe)
+console.log("Maximale Hoehe " + maxHoehe1)
 console.log("Schon Erledigt " + erledigt) 
 console.log("Hoehe " + hoehe)
 console.log("current gaol: " + currentgoal)
 
 termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
 document.getElementById("erledigt").innerHTML = erledigt;
-document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
+document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt;
 goal();
 document.getElementById("goal-text").innerHTML = currentgoal;
 
@@ -70,19 +72,9 @@ if (erledigt < min) {
 
 function MaximaleHoehe()
 { 
-  let maxHoehe = Number(document.getElementById("maxHoehe").value); ;
+  let maxHoehe1 = Number(document.getElementById("maxHoehe1").value); ;
 
-  document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
-
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    data:{'maxHoehe': maxHoehe},
-    cache: false,
-    url: '/public/maxHoehe',
-    data:{'maxHoehe': maxHoehe},
-  });
+  document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt;
   save()
   load()
 }
@@ -103,9 +95,9 @@ function MaximaleHoehe2()
     }
   });
   save()
-  console.log(maxHoehe)
+  console.log(maxHoehe1)
   document.getElementById("erledigt").innerHTML = erledigt;
-  document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt
+  document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt
 
 
 }
@@ -114,13 +106,13 @@ function reset()
 {
   erledigt = 0
   hoehe = 640
-  maxHoehe = 0
+  maxHoehe1 = 0
 
   console.log(erledigt); 
   console.log(hoehe);
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
   document.getElementById("erledigt").innerHTML = erledigt;
-  document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
+  document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt;
   setgoal()
   goal()
   save()
@@ -130,17 +122,17 @@ function hoeher()
 { 
   load()
   var toast = new bootstrap.Toast(toastLiveExample)
-  hoehe = hoehe - (630 / maxHoehe)
+  hoehe = hoehe - (630 / maxHoehe1)
   
 
   erledigt++
   console.log("Erledigt: " + erledigt); 
   console.log("Hoehe: " + hoehe);
-  console.log("MaxHoehe: " + maxHoehe);
+  console.log("MaxHoehe1: " + maxHoehe1);
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
 
   document.getElementById("erledigt").innerHTML = erledigt;
-  document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
+  document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt;
 
   toast.show()
   goal()
@@ -153,7 +145,7 @@ function setgoal()
     var name = document.getElementById("goal-name-1").value 
     var height1 = document.getElementById("goal-height-1").value 
     const line1 = document.getElementById("line1");
-    line1.setAttribute("style","top:"+ -((height*maxHoehe)/640)+"px;");
+    line1.setAttribute("style","top:"+ -((height*maxHoehe1)/640)+"px;");
 
 
     
@@ -220,36 +212,14 @@ function goal()
         height1 = 99999
         console.log("height1: " + height1)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name2;
-        $.ajax({
-          dataType: "JSON",
-          traditional: true,
-          type: 'POST',
-          url: '/public/height1',
-          data:{'height1': height1},
-          success: function (height1) {
-            console.log(height1);
-            height1 = height1
-          }
-        });
         var currentgoal = name2
-        $.ajax({
-          dataType: "JSON",
-          traditional: true,
-          type: 'POST',
-          url: '/public/name2',
-          success: function (name2) {
-            console.log(name2);
-            name2 = name2
-          }
-        });
-        
         
     }
 
     
     if (height2 == erledigt){
         height2 = 99998
-        console.log("height: " + height2)
+        console.log("height2: " + height2)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name3;
         var currentgoal = name3
         var currentgift = name2
@@ -258,8 +228,8 @@ function goal()
 
     
     if (height3 == erledigt){
-        height3 = 99997
-        console.log("height: " + height3)
+        height3 = 9997
+        console.log("height3: " + height3)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name4;
         var currentgoal = name4
         var currentgift = name3
@@ -268,7 +238,7 @@ function goal()
     
     if (height4 == erledigt){
         height4 = 99996
-        console.log("height: " + height4)
+        console.log("height4: " + height4)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name5;
         var currentgoal = name5
         var currentgift = name4
@@ -291,82 +261,10 @@ function goal()
         var currentgift = name6
 
     }
-    
-    $.ajax({
-      dataType: "JSON",
-      traditional: true,
-      type: 'POST',
-      data:{'height1': height1},
-      url: '/public/height1',
-      success: function (height1) {
-        console.log(height1);
-        height1 = height1
-      }
-    });
-
-    $.ajax({
-      dataType: "JSON",
-      traditional: true,
-      type: 'POST',
-      data:{'height2': height2},
-      url: '/public/height2',
-      success: function (height2) {
-        console.log(height2);
-        height2= height2
-      }
-    });
 
 
-    $.ajax({
-      dataType: "JSON",
-      traditional: true,
-      type: 'POST',
-      data:{'height3': height3},
-      url: '/public/height3',
-      success: function (height3) {
-        console.log(height3);
-        height3= height3
-      }
-    });
+    save()
 
-
-    $.ajax({
-      dataType: "JSON",
-      traditional: true,
-      type: 'POST',
-      data:{'height4': height4},
-      url: '/public/height4',
-      success: function (height4) {
-        console.log(height4);
-        height4= height4
-      }
-    });
-    
-    
-    $.ajax({
-      dataType: "JSON",
-      traditional: true,
-      type: 'POST',
-      data:{'height5': height5},
-      url: '/public/height5',
-      success: function (height5) {
-        console.log(height5);
-        height5= height5
-      }
-    });
-    
-    
-    $.ajax({
-      dataType: "JSON",
-      traditional: true,
-      type: 'POST',
-      data:{'height6': height6},
-      url: '/public/height6',
-      success: function (height6) {
-        console.log(height6);
-        height6= height6
-      }
-    });
     console.log(height1, height2, height3, height4, height5, height6)
     console.log(name1, name2, name3, name4, name5, name6)
 }
@@ -374,15 +272,16 @@ function goal()
 
 function load(){
   console.log("load")
+
   $.ajax({
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    data:{'maxHoehe': maxHoehe},
+    data:{'maxHoehe1': maxHoehe1},
     url: '/public/smaxhoehe1',
-    success: function (maxHoehe) {
-      console.log(maxHoehe);
-      maxHoehe = maxHoehe
+    success: function (maxHoehe1) {
+      console.log(maxHoehe1);
+      maxHoehe1 = maxHoehe1
     }
   });
 
@@ -577,14 +476,13 @@ function load(){
 
 function save(){
 
-
   $.ajax({
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    data:{'maxHoehe': maxHoehe},
+    data:{'maxHoehe1': maxHoehe1},
     cache: false,
-    url: '/public/data',
+    url: '/public/maxHoehe1',
   });
 
   $.ajax({

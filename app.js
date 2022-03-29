@@ -21,17 +21,6 @@ app.listen(port, () => {
   console.log(`App listening on port ${port}!`)
 });
 
-app.post('/public/data', function(req, res) {
-  let maxHoehe = req.body.maxHoehe;
-  console.log("maxHoehe: "+ maxHoehe );
-  
-  try {
-    fs.writeFileSync(Object.keys({maxHoehe})+".txt", maxHoehe);
-  } catch (err) {
-    console.error(err);
-  };
-
-});
 
 
 app.post('/public/smaxhoehe1', function(req, res) {
@@ -166,8 +155,17 @@ app.post('/public/snochzutuen', function(req, res) {
 
 
 
+app.post('/public/maxHoehe1', function(req, res) {
+  let maxHoehe1 = req.body.maxHoehe1;
+  console.log("maxHoehe1: "+ maxHoehe1 );
+  
+  try {
+    fs.writeFileSync(Object.keys({maxHoehe1})+".txt", maxHoehe1);
+  } catch (err) {
+    console.error(err);
+  };
 
-
+});
 
 app.post('/public/maxHoehe2', function(req, res) {
   let maxHoehe2 = req.body.maxHoehe2;
@@ -233,6 +231,7 @@ app.post('/public/name3', function(req, res) {
 });
 
 app.post('/public/name4', function(req, res) {
+  console.log("4 läuft")
   let name4 = req.body.name4;
   console.log("name4: "+ name4 );
   
@@ -246,6 +245,7 @@ app.post('/public/name4', function(req, res) {
 
 
 app.post('/public/name5', function(req, res) {
+  console.log("5 läuft")
   let name5 = req.body.name5;
   console.log("name5: "+ name5 );
   
