@@ -14,7 +14,6 @@
     <!--Navbar-->
     <nav class="navbar navbar-bright bg-bright fixed-top">
         <div class="container-fluid">
-          <img class="navbar-brand" src="/public/assets/" alt="">
             <button class="btn btn-primary" id="sidebarCollapse" class="float-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button" aria-label="Toggle menu">Menü</button>
           </div>
       </nav>   
@@ -33,7 +32,7 @@
           <ul class="list-unstyled ps-0">
             <li class="offcanvas-body">
               <div class="d-grid gap-2 col-8 mx-auto">
-                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="höher();">Hinzufügen!</button></button>
+                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="hoeher();">Hinzufügen!</button></button>
                 <button type="button" class="btn btn-primary" data-bs-target="#resetModal" data-bs-toggle="modal">Reset</button></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas2" aria-label="Close">Ziele</button>
                 <div class="collapse show" id="home-collapse">
@@ -41,9 +40,9 @@
                   </ul>
                 </div>
                 <div class="input-group input-group-sm mb-3">
-                  <span class="input-group-text" name="maxHöhe" id="inputGroup-sizing-sm">Maximale Anzahl</span>
-                  <input type="text" class="form-control"  id="maxHöhe" aria-describedby="inputGroup-sizing-sm">
-                  <button class="btn btn-outline-secondary" onclick="MaximaleHöhe()" type="button">Los</button>
+                  <span class="input-group-text" name="maxHoehe" id="inputGroup-sizing-sm">Maximale Anzahl</span>
+                  <input type="text" class="form-control"  id="maxHoehe" aria-describedby="inputGroup-sizing-sm">
+                  <button class="btn btn-outline-secondary" onclick="MaximaleHoehe()" type="button">Los</button>
                 </div>
               </div>
             </li>
@@ -75,7 +74,7 @@
                 </div>
                 
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="goal-height-1"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                  <input type="text" class="form-control" id="goal-height-1"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
                 </div>
             </div>
           </ul>
@@ -91,7 +90,7 @@
                   </div>
                   
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="goal-height-2"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                    <input type="text" class="form-control" id="goal-height-2"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
                   </div>
               </div>
             </ul>
@@ -107,7 +106,7 @@
                 </div>
                 
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="goal-height-3"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                  <input type="text" class="form-control" id="goal-height-3"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
                 </div>
             </div>
           </ul> 
@@ -123,7 +122,7 @@
                 </div>
                 
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="goal-height-4"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                  <input type="text" class="form-control" id="goal-height-4"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
                 </div>
             </div>
           </ul>
@@ -139,7 +138,7 @@
                   </div>
                   
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="goal-height-5"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                    <input type="text" class="form-control" id="goal-height-5"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
                   </div>
               </div>
             </ul>     
@@ -155,7 +154,7 @@
                   </div>
                   
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="goal-height-6"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Höhe" >
+                    <input type="text" class="form-control" id="goal-height-6"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
                   </div>
               </div>
             </ul>            
@@ -167,12 +166,12 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Möchtest du den Vortschritt wirklich zurücksetzen?</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Moechtest du den Vortschritt wirklich zurücksetzen?</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
-                <button data-bs-target="#maxHöheModal" data-bs-toggle="modal" class="btn btn-primary" data-bs-dismiss="modal" onclick="reset()" type="button">Ja</button>
+                <button data-bs-target="#maxHoeheModal" data-bs-toggle="modal" class="btn btn-primary" data-bs-dismiss="modal" onclick="reset()" type="button">Ja</button>
                 <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Nein</button>
               </div>
             </div>
@@ -181,17 +180,17 @@
         </div>
       </div>
 
-      <!--maxHöhe-->
-      <div class="modal fade" id="maxHöheModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+      <!--maxHoehe-->
+      <div class="modal fade" id="maxHoeheModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Gib deinen neuen Höchstwert ein!</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Gib deinen neuen Hoechstwert ein!</h5>
             </div>
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
-                <input type="text" class="form-control"  id="maxHöhe2">
-                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="MaximaleHöhe2()" type="button">Los</button>
+                <input type="text" class="form-control"  id="maxHoehe2">
+                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="MaximaleHoehe2()" type="button">Los</button>
               </div>
             </div>
 
@@ -201,7 +200,6 @@
 
       <!--List group-->
       <table style="width:100%">
-
         <tr>       
            <div class="list-group list" style="margin-top: 0.8%" >
             <div style="margin-top: 40%;" class="list-group-item " aria-current="true">
