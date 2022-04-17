@@ -14,31 +14,15 @@ var height3
 var height4 
 var height5
 var height6
-var Erledigt
+var erledigt
 var currentgoal
 var currentgift
 var nochzutuen
-console.log("name1: " + name1);
-console.log("height1: "+height1)
-
 //load()
 
 //save()
 
-$.ajax({
-  dataType: "JSON",
-  traditional: true,
-  type: 'POST',
-  url: '/public/sheight5',
-  success: function (height5) {
-    height5 = height5
-    console.log ("height5: " + height5)
-  }
-});
-console.log ("height5: " + height5)
 
-
-console.log("read:" + hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe1,maxHoehe2, currentgoal, nochzutuen)
 
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
@@ -56,6 +40,7 @@ document.getElementById("goal-text").innerHTML = currentgoal;
 min = (Math.min(height1, height2, height3, height4, height5, height6));
 
 
+console.log("read: " + hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe1,maxHoehe2, currentgoal, nochzutuen)
 
 
 function MaximaleHoehe()
@@ -63,14 +48,14 @@ function MaximaleHoehe()
   load()
    maxHoehe1 = Number(document.getElementById("maxHoehe1").value); ;
   document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt;
-  save()
+  //save()
 }
 
 function MaximaleHoehe2()
 { 
   load()
   maxHoehe2 = document.getElementById("maxHoehe2").value;
-  save()
+  //save()
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt
 }
@@ -86,7 +71,7 @@ function reset()
   document.getElementById("nochzutuen").innerHTML = maxHoehe1-erledigt;
   setgoal()
   goal()
-  save()
+  //save()
 
 }
 
@@ -105,7 +90,7 @@ function hoeher()
 
   toast.show()
   goal()
-  save()
+  //save()
 }
 
 function setgoal()
@@ -139,23 +124,21 @@ function setgoal()
 
 
     console.log(height1, height2, height3, height4, height5, height6)
-    document.getElementById("goal-text").innerhtml = "Nächster Preis:" + name;
-     currentgoal = name
+    document.getElementById("goal-text").innerhtml = "Nächster Preis:" + name1;
+     currentgoal = name1
     document.getElementById("goal-text").innerHTML = "Nächster Preis: " + currentgoal;
-    save()
+    
+    //save()
 
 }
 function goal()
 {
     load()
     console.log("goal function executed")
-     toast2 = new bootstrap.Toast(toastLiveExample2)
+    toast2 = new bootstrap.Toast(toastLiveExample2)
     
  
     min = (Math.min(height1, height2, height3, height4, height5, height6));
-    console.log("min: " + min)
-    console.log("Schon Erledigt " + erledigt) 
-
     document.getElementById("bis-nächstes-ziel").innerHTML = min - erledigt;
     if (erledigt == min) {
         document.getElementById("bis-nächstes-ziel").innerHTML = "Geschafft😃";
@@ -173,7 +156,6 @@ function goal()
     }
 
 
-    console.log("height1 " + height1)
 
         
     if (height1 == erledigt){
@@ -231,10 +213,7 @@ function goal()
 
     }
 
-    save()
-
-    console.log(height1, height2, height3, height4, height5, height6)
-    console.log(name1, name2, name3, name4, name5, name6)
+    //save()
 }
 
 
@@ -245,10 +224,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    data:{'maxHoehe1': maxHoehe1},
     url: '/public/smaxhoehe1',
-    success: function (maxHoehe1) {
-      maxHoehe1 = maxHoehe1
+    async : false,
+
+    success: function (lmaxHoehe1) {
+      maxHoehe1 = lmaxHoehe1
     }
   });
 
@@ -256,10 +236,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    data:{'currentgift': currentgift},
     url: '/public/scurrentgift',
-    success: function (currentgift) {
-      currentgift = currentgift
+    async : false,
+
+    success: function (lcurrentgift) {
+      currentgift = lcurrentgift
     }
   });
 
@@ -268,9 +249,11 @@ function load(){
     type: 'POST',
     traditional: true,
     type: 'POST',
+    async : false,
+
     url: '/public/smaxHoehe2',
-    success: function (maxHoehe2) {
-      maxHoehe2 = maxHoehe2
+    success: function (lmaxHoehe2) {
+      maxHoehe2 = lmaxHoehe2
     }
   });
 
@@ -279,9 +262,10 @@ function load(){
     traditional: true,
     type: 'POST',
     url: '/public/shoehe',
-    success: function (hoehe) {
-      console.log("hoehe: " + hoehe);
-      hoehe = hoehe
+    async : false,
+
+    success: function (lhoehe) {
+      hoehe = lhoehe
     }
   });
 
@@ -289,9 +273,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    url: '/public/sname1',
-    success: function (name1) {
-      name1 = name1
+    url: '/public/sname1',    
+    async : false,
+
+    success: function (lname1) {
+      name1 = lname1
     }
   });
 
@@ -300,8 +286,10 @@ function load(){
     traditional: true,
     type: 'POST',
     url: '/public/sname2',
-    success: function (name2) {
-      name2 = name2
+       async : false,
+
+    success: function (lname2) {
+      name2 = lname2
     }
   });
 
@@ -310,8 +298,10 @@ function load(){
     traditional: true,
     type: 'POST',
     url: '/public/sname3',
-    success: function (name3) {
-      name3 = name3
+    async : false,
+
+    success: function (lname3) {
+      name3 = lname3
     }
   });
 
@@ -320,8 +310,10 @@ function load(){
     traditional: true,
     type: 'POST',
     url: '/public/sname4',
-    success: function (name4) {
-      name4 = name4
+    async : false,
+
+    success: function (lname4) {
+      name4 = lname4
     }
   });
   
@@ -330,8 +322,10 @@ function load(){
     traditional: true,
     type: 'POST',
     url: '/public/sname5',
-    success: function (name5) {
-      name5 = name5
+    async : false,
+
+    success: function (lname5) {
+      name5 = lname5
     }
   });
 
@@ -340,19 +334,22 @@ function load(){
     traditional: true,
     type: 'POST',
     url: '/public/sname6',
-    success: function (name6) {
-      name6 = name6
+    async : false,
+    success: function (lname6) {
+      name6 = lname6
     }
   });
+
 
   $.ajax({
     dataType: "JSON",
     traditional: true,
     type: 'POST',
     url: '/public/sheight1',
-    success: function (height1) {
-      height1 = height1
+    async : false,
 
+    success: function (lheight1) {
+      height1 = lheight1
     }
   });
 
@@ -361,18 +358,23 @@ function load(){
     traditional: true,
     type: 'POST',
     url: '/public/sheight2',
-    success: function (height2) {
-      height2 = height2
+    async : false,
+
+    success: function (lheight2) {
+      height2 = lheight2
     }
   });
+
 
   $.ajax({
     dataType: "JSON",
     traditional: true,
     type: 'POST',
+    async : false,
+
     url: '/public/sheight3',
-    success: function (height3) {
-      height3 = height3
+    success: function (lheight3) {
+      height3 = lheight3
     }
   });
 
@@ -380,9 +382,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
+    async : false,
+
     url: '/public/sheight4',
-    success: function (height4) {
-      height4 = height4
+    success: function (lheight4) {
+      height4 = lheight4
     }
   });
 
@@ -390,9 +394,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
+    async : false,
+
     url: '/public/sheight5',
-    success: function (height5) {
-      height5 = height5
+    success: function (lheight5) {
+      height5 = lheight5
     }
   });
 
@@ -400,9 +406,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
+    async : false,
+
     url: '/public/sheight6',
-    success: function (height6) {
-      height6 = height6
+    success: function (lheight6) {
+      height6 = lheight6
     }
   });
 
@@ -410,9 +418,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    url: '/public/erledigt',
-    success: function (erledigt) {
-      erledigt = erledigt
+    async : false,
+
+    url: '/public/serledigt',
+    success: function (lerledigt) {
+      erledigt = lerledigt
     }
   });
 
@@ -420,9 +430,11 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    url: '/public/currentgoal',
-    success: function (currentgoal) {
-      currentgoal = currentgoal
+    async : false,
+
+    url: '/public/scurrentgoal',
+    success: function (lcurrentgoal) {
+      currentgoal = lcurrentgoal
     }
   });
 
@@ -431,13 +443,15 @@ function load(){
     dataType: "JSON",
     traditional: true,
     type: 'POST',
-    url: '/public/nochzutuen',
-    success: function (nochzutuen) {
-      console.log("nochzutuen" + nochzutuen);
-      nochzutuen = nochzutuen
+    async : false,
+
+    url: '/public/snochzutuen',
+    success: function (lnochzutuen) {
+      nochzutuen = lnochzutuen
     }
   });
 }
+
 
 function save(){
   $.ajax({
@@ -611,7 +625,6 @@ function save(){
     cache: false,
     url: '/public/nochzutuen',
   });
-
 }
 
 

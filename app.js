@@ -5,7 +5,6 @@ const port = 3000;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { json } = require('express');
-
 app.use(express.json())
 
 app.use(bodyParser.urlencoded({
@@ -25,139 +24,139 @@ app.listen(port, () => {
 
 app.post('/public/smaxhoehe1', function(req, res) {
     console.log("klappt")
-    var maxHoehe = fs.readFileSync(("maxHoehe1")+ ".txt")
-    res.send(maxHoehe);
-
+    var lmaxHoehe = fs.readFileSync(("maxHoehe1")+ ".txt")
+    res.send(lmaxHoehe);
+    
 });
 
 
 app.post('/public/shoehe', function(req, res) {
   console.log("klappt")
-  var hoehe = fs.readFileSync(("hoehe")+ ".txt")
-  res.send(hoehe);
-
+  var lhoehe = fs.readFileSync(("hoehe")+ ".txt")
+  res.send(lhoehe);
+  
 });
 
 
 app.post('/public/smaxHoehe2', function(req, res) {
   console.log("klappt")
-  var maxHoehe2 = fs.readFileSync(("maxHoehe2")+ ".txt")
-  res.send(maxHoehe2);
-
+  var lmaxHoehe2 = fs.readFileSync(("maxHoehe2")+ ".txt")
+  res.send(lmaxHoehe2);
+  
 });
 
 app.post('/public/sname1', function(req, res) {
   console.log("klappt sname1")
-  var name1 = fs.readFileSync(("name1")+ ".txt")
-  res.send(name1);
-  console.log("name1" + name1)
+  var lname1 = fs.readFileSync(("name1")+ ".txt")
+  res.send(lname1);
+  
 });
 
 
 app.post('/public/sname2', function(req, res) {
   console.log("klappt")
-  var name2 = fs.readFileSync(("name2")+ ".txt")
-  res.send(name2);
-
+  var lname2 = fs.readFileSync(("name2")+ ".txt")
+  res.send(lname2);
+  
 });
 
 app.post('/public/sname3', function(req, res) {
   console.log("klappt")
-  var name3 = fs.readFileSync(("name3")+ ".txt")
-  res.send(name3);
-
+  var lname3 = fs.readFileSync(("name3")+ ".txt")
+  res.send(lname3);
+  
 });
 
 app.post('/public/sname4', function(req, res) {
   console.log("klappt")
-  var name4 = fs.readFileSync(("name4")+ ".txt")
-  res.send(name4);
-
+  var lname4 = fs.readFileSync(("name4")+ ".txt")
+  res.send(lname4);
+  
 });
 
 app.post('/public/sname5', function(req, res) {
   console.log("klappt")
-  var name5 = fs.readFileSync(("name5")+ ".txt")
-  res.send(name5);
-
+  var lname5 = fs.readFileSync(("name5")+ ".txt")
+  res.send(lname5);
+  
 });
 
 app.post('/public/sname6', function(req, res) {
   console.log("klappt")
-  var name6 = fs.readFileSync(("name6")+ ".txt")
-  res.send(name6);
-
+  var lname6 = fs.readFileSync(("name6")+ ".txt")
+  res.send(lname6);
 });
 
 app.post('/public/sheight1', function(req, res) {
   console.log("klappt")
-  var height1 = fs.readFileSync(("height1")+ ".txt")
-  res.send(height1);
-  console.log("height1: "+height1)
+  var lheight1 = fs.readFileSync(("height1")+ ".txt")
+  res.send(lheight1);
+    console.log("height1: "+lheight1)
 
 });
 
 app.post('/public/sheight2', function(req, res) {
   console.log("klappt")
-  var height2 = fs.readFileSync(("height2")+ ".txt")
-  res.send(height2);
-
+  var lheight2 = fs.readFileSync(("height2")+ ".txt")
+  res.send(lheight2);
+  
 });
 
 app.post('/public/sheight3', function(req, res) {
   console.log("klappt")
-  var height3 = fs.readFileSync(("height3")+ ".txt")
-  res.send(height3);
-
+  var lheight3 = fs.readFileSync(("height3")+ ".txt")
+  res.send(lheight3);
+  
 });
 
 app.post('/public/sheight4', function(req, res) {
   console.log("klappt")
-  var height4 = fs.readFileSync(("height4")+ ".txt")
-  res.send(height4);
-
+  var lheight4 = fs.readFileSync(("height4")+ ".txt")
+  res.send(lheight4);
+  
 });
 
 
 app.post('/public/sheight5', function(req, res) {
   console.log("klappt")
-  var height5 = fs.readFileSync(("height5")+ ".txt")
-  res.send(height5);
-
+  var lheight5 = fs.readFileSync(("height5")+ ".txt")
+  res.send(lheight5);
+  
 });
 
 app.post('/public/sheight6', function(req, res) {
   console.log("klappt")
-  var height6 = fs.readFileSync(("height6")+ ".txt")
-  res.send(height6);
-
+  var lheight6 = fs.readFileSync(("height6")+ ".txt")
+  res.send(lheight6);
+  
 });
 
 app.post('/public/serledigt', function(req, res) {
   console.log("klappt")
-  var erledigt = fs.readFileSync(("erledigt")+ ".txt")
-  res.send(erledigt);
-
+  var lerledigt = fs.readFileSync(("erledigt")+ ".txt")
+  res.send(lerledigt);
+  
 });
 
 app.post('/public/scurrentgoal', function(req, res) {
   console.log("klappt")
-  var currentgoal = fs.readFileSync(("currentgoal")+ ".txt")
-  res.send(currentgoal);
-
+  var lcurrentgoal = fs.readFileSync(("currentgoal")+ ".txt")
+  res.send(lcurrentgoal);
+  
 });
 
 app.post('/public/scurrentgift', function(req, res) {
   console.log("klappt")
-  var currentgift = fs.readFileSync(("currentgift")+ ".txt")
-  res.send(currentgift);
+  var lcurrentgift = fs.readFileSync(("currentgift")+ ".txt")
+  res.send(lcurrentgift);
+  
 });
 
 app.post('/public/snochzutuen', function(req, res) {
   console.log("klappt")
-  var nochzutuen = fs.readFileSync(("nochzutuen")+ ".txt")
-  res.send(nochzutuen);
-
+  var lnochzutuen = fs.readFileSync(("nochzutuen")+ ".txt")
+  res.send(lnochzutuen);
+  
 });
 
 

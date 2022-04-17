@@ -74,7 +74,7 @@ TypeError [ERR_INVALID_ARG_TYPE]: The "data" argument must be of type string or 
     at next (/home/eisbaer1832/progress-bar/node_modules/express/lib/router/index.js:275:10)
     at serveStatic (/home/eisbaer1832/progress-bar/node_modules/serve-static/index.js:75:16) {
   code: 'ERR_INVALID_ARG_TYPE'
-}
+}tterte
 maxHoehe2: undefined
 TypeError [ERR_INVALID_ARG_TYPE]: The "data" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received undefined
     at Object.writeFileSync (node:fs:2148:5)
@@ -100,7 +100,7 @@ TypeError [ERR_INVALID_ARG_TYPE]: The "data" argument must be of type string or 
     at /home/eisbaer1832/progress-bar/node_modules/express/lib/router/index.js:281:22
     at Function.process_params (/home/eisbaer1832/progress-bar/node_modules/express/lib/router/index.js:341:12)
     at next (/home/eisbaer1832/progress-bar/node_modules/express/lib/router/index.js:275:10)
-    at serveStatic (/home/eisbaer1832/progress-bar/node_modules/serve-static/index.js:75:16) {
+    at serveStatic (004progress-bar/node_modules/serve-static/index.js:75:16) {
   code: 'ERR_INVALID_ARG_TYPE'
 }
 
