@@ -21,32 +21,33 @@ app.listen(port, () => {
 });
 
 
+/////////////////////////////
+//                         //
+//                         //
+//  | | ___   __ _  __| |  //
+//  | |/ _ \ / _` |/ _` |  //
+//  | | (_) | (_| | (_| |  //
+//  |_|\___/ \__,_|\__,_|  //
+//                         //                                      
+//                         //                                        
+/////////////////////////////
 
-app.post('/public/smaxhoehe1', function(req, res) {
-    console.log("klappt")
-    var lmaxHoehe = fs.readFileSync(("maxHoehe1")+ ".txt")
+
+app.post('/public/smaxhoehe', function(req, res) {
+    var lmaxHoehe = fs.readFileSync(("maxHoehe")+ ".txt")
     res.send(lmaxHoehe);
     
 });
 
 
 app.post('/public/shoehe', function(req, res) {
-  console.log("klappt")
   var lhoehe = fs.readFileSync(("hoehe")+ ".txt")
   res.send(lhoehe);
   
 });
 
 
-app.post('/public/smaxHoehe2', function(req, res) {
-  console.log("klappt")
-  var lmaxHoehe2 = fs.readFileSync(("maxHoehe2")+ ".txt")
-  res.send(lmaxHoehe2);
-  
-});
-
 app.post('/public/sname1', function(req, res) {
-  console.log("klappt sname1")
   var lname1 = fs.readFileSync(("name1")+ ".txt")
   res.send(lname1);
   
@@ -54,41 +55,41 @@ app.post('/public/sname1', function(req, res) {
 
 
 app.post('/public/sname2', function(req, res) {
-  console.log("klappt")
+  
   var lname2 = fs.readFileSync(("name2")+ ".txt")
   res.send(lname2);
   
 });
 
 app.post('/public/sname3', function(req, res) {
-  console.log("klappt")
+  
   var lname3 = fs.readFileSync(("name3")+ ".txt")
   res.send(lname3);
   
 });
 
 app.post('/public/sname4', function(req, res) {
-  console.log("klappt")
+  
   var lname4 = fs.readFileSync(("name4")+ ".txt")
   res.send(lname4);
   
 });
 
 app.post('/public/sname5', function(req, res) {
-  console.log("klappt")
+  
   var lname5 = fs.readFileSync(("name5")+ ".txt")
   res.send(lname5);
   
 });
 
 app.post('/public/sname6', function(req, res) {
-  console.log("klappt")
+  
   var lname6 = fs.readFileSync(("name6")+ ".txt")
   res.send(lname6);
 });
 
 app.post('/public/sheight1', function(req, res) {
-  console.log("klappt")
+  
   var lheight1 = fs.readFileSync(("height1")+ ".txt")
   res.send(lheight1);
     console.log("height1: "+lheight1)
@@ -96,21 +97,18 @@ app.post('/public/sheight1', function(req, res) {
 });
 
 app.post('/public/sheight2', function(req, res) {
-  console.log("klappt")
   var lheight2 = fs.readFileSync(("height2")+ ".txt")
   res.send(lheight2);
   
 });
 
 app.post('/public/sheight3', function(req, res) {
-  console.log("klappt")
   var lheight3 = fs.readFileSync(("height3")+ ".txt")
   res.send(lheight3);
   
 });
 
 app.post('/public/sheight4', function(req, res) {
-  console.log("klappt")
   var lheight4 = fs.readFileSync(("height4")+ ".txt")
   res.send(lheight4);
   
@@ -118,84 +116,67 @@ app.post('/public/sheight4', function(req, res) {
 
 
 app.post('/public/sheight5', function(req, res) {
-  console.log("klappt")
   var lheight5 = fs.readFileSync(("height5")+ ".txt")
   res.send(lheight5);
   
 });
 
 app.post('/public/sheight6', function(req, res) {
-  console.log("klappt")
   var lheight6 = fs.readFileSync(("height6")+ ".txt")
   res.send(lheight6);
   
 });
 
 app.post('/public/serledigt', function(req, res) {
-  console.log("klappt")
   var lerledigt = fs.readFileSync(("erledigt")+ ".txt")
   res.send(lerledigt);
   
 });
 
 app.post('/public/scurrentgoal', function(req, res) {
-  console.log("klappt")
   var lcurrentgoal = fs.readFileSync(("currentgoal")+ ".txt")
   res.send(lcurrentgoal);
   
 });
 
 app.post('/public/scurrentgift', function(req, res) {
-  console.log("klappt")
   var lcurrentgift = fs.readFileSync(("currentgift")+ ".txt")
   res.send(lcurrentgift);
   
 });
 
 app.post('/public/snochzutuen', function(req, res) {
-  console.log("klappt")
   var lnochzutuen = fs.readFileSync(("nochzutuen")+ ".txt")
   res.send(lnochzutuen);
   
 });
 
 
+/////////////////////////////
+//                         //
+//   ___  ______   _____   //
+//  / __|/ _` \ \ / / _ \  //
+//  \__ \ (_| |\ V /  __/  //
+//  |___/\__,_| \_/ \___|  //
+//                         //                                      
+//                         //                                        
+/////////////////////////////
 
-app.post('/public/maxHoehe1', function(req, res) {
-  var maxHoehe1 = req.body.maxHoehe1;
-  console.log("maxHoehe1: "+ maxHoehe1 );
+
+app.post('/public/maxHoehe', function(req, res) {
+  console.log("maxHoehe req.body: " + req.body.maxHoehe)
+  var maxHoehe = req.body.maxHoehe;
+  console.log("maxHoehe: "+ maxHoehe);
   
   try {
-    fs.writeFileSync(Object.keys({maxHoehe1})+".txt", maxHoehe1);
+    fs.writeFileSync(Object.keys({maxHoehe})+".txt", maxHoehe);
   } catch (err) {
     console.error(err);
   };
 
 });
 
-app.post('/public/maxHoehe2', function(req, res) {
-  var maxHoehe2 = req.body.maxHoehe2;
-  console.log("maxHoehe2: "+ maxHoehe2 );
-  
-  try {
-    fs.writeFileSync(Object.keys({maxHoehe2})+".txt", maxHoehe2);
-  } catch (err) {
-    console.error(err);
-  };
 
-});
-
-app.post('/public/hoehe', function(req, res) {
-  var hoehe = req.body.hoehe;
-  console.log("hoehe: "+ hoehe );
-  
-  try {
-    fs.writeFileSync(Object.keys({hoehe})+".txt", hoehe);
-  } catch (err) {
-    console.error(err);
-  };
-
-});
 
 
 app.post('/public/name1', function(req, res) {
@@ -237,7 +218,6 @@ app.post('/public/name3', function(req, res) {
 });
 
 app.post('/public/name4', function(req, res) {
-  console.log("4 läuft")
   var name4 = req.body.name4;
   console.log("name4: "+ name4 );
   
@@ -251,7 +231,6 @@ app.post('/public/name4', function(req, res) {
 
 
 app.post('/public/name5', function(req, res) {
-  console.log("5 läuft")
   var name5 = req.body.name5;
   console.log("name5: "+ name5 );
   
@@ -354,12 +333,13 @@ app.post('/public/height6', function(req, res) {
 });
 
 app.post('/public/erledigt', function(req, res) {
+  console.log("erledigt req.body: " + req.body.erledigt)
   var erledigt = req.body.erledigt;
-  console.log("erledigt: "+ erledigt );
+  console.log("erledigt: " + erledigt);
   
   try {
     fs.writeFileSync(Object.keys({erledigt})+".txt", erledigt);
-    console.log(erledigt)
+    console.log("erledigt: " + erledigt)
   } catch (err) {
     console.error(err);
   };
@@ -401,4 +381,17 @@ app.post('/public/nochzutuen', function(req, res) {
     console.error(err);
   };
 
+  app.post('/public/hoehe', function(req, res) {
+    //var hoehe = req.body.hoehe;
+    var hoehe = "hi"
+    console.log("hoehe: "+ hoehe);
+    
+    try {
+      fs.writeFileSync(Object.keys({hoehe})+".txt", hoehe);
+    } catch (err) {
+      console.error(err);
+    };
+  
+  });
+  
 });
