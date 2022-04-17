@@ -7,6 +7,17 @@
      
     }
 
+    .header {
+      margin-top: 0;
+      margin-right: 0%;
+      font-size: 400%;
+      color: #00475C;
+      margin-left: 40%;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+
+    }
+
+
     body {
         margin: 0;
         padding: 0;
@@ -54,9 +65,9 @@
     }
 
     .goal-text{
-      color: blue;
+      color: #00475C;
       font-size: 100px;
-      font-family: cursive;
+      font-family: Georgia, 'Times New Roman', Times, serif;
       margin-left: 10%;
       margin-top: 40%;
     }

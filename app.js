@@ -5,7 +5,10 @@ const port = 3000;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { json } = require('express');
+const favicon = require('serve-favicon');
+
 app.use(express.json())
+app.use(favicon(path.join(__dirname, '/', 'favicon.ico')));
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -13,7 +16,7 @@ app.use(bodyParser.urlencoded({
 
 app.use('/public',express.static('public'));
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.sendFile('public/page/index.html', {root: __dirname })});
 
 app.listen(port, () => {
@@ -40,15 +43,21 @@ app.post('/public/smaxhoehe', function(req, res) {
 });
 
 
+app.post('/public/saved_passwort', function(req, res) {
+  var lsaved_passwort = fs.readFileSync(("saved_passwort")+ ".txt")
+  res.send(lsaved_passwort);
+  
+});
+
 app.post('/public/shoehe', function(req, res) {
   var lhoehe = fs.readFileSync(("hoehe")+ ".txt")
   res.send(lhoehe);
-  
 });
 
 
 app.post('/public/sname1', function(req, res) {
   var lname1 = fs.readFileSync(("name1")+ ".txt")
+  console.log("name1" + lname1)
   res.send(lname1);
   
 });
@@ -163,8 +172,23 @@ app.post('/public/snochzutuen', function(req, res) {
 /////////////////////////////
 
 
+
+
+app.post('/public/erledigt', function(req, res) {
+  console.log("erledigt req.body: " + req.body.erledigt)
+  var erledigt = req.body.erledigt;
+  console.log("erledigt: " + erledigt);
+  
+  try {
+    fs.writeFileSync(Object.keys({erledigt})+".txt", erledigt);
+    console.log("erledigt: " + erledigt)
+  } catch (err) {
+    console.error(err);
+  };
+
+});
+
 app.post('/public/maxHoehe', function(req, res) {
-  console.log("maxHoehe req.body: " + req.body.maxHoehe)
   var maxHoehe = req.body.maxHoehe;
   console.log("maxHoehe: "+ maxHoehe);
   
@@ -176,12 +200,10 @@ app.post('/public/maxHoehe', function(req, res) {
 
 });
 
-
-
-
 app.post('/public/name1', function(req, res) {
   var name1 = req.body.name1;
   console.log("name1: "+ name1 );
+
   
   try {
     fs.writeFileSync(Object.keys({name1})+".txt", name1);
@@ -332,19 +354,7 @@ app.post('/public/height6', function(req, res) {
 
 });
 
-app.post('/public/erledigt', function(req, res) {
-  console.log("erledigt req.body: " + req.body.erledigt)
-  var erledigt = req.body.erledigt;
-  console.log("erledigt: " + erledigt);
-  
-  try {
-    fs.writeFileSync(Object.keys({erledigt})+".txt", erledigt);
-    console.log("erledigt: " + erledigt)
-  } catch (err) {
-    console.error(err);
-  };
 
-});
 
 
 app.post('/public/currentgoal', function(req, res) {
@@ -380,18 +390,15 @@ app.post('/public/nochzutuen', function(req, res) {
   } catch (err) {
     console.error(err);
   };
+});
 
-  app.post('/public/hoehe', function(req, res) {
-    //var hoehe = req.body.hoehe;
-    var hoehe = "hi"
-    console.log("hoehe: "+ hoehe);
+app.post('/public/hoehe', function(req, res) {
+  var hoehe = req.body.hoehe;
+  console.log("hoehe: "+ hoehe);
     
-    try {
-      fs.writeFileSync(Object.keys({hoehe})+".txt", hoehe);
-    } catch (err) {
-      console.error(err);
-    };
-  
-  });
-  
+  try {
+    fs.writeFileSync(Object.keys({hoehe})+".txt", hoehe);
+  } catch (err) {
+    console.error(err);
+  };
 });
