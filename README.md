@@ -10,7 +10,7 @@
 
 ## Installation
 ### 
-    Installiere nodejs and npm.
+    Installiere nodejs und npm.
     Dann führe install.sh als root aus. 
     Wenn du Windows nutzt kann es sein, dass du die Npm Module manuell installieren musst.
     Als nächstes, gebe deinen gewünschten Port in app.js in Zeile 4 ein.
