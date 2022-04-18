@@ -22,6 +22,9 @@ var passwort
 var authorized
 var goalpassed
 load()
+currentgiftfunction()
+goal();
+
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
 const termometer = document.getElementById("Termometer");
@@ -32,7 +35,6 @@ const gift = document.querySelector('#gift');
 termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
 document.getElementById("erledigt").innerHTML = erledigt;
 document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
-goal();
 document.getElementById("goal-text").innerHTML = currentgoal;
 
 min = (Math.min(height1, height2, height3, height4, height5, height6));
@@ -80,12 +82,12 @@ function reset()
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
 
-  goal()
-  save_currentgift
+  save_currentgift()
   save_goalpassed()
   save_erledigt()
   save_hoehe()
   save_currentgoal()
+  goal()
 
     
 }
@@ -137,16 +139,148 @@ function am_hoechsten()
   console.log("erledigt: " + erledigt)
   toast.show()
   goal()
+  masheightCheck()
 
-    
-  console.log("goalpassed" + goalpassed)
   save_erledigt()
   save_hoehe()
   save_currentgoal()
   setTimeout(function(){
     window.location.reload();
-  }, 100);
+  }, 500);
+
+
 }
+function masheightCheck(){
+  if (erledigt > height1){
+    height1 = 999999
+    save_height1()
+  }
+
+  if (erledigt > height2){
+    height2 = 999998
+    save_height2()
+  }
+
+  if (erledigt > height3){
+    height3 = 999997
+    save_height3()
+  }
+  
+  
+  if (erledigt > height4){
+    height4 = 999996
+    save_height4()
+  }
+
+
+  if (erledigt > height5){
+    height5 = 999995
+    save_height5()
+  }
+
+  if (erledigt > height6){
+    height6 = 999994
+    save_height6()
+  }
+
+}
+
+function currentgiftfunction(){
+  console.log("currentgiftfunction")
+  
+  if(height1 != 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99996 && height6 != 99995){
+    currentgift = "Noch kein Ziel erreicht."
+    currentgoal = name1
+    document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+    const gift = document.querySelector('#gift');
+    gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+    gift.addEventListener('animationend', () => {
+        gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+        gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+        document.getElementById("currentgift").innerHTML = currentgift;
+        document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+  })};
+    if(height1 == 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
+      currentgift = name1
+      currentgoal = name2
+      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      const gift = document.querySelector('#gift');
+      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+      gift.addEventListener('animationend', () => {
+          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+          document.getElementById("currentgift").innerHTML = currentgift;
+          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+    })};
+
+    if(height1 == 999999 && height2 == 999998 && height3 != 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
+          currentgift = name2
+          currentgoal = name3
+          document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+          const gift = document.querySelector('#gift');
+          gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+          gift.addEventListener('animationend', () => {
+              gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+              gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+              document.getElementById("currentgift").innerHTML = currentgift;
+              document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+    })};
+    
+    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
+      currentgift = name3
+      currentgoal = name4
+      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      const gift = document.querySelector('#gift');
+      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+      gift.addEventListener('animationend', () => {
+          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+          document.getElementById("currentgift").innerHTML = currentgift;
+          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+    })};
+
+    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 != 99995 && height6 != 99994){
+      currentgift = name4
+      currentgoal = name5
+      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      const gift = document.querySelector('#gift');
+      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+      gift.addEventListener('animationend', () => {
+          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+          document.getElementById("currentgift").innerHTML = currentgift;
+          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+      })};
+
+
+    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 99995 && height6 != 99994){
+      currentgift = name5
+      currentgoal = name6
+      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      const gift = document.querySelector('#gift');
+      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+      gift.addEventListener('animationend', () => {
+          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+          document.getElementById("currentgift").innerHTML = currentgift;
+          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+      })};
+
+    
+    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 99995 && height6 == 99994){
+      currentgift = name6
+      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      const gift = document.querySelector('#gift');
+      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+      gift.addEventListener('animationend', () => {
+          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+          document.getElementById("currentgift").innerHTML = currentgift;
+          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+      })};
+    save_currentgift()
+}
+
 
 function passwortfunction()
 {
@@ -168,16 +302,16 @@ function passwortfunction()
 
 function setgoal1()
 {
-    name1 = document.getElementById("goal-name-1").value 
-    height1 = document.getElementById("goal-height-1").value 
-    goalpassed = "True"
-    save_goalpassed()
-    save_height1()
-    save_name1()
-
-    document.getElementById("goal-text").innerhtml = "Nächster Preis:" + name1;
-    currentgoal = name1
-    document.getElementById("goal-text").innerHTML = "Nächster Preis: " + currentgoal;
+  name1 = document.getElementById("goal-name-1").value 
+  height1 = document.getElementById("goal-height-1").value 
+  goalpassed = "True"
+  goal()
+  save_goalpassed()
+  save_height1()
+  save_name1()
+  document.getElementById("goal-text").innerhtml = "Nächster Preis:" + name1;
+  currentgoal = name1
+  document.getElementById("goal-text").innerHTML = "Nächster Preis: " + currentgoal;
 }
 
 function setgoal2(){
@@ -187,6 +321,7 @@ function setgoal2(){
   save_goalpassed()
   save_height2()
   save_name2()
+  goal()
 }
     
 
@@ -197,6 +332,7 @@ function setgoal3(){
   save_goalpassed()
   save_height3()
   save_name3()
+  goal()  
 }
 
 function setgoal4(){
@@ -206,6 +342,8 @@ function setgoal4(){
   save_goalpassed()
   save_height4()
   save_name4()
+  goal()
+
 }
 
 function setgoal5(){
@@ -215,6 +353,7 @@ function setgoal5(){
   save_goalpassed()
   save_height5()
   save_name5()
+  goal()
 }
 
 function setgoal6(){
@@ -224,6 +363,7 @@ function setgoal6(){
   save_goalpassed()
   save_height6()
   save_name6()
+  goal()
 }
 
 function goal()
@@ -250,7 +390,7 @@ function goal()
         
     if (height1 == erledigt){
         console.log("erledigt: " +erledigt)
-        height1 = 99999
+        height1 = 999999
         console.log("height1: " + height1)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name2;
         currentgift = name1
@@ -261,7 +401,7 @@ function goal()
 
     
     if (height2 == erledigt){
-        height2 = 99998
+        height2 = 999998
         console.log("height2: " + height2)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name3;
          currentgoal = name3
@@ -271,7 +411,7 @@ function goal()
 
     
     if (height3 == erledigt){
-        height3 = 9997
+        height3 = 99997
         console.log("height3: " + height3)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name4;
          currentgoal = name4
@@ -280,7 +420,7 @@ function goal()
     }
     
     if (height4 == erledigt){
-        height4 = 99996
+        height4 = 999996
         console.log("height4: " + height4)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name5;
          currentgoal = name5
@@ -289,7 +429,7 @@ function goal()
     }
 
     if (height5 == erledigt){
-        height5 = 99995
+        height5 = 999995
         console.log("height: " + height5)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name6;
          currentgoal = name6
@@ -299,7 +439,7 @@ function goal()
 
 
     if (height6 == erledigt){
-        height6 = 99994
+        height6 = 999994
         console.log("height: " + height6)
         currentgift = name6
       save_height6()
