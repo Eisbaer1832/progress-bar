@@ -20,8 +20,8 @@ var nochzutuen
 var saved_passwort
 var passwort
 var authorized
+var goalpassed
 load()
-
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
 const termometer = document.getElementById("Termometer");
@@ -38,7 +38,15 @@ document.getElementById("goal-text").innerHTML = currentgoal;
 min = (Math.min(height1, height2, height3, height4, height5, height6));
 
 console.log (passwort)
-console.log("read: " + erledigt, hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe, currentgoal, nochzutuen)
+console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe, currentgoal, nochzutuen)
+
+  gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
+  gift.addEventListener('animationend', () => {
+      gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
+      gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
+      document.getElementById("currentgift").innerHTML = currentgift;
+      document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+    });
 
 
 function MaximaleHoehe()
@@ -55,23 +63,31 @@ function MaximaleHoehe2()
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt
   save_maxHoehe()
+
+  setTimeout(function(){
+    window.location.reload();
+  }, 1000);
 }
 
 function reset()
 {
+  currentgift = "Noch nichts erreicht"
   erledigt = 0
   hoehe = 640
   maxHoehe = 0
+  goalpassed = "False"
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
 
   goal()
-
+  save_currentgift
+  save_goalpassed()
   save_erledigt()
   save_hoehe()
   save_currentgoal()
 
+    
 }
 
 function hoeher() 
@@ -95,8 +111,12 @@ function hoeher()
   save_erledigt()
   save_hoehe()
 
-}
+  setTimeout(function(){
+    window.location.reload();
+  }, 100);
+  
 
+}
 
 function am_hoechsten() 
 { 
@@ -117,8 +137,15 @@ function am_hoechsten()
   console.log("erledigt: " + erledigt)
   toast.show()
   goal()
+
+    
+  console.log("goalpassed" + goalpassed)
   save_erledigt()
   save_hoehe()
+  save_currentgoal()
+  setTimeout(function(){
+    window.location.reload();
+  }, 100);
 }
 
 function passwortfunction()
@@ -138,53 +165,66 @@ function passwortfunction()
     showtoast.show()
   }
 }
-function setgoal()
+
+function setgoal1()
 {
     name1 = document.getElementById("goal-name-1").value 
     height1 = document.getElementById("goal-height-1").value 
+    goalpassed = "True"
+    save_goalpassed()
     save_height1()
     save_name1()
 
-     name2 = document.getElementById("goal-name-2").value 
-     height2 = document.getElementById("goal-height-2").value 
-     save_height2()
-     save_name2()
-
-     name3 = document.getElementById("goal-name-3").value 
-     height3 = document.getElementById("goal-height-3").value 
-     save_height3()
-     save_name3()
-
-
-     name4 = document.getElementById("goal-name-4").value 
-     height4 = document.getElementById("goal-height-4").value 
-     save_height4()
-     save_name4()
-
-    
-     name5 = document.getElementById("goal-name-5").value 
-     height5 = document.getElementById("goal-height-5").value 
-     save_height5()
-     save_name5()
-
-
-
-     name6 = document.getElementById("goal-name-6").value 
-     height6 = document.getElementById("goal-height-6").value 
-     save_height6()
-     save_name6()
-
-    console.log(name1, name2, name3, name4, name5, name6)
-    console.log(height1, height2, height3, height4, height5, height6)
     document.getElementById("goal-text").innerhtml = "Nächster Preis:" + name1;
     currentgoal = name1
     document.getElementById("goal-text").innerHTML = "Nächster Preis: " + currentgoal;
-
-
 }
 
+function setgoal2(){
+  name2 = document.getElementById("goal-name-2").value 
+  height2 = document.getElementById("goal-height-2").value 
+  goalpassed = "True"
+  save_goalpassed()
+  save_height2()
+  save_name2()
+}
     
 
+function setgoal3(){
+  name3 = document.getElementById("goal-name-3").value 
+  height3 = document.getElementById("goal-height-3").value     
+  goalpassed = "True"
+  save_goalpassed()
+  save_height3()
+  save_name3()
+}
+
+function setgoal4(){
+  name4 = document.getElementById("goal-name-4").value 
+  height4 = document.getElementById("goal-height-4").value 
+  goalpassed = "True"
+  save_goalpassed()
+  save_height4()
+  save_name4()
+}
+
+function setgoal5(){
+  name5 = document.getElementById("goal-name-5").value 
+  height5 = document.getElementById("goal-height-5").value 
+  goalpassed = "True"
+  save_goalpassed()
+  save_height5()
+  save_name5()
+}
+
+function setgoal6(){
+  name6 = document.getElementById("goal-name-6").value 
+  height6 = document.getElementById("goal-height-6").value 
+  goalpassed = "True"
+  save_goalpassed()
+  save_height6()
+  save_name6()
+}
 
 function goal()
 {
@@ -213,7 +253,8 @@ function goal()
         height1 = 99999
         console.log("height1: " + height1)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name2;
-         currentgoal = name2
+        currentgift = name1
+        currentgoal = name2
         save_height1()
         
     }
@@ -263,6 +304,8 @@ function goal()
         currentgift = name6
       save_height6()
     }
+
+    
     save_currentgoal()
     save_currentgift()
 
@@ -282,6 +325,28 @@ function goal()
 
 function load(){
   console.log("load")
+
+  $.ajax({
+    dataType: "JSON",
+    traditional: true,
+    type: 'POST',
+    async : false,
+    url: '/public/serledigt',
+    success: function (lerledigt) {
+      erledigt = lerledigt
+    }
+  });
+
+  $.ajax({
+    dataType: "JSON",
+    traditional: true,
+    type: 'POST',
+    async : false,
+    url: '/public/shoehe',
+    success: function (lhoehe) {
+      hoehe = lhoehe
+    }
+  });
 
   $.ajax({
     dataType: "JSON",
@@ -317,7 +382,7 @@ function load(){
   });
 
   $.ajax({
-    dataType: "JSON",
+    dataType: "text",
     traditional: true,
     type: 'POST',
     url: '/public/scurrentgift',
@@ -329,15 +394,15 @@ function load(){
   });
 
   $.ajax({
-    dataType: "JSON",
+    dataType: "text",
     traditional: true,
     type: 'POST',
-    url: '/public/shoehe',
+    url: '/public/sgoalpassed',
     async : false,
-
-    success: function (lhoehe) {
-      hoehe = lhoehe
-    }
+    success: function (lgoalpassed) {
+      goalpassed = lgoalpassed
+      console.log ("goalpassed: " + goalpassed)      
+      }
   });
 
   $.ajax({
@@ -532,6 +597,16 @@ function save_erledigt(){
   });
 }
 
+function save_goalpassed(){
+  $.ajax({
+    dataType: "text",
+    traditional: true,
+    type: 'POST',
+    data:{'goalpassed': goalpassed},
+    cache: false,
+    url: '/public/goalpassed',
+  });
+}
 
 function save_maxHoehe(){
   $.ajax({
@@ -702,7 +777,7 @@ function save_currentgoal(){
 
 function save_currentgift(){
   $.ajax({
-    dataType: "JSON",
+    dataType: "text",
     traditional: true,
     type: 'POST',
     data:{'currentgift': currentgift},

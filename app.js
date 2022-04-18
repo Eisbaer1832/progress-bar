@@ -43,6 +43,13 @@ app.post('/public/smaxhoehe', function(req, res) {
 });
 
 
+app.post('/public/sgoalpassed', function(req, res) {
+  var lgoalpassed = fs.readFileSync(("goalpassed")+ ".txt")
+  res.send(lgoalpassed);
+  console.log ("goalpassed: " + lgoalpassed)
+  
+});
+
 app.post('/public/saved_passwort', function(req, res) {
   var lsaved_passwort = fs.readFileSync(("saved_passwort")+ ".txt")
   res.send(lsaved_passwort);
@@ -172,7 +179,18 @@ app.post('/public/snochzutuen', function(req, res) {
 /////////////////////////////
 
 
+app.post('/public/goalpassed', function(req, res) {
+  var goalpassed = req.body.goalpassed;
+  console.log("goalpassed: " + goalpassed);
+  
+  try {
+    fs.writeFileSync(Object.keys({goalpassed})+".txt", goalpassed);
+    console.log("goalpassed: " + goalpassed)
+  } catch (err) {
+    console.error(err);
+  };
 
+});
 
 app.post('/public/erledigt', function(req, res) {
   console.log("erledigt req.body: " + req.body.erledigt)
