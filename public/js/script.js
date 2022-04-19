@@ -21,6 +21,7 @@ var saved_passwort
 var passwort
 var authorized
 var goalpassed
+var min
 load()
 
 var toastTrigger = document.getElementById('liveToastBtn')
@@ -28,8 +29,8 @@ var toastLiveExample = document.getElementById('liveToast')
 const termometer = document.getElementById("Termometer");
 var toastLiveExample2 = document.getElementById('liveToast2')      
 const gift = document.querySelector('#gift');
+min = (Math.min(height1, height2, height3, height4, height5, height6));
 
-goal();
 currentgiftfunction()
 masheightCheck()
 
@@ -39,7 +40,6 @@ document.getElementById("erledigt").innerHTML = erledigt;
 document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
 document.getElementById("goal-text").innerHTML = currentgoal;
 
-min = (Math.min(height1, height2, height3, height4, height5, height6));
 
 console.log (passwort)
 console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe, currentgoal, nochzutuen)
@@ -49,6 +49,7 @@ console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5
       gift.classList.  goalpassed = "False"
       document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
     });
+document.getElementById("bis-nächstes-ziel").innerHTML = min - erledigt;
 
 
 function MaximaleHoehe()
@@ -116,6 +117,7 @@ function hoeher()
   goal()
   save_erledigt()
   save_hoehe()
+
   window.location.reload();
 
 
@@ -141,7 +143,7 @@ function am_hoechsten()
   console.log("erledigt: " + erledigt)
   toast.show()
 
-  goal()
+  masheightCheck()
   save_erledigt()
   save_hoehe()
   window.location.reload();
@@ -274,6 +276,7 @@ function currentgiftfunction(){
     
     if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 999995 && height6 == 999994){
       console.log("Alles erledigt")
+      currentgoal = "keine Preise mehr 😕"
       currentgift = name6
       document.getElementById("bis-nächstes-ziel").innerHTML = "Nichts mehr zu erledigen"
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
@@ -375,6 +378,7 @@ function goal()
 
  
     min = (Math.min(height1, height2, height3, height4, height5, height6));
+    console.log("min: " + min)
     document.getElementById("bis-nächstes-ziel").innerHTML = min - erledigt;
     if (erledigt == min) {
         document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
@@ -457,9 +461,6 @@ function goal()
       save_currentgoal()
       save_currentgift()
     }
-
-    
-
 
 }
 
