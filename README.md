@@ -32,5 +32,6 @@ nodeJs --> nodejs.org
     router
     socket.io
     supervisor
+    favicon-serve
 ### Kontakt
 Bei Fehlern oder Wünschen melde dich an eisbaer1832@gmail.com.
