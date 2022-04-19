@@ -97,9 +97,6 @@ function reset()
   erledigt = 0
   hoehe = 640
   goalpassed = "true"
-  name1 = "name1"
-  name2 = "name2"
-
 
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
   document.getElementById("erledigt").innerHTML = erledigt;
@@ -107,13 +104,9 @@ function reset()
 
   save_erledigt()
   save_hoehe()
-  save_name1()
-  save_name2()
   save_goalpassed()
 
-  setTimeout(function(){
-    window.location.reload();
-  }, 1000);
+  window.location.reload();
 }
 
 function hoeher() 
@@ -136,6 +129,7 @@ function hoeher()
   goal()
   save_erledigt()
   save_hoehe()
+  window.location.reload();
 
 
 }
