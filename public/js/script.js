@@ -83,7 +83,6 @@ function reset()
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
 
   save_currentgift()
-  save_goalpassed()
   save_erledigt()
   save_hoehe()
   save_currentgoal()
@@ -306,7 +305,6 @@ function setgoal1()
   height1 = document.getElementById("goal-height-1").value 
   goalpassed = "True"
   goal()
-  save_goalpassed()
   save_height1()
   save_name1()
   document.getElementById("goal-text").innerhtml = "Nächster Preis:" + name1;
@@ -318,7 +316,6 @@ function setgoal2(){
   name2 = document.getElementById("goal-name-2").value 
   height2 = document.getElementById("goal-height-2").value 
   goalpassed = "True"
-  save_goalpassed()
   save_height2()
   save_name2()
   goal()
@@ -329,7 +326,6 @@ function setgoal3(){
   name3 = document.getElementById("goal-name-3").value 
   height3 = document.getElementById("goal-height-3").value     
   goalpassed = "True"
-  save_goalpassed()
   save_height3()
   save_name3()
   goal()  
@@ -339,7 +335,6 @@ function setgoal4(){
   name4 = document.getElementById("goal-name-4").value 
   height4 = document.getElementById("goal-height-4").value 
   goalpassed = "True"
-  save_goalpassed()
   save_height4()
   save_name4()
   goal()
@@ -350,7 +345,6 @@ function setgoal5(){
   name5 = document.getElementById("goal-name-5").value 
   height5 = document.getElementById("goal-height-5").value 
   goalpassed = "True"
-  save_goalpassed()
   save_height5()
   save_name5()
   goal()
@@ -360,7 +354,6 @@ function setgoal6(){
   name6 = document.getElementById("goal-name-6").value 
   height6 = document.getElementById("goal-height-6").value 
   goalpassed = "True"
-  save_goalpassed()
   save_height6()
   save_name6()
   goal()
