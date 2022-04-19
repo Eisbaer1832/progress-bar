@@ -22,8 +22,48 @@ var passwort
 var authorized
 var goalpassed
 load()
-currentgiftfunction()
+
+if (goalpassed == "true"){
+  if (name6 != "name6"/ height5 != "height5"){
+    name3 = "name3"
+    name4 = "name4"
+    name5 = "name5"
+    name6 = "name6"
+    height5 = "50"
+    save_name3()  
+    save_name4()
+    save_name5()
+    save_name6()
+    save_height5()
+
+  }
+
+  if (height1 != "10" && name6 == "name6"){
+    height1 = "10"
+    height2 = "20"
+    height3 = "30"
+    height4 = "40"
+    height6 = "60"
+    save_height1()
+    save_height2()
+    save_height3()
+    save_height4()
+    save_height6()
+  }
+
+  if (height1 == "10" && name6 == "name6"){
+  goalpassed = "false"
+  save_goalpassed()
+  }
+
+  setTimeout(function(){
+    window.location.reload();
+  }, 1000);
+}
 goal();
+currentgiftfunction()
+
+
 
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
@@ -44,9 +84,7 @@ console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5
 
   gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
   gift.addEventListener('animationend', () => {
-      gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-      gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-      document.getElementById("currentgift").innerHTML = currentgift;
+      gift.classList.  goalpassed = "False"
       document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
     });
 
@@ -65,29 +103,29 @@ function MaximaleHoehe2()
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt
   save_maxHoehe()
-
-  setTimeout(function(){
-    window.location.reload();
-  }, 5000);
 }
 
 function reset()
 {
-  currentgift = "Noch nichts erreicht"
   erledigt = 0
   hoehe = 640
-  maxHoehe = 0
-  goalpassed = "False"
+  goalpassed = "true"
+  name1 = "name1"
+  name2 = "name2"
+
+
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
 
-  save_currentgift()
   save_erledigt()
   save_hoehe()
-  save_currentgoal()
-  goal()
-
+  save_name1()
+  save_name2()
+  save_goalpassed()
+  setTimeout(function(){
+    window.location.reload();
+  }, 1000);
     
 }
 
@@ -114,6 +152,7 @@ function hoeher()
 
 
 }
+
 
 function am_hoechsten() 
 { 
@@ -262,8 +301,11 @@ function currentgiftfunction(){
       })};
 
     
-    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 99995 && height6 == 99994){
+    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 999995 && height6 == 999994){
+      console.log("Alles erledigt")
       currentgift = name6
+      document.getElementById("bis-nächstes-ziel").innerHTML = "Nichts mehr zu erledigen"
+  
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
       const gift = document.querySelector('#gift');
       gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
@@ -563,7 +605,6 @@ function load(){
     type: 'POST',
     url: '/public/sname3',
     async : false,
-
     success: function (lname3) {
       name3 = lname3
     }

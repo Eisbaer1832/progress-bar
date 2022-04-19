@@ -11,6 +11,7 @@ var $ = require('jquery');
 app.use(express.json())
 app.use(favicon(path.join(__dirname, '/', 'favicon.ico')));
 
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -89,7 +90,6 @@ app.post('/public/sname4', function(req, res) {
   
   var lname4 = fs.readFileSync(("name4")+ ".txt")
   res.send(lname4);
-  
 });
 
 app.post('/public/sname5', function(req, res) {
@@ -249,7 +249,8 @@ app.post('/public/name2', function(req, res) {
 app.post('/public/name3', function(req, res) {
   var name3 = req.body.name3;
   console.log("name3: "+ name3 );
-  
+  console.log("name3 saving")
+
   try {
     fs.writeFileSync(Object.keys({name3})+".txt", name3);
   } catch (err) {
