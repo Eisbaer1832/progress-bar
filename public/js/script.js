@@ -23,53 +23,40 @@ var authorized
 var goalpassed
 load()
 
-if (goalpassed == "true"){
-  if (name6 != "name6"/ height5 != "height5"){
-    name3 = "name3"
-    name4 = "name4"
-    name5 = "name5"
-    name6 = "name6"
-    height5 = "50"
-    save_name3()  
-    save_name4()
-    save_name5()
-    save_name6()
-    save_height5()
-
-  }
-
-  if (height1 != "10" && name6 == "name6"){
-    height1 = "10"
-    height2 = "20"
-    height3 = "30"
-    height4 = "40"
-    height6 = "60"
-    save_height1()
-    save_height2()
-    save_height3()
-    save_height4()
-    save_height6()
-  }
-
-  if (height1 == "10" && name6 == "name6"){
-  goalpassed = "false"
-  save_goalpassed()
-  }
-
-  setTimeout(function(){
-    window.location.reload();
-  }, 1000);
-}
-goal();
-currentgiftfunction()
-
-
-
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
 const termometer = document.getElementById("Termometer");
 var toastLiveExample2 = document.getElementById('liveToast2')      
 const gift = document.querySelector('#gift');
+
+
+
+if (goalpassed == "true"){
+
+  if (height1 != "10" || height2 != "20" || height3 != "30"|| height4 != "40" || height5 != "50" || height6 != "60"){
+    console.log("noch nicht fertig")
+    height1 = "10"
+    height2 = "20"
+    height3 = "30"
+    height4 = "40"
+    height5 = "50"
+    height6 = "60"
+    save_height1()
+    save_height2()
+    save_height3()
+    save_height4()
+    save_height5()
+    save_height6()
+  }else{
+    goalpassed = "false"
+    save_goalpassed()
+  }
+
+    window.location.reload();
+}
+goal();
+currentgiftfunction()
+
 
 
 termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
@@ -123,10 +110,10 @@ function reset()
   save_name1()
   save_name2()
   save_goalpassed()
+
   setTimeout(function(){
     window.location.reload();
   }, 1000);
-    
 }
 
 function hoeher() 
@@ -172,15 +159,14 @@ function am_hoechsten()
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
   console.log("erledigt: " + erledigt)
   toast.show()
-  goal()
-  masheightCheck()
 
   save_erledigt()
   save_hoehe()
   save_currentgoal()
-  setTimeout(function(){
-    window.location.reload();
-  }, 100);
+
+  goal()
+  masheightCheck()
+  currentgiftfunction()
 
 }
 function masheightCheck(){
@@ -406,12 +392,12 @@ function goal()
 {
     console.log("goal function executed")
     toast2 = new bootstrap.Toast(toastLiveExample2)
-    
+    toast2.show()
+
  
     min = (Math.min(height1, height2, height3, height4, height5, height6));
     document.getElementById("bis-nächstes-ziel").innerHTML = min - erledigt;
     if (erledigt == min) {
-        toast2.show()
         document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
         const gift = document.querySelector('#gift');
         gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
@@ -780,7 +766,9 @@ function save_erledigt(){
     data:{'erledigt': erledigt},
     cache: false,
     url: '/public/erledigt',
+
   });
+  
 }
 
 function save_goalpassed(){

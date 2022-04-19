@@ -21,6 +21,7 @@ app.use('/public',express.static('public'));
 app.get('/', (_, res) => {
   res.sendFile('public/page/index.html', {root: __dirname })});
 
+
 app.listen(port, () => {
   console.log(`App listening on port ${port}!`)
 });
