@@ -33,8 +33,7 @@ const gift = document.querySelector('#gift');
 
 if (goalpassed == "true"){
 
-  if (height1 != "10" || height2 != "20" || height3 != "30"|| height4 != "40" || height5 != "50" || height6 != "60"){
-    console.log("noch nicht fertig")
+  console.log("noch nicht fertig")
     height1 = "10"
     height2 = "20"
     height3 = "30"
@@ -47,10 +46,9 @@ if (goalpassed == "true"){
     save_height4()
     save_height5()
     save_height6()
-  }else{
+    
     goalpassed = "false"
     save_goalpassed()
-  }
 
     window.location.reload();
 }
