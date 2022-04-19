@@ -56,7 +56,7 @@ if (goalpassed == "true"){
 }
 goal();
 currentgiftfunction()
-
+masheightCheck()
 
 
 termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
@@ -161,8 +161,10 @@ function am_hoechsten()
   toast.show()
 
   goal()
-  masheightCheck()
-  currentgiftfunction()
+  save_erledigt()
+  save_hoehe()
+  window.location.reload();
+
 
 }
 function masheightCheck(){
