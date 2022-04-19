@@ -178,9 +178,7 @@ function am_hoechsten()
   save_erledigt()
   save_hoehe()
   save_currentgoal()
-  setTimeout(function(){
     window.location.reload();
-  }, 100);
 
 
 }
