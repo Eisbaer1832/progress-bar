@@ -178,8 +178,9 @@ function am_hoechsten()
   save_erledigt()
   save_hoehe()
   save_currentgoal()
+  setTimeout(function(){
     window.location.reload();
-
+  }, 100);
 
 }
 function masheightCheck(){
@@ -224,6 +225,7 @@ function currentgiftfunction(){
     currentgift = "Noch kein Ziel erreicht."
     currentgoal = name1
     document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+    save_currentgift()
     const gift = document.querySelector('#gift');
     gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
     gift.addEventListener('animationend', () => {
@@ -231,11 +233,13 @@ function currentgiftfunction(){
         gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
         document.getElementById("currentgift").innerHTML = currentgift;
         document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+
   })};
     if(height1 == 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
       currentgift = name1
       currentgoal = name2
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      save_currentgift()
       const gift = document.querySelector('#gift');
       gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
       gift.addEventListener('animationend', () => {
@@ -249,6 +253,7 @@ function currentgiftfunction(){
           currentgift = name2
           currentgoal = name3
           document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+          save_currentgift()
           const gift = document.querySelector('#gift');
           gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
           gift.addEventListener('animationend', () => {
@@ -262,6 +267,7 @@ function currentgiftfunction(){
       currentgift = name3
       currentgoal = name4
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      save_currentgift()
       const gift = document.querySelector('#gift');
       gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
       gift.addEventListener('animationend', () => {
@@ -275,6 +281,7 @@ function currentgiftfunction(){
       currentgift = name4
       currentgoal = name5
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      save_currentgift()
       const gift = document.querySelector('#gift');
       gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
       gift.addEventListener('animationend', () => {
@@ -289,6 +296,7 @@ function currentgiftfunction(){
       currentgift = name5
       currentgoal = name6
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      save_currentgift()
       const gift = document.querySelector('#gift');
       gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
       gift.addEventListener('animationend', () => {
@@ -303,8 +311,8 @@ function currentgiftfunction(){
       console.log("Alles erledigt")
       currentgift = name6
       document.getElementById("bis-nächstes-ziel").innerHTML = "Nichts mehr zu erledigen"
-  
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+      save_currentgift()
       const gift = document.querySelector('#gift');
       gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
       gift.addEventListener('animationend', () => {
@@ -313,7 +321,6 @@ function currentgiftfunction(){
           document.getElementById("currentgift").innerHTML = currentgift;
           document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
       })};
-    save_currentgift()
 }
 
 
@@ -425,6 +432,8 @@ function goal()
         currentgift = name1
         currentgoal = name2
         save_height1()
+        save_currentgoal()
+        save_currentgift()
         
     }
 
@@ -436,6 +445,8 @@ function goal()
          currentgoal = name3
          currentgift = name2
         save_height2()
+        save_currentgoal()
+        save_currentgift()
     }
 
     
@@ -446,6 +457,8 @@ function goal()
          currentgoal = name4
          currentgift = name3
         save_height3()
+        save_currentgoal()
+        save_currentgift()
     }
     
     if (height4 == erledigt){
@@ -455,6 +468,8 @@ function goal()
          currentgoal = name5
          currentgift = name4
         save_height4()
+        save_currentgoal()
+        save_currentgift()
     }
 
     if (height5 == erledigt){
@@ -464,6 +479,8 @@ function goal()
          currentgoal = name6
          currentgift = name5
         save_height5()
+        save_currentgoal()
+        save_currentgift()
     }
 
 
@@ -472,11 +489,12 @@ function goal()
         console.log("height: " + height6)
         currentgift = name6
       save_height6()
+      save_currentgoal()
+      save_currentgift()
     }
 
     
-    save_currentgoal()
-    save_currentgift()
+
 
 }
 
