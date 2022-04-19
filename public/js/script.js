@@ -68,7 +68,7 @@ function MaximaleHoehe2()
 
   setTimeout(function(){
     window.location.reload();
-  }, 1000);
+  }, 5000);
 }
 
 function reset()
@@ -115,7 +115,7 @@ function hoeher()
 
   setTimeout(function(){
     window.location.reload();
-  }, 100);
+  }, 1000);
   
 
 }
@@ -146,7 +146,7 @@ function am_hoechsten()
   save_currentgoal()
   setTimeout(function(){
     window.location.reload();
-  }, 500);
+  }, 1000);
 
 
 }

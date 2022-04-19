@@ -6,6 +6,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const { json } = require('express');
 const favicon = require('serve-favicon');
+var $ = require('jquery');
 
 app.use(express.json())
 app.use(favicon(path.join(__dirname, '/', 'favicon.ico')));
