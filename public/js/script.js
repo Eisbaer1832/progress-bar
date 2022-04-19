@@ -112,10 +112,6 @@ function hoeher()
   save_erledigt()
   save_hoehe()
 
-  setTimeout(function(){
-    window.location.reload();
-  }, 1000);
-  
 
 }
 
