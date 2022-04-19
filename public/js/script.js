@@ -180,7 +180,7 @@ function am_hoechsten()
   save_currentgoal()
   setTimeout(function(){
     window.location.reload();
-  }, 1000);
+  }, 100);
 
 
 }
