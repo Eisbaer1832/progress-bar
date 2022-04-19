@@ -160,10 +160,6 @@ function am_hoechsten()
   console.log("erledigt: " + erledigt)
   toast.show()
 
-  save_erledigt()
-  save_hoehe()
-  save_currentgoal()
-
   goal()
   masheightCheck()
   currentgiftfunction()
