@@ -180,7 +180,7 @@ app.post('/public/snochzutuen', function(req, res) {
 /////////////////////////////
 
 
-app.post('/public/goalpassed', function(req, res) {
+app.post('/public/goalpassed', function(req) {
   var goalpassed = req.body.goalpassed;
   console.log("goalpassed: " + goalpassed);
   
@@ -193,7 +193,7 @@ app.post('/public/goalpassed', function(req, res) {
 
 });
 
-app.post('/public/erledigt', function(req, res) {
+app.post('/public/erledigt', function(req) {
   console.log("erledigt req.body: " + req.body.erledigt)
   var erledigt = req.body.erledigt;
   console.log("erledigt: " + erledigt);
@@ -207,7 +207,7 @@ app.post('/public/erledigt', function(req, res) {
 
 });
 
-app.post('/public/maxHoehe', function(req, res) {
+app.post('/public/maxHoehe', function(req) {
   var maxHoehe = req.body.maxHoehe;
   console.log("maxHoehe: "+ maxHoehe);
   
@@ -219,7 +219,7 @@ app.post('/public/maxHoehe', function(req, res) {
 
 });
 
-app.post('/public/name1', function(req, res) {
+app.post('/public/name1', function(req) {
   var name1 = req.body.name1;
   console.log("name1: "+ name1 );
 
@@ -233,7 +233,7 @@ app.post('/public/name1', function(req, res) {
 });
 
 
-app.post('/public/name2', function(req, res) {
+app.post('/public/name2', function(req) {
   var name2 = req.body.name2;
   console.log("name2: "+ name2 );
   
@@ -246,7 +246,7 @@ app.post('/public/name2', function(req, res) {
 });
 
 
-app.post('/public/name3', function(req, res) {
+app.post('/public/name3', function(req) {
   var name3 = req.body.name3;
   console.log("name3: "+ name3 );
   console.log("name3 saving")
@@ -259,7 +259,7 @@ app.post('/public/name3', function(req, res) {
 
 });
 
-app.post('/public/name4', function(req, res) {
+app.post('/public/name4', function(req) {
   var name4 = req.body.name4;
   console.log("name4: "+ name4 );
   
@@ -272,7 +272,7 @@ app.post('/public/name4', function(req, res) {
 });
 
 
-app.post('/public/name5', function(req, res) {
+app.post('/public/name5', function(req) {
   var name5 = req.body.name5;
   console.log("name5: "+ name5 );
   
@@ -284,7 +284,7 @@ app.post('/public/name5', function(req, res) {
 
 });
 
-app.post('/public/name6', function(req, res) {
+app.post('/public/name6', function(req) {
   var name6 = req.body.name6;
   console.log("name6: "+ name6 );
   
@@ -296,7 +296,7 @@ app.post('/public/name6', function(req, res) {
 
 });
 
-app.post('/public/height1', function(req, res) {
+app.post('/public/height1', function(req) {
   var height1 = req.body.height1;
   console.log("height1: "+ height1 );
   
@@ -308,7 +308,7 @@ app.post('/public/height1', function(req, res) {
 
 });
 
-app.post('/public/height2', function(req, res) {
+app.post('/public/height2', function(req) {
   var height2 = req.body.height2;
   console.log("height2: "+ height2 );
   
@@ -322,7 +322,7 @@ app.post('/public/height2', function(req, res) {
 
 
 
-app.post('/public/height3', function(req, res) {
+app.post('/public/height3', function(req) {
   var height3 = req.body.height3;
   console.log("height3: "+ height3 );
   
@@ -336,7 +336,7 @@ app.post('/public/height3', function(req, res) {
 
 
 
-app.post('/public/height4', function(req, res) {
+app.post('/public/height4', function(req) {
   var height4 = req.body.height4;
   console.log("height4: "+ height4 );
   
@@ -349,7 +349,7 @@ app.post('/public/height4', function(req, res) {
 });
 
 
-app.post('/public/height5', function(req, res) {
+app.post('/public/height5', function(req) {
   var height5 = req.body.height5;
   console.log("height5: "+ height5 );
   
@@ -362,7 +362,7 @@ app.post('/public/height5', function(req, res) {
 });
 
 
-app.post('/public/height6', function(req, res) {
+app.post('/public/height6', function(req) {
   var height6 = req.body.height6;
   console.log("height6: "+ height6 );
   
@@ -377,7 +377,7 @@ app.post('/public/height6', function(req, res) {
 
 
 
-app.post('/public/currentgoal', function(req, res) {
+app.post('/public/currentgoal', function(req) {
   var currentgoal = req.body.currentgoal;
   console.log("currentgoal: "+ currentgoal );
   
@@ -389,7 +389,7 @@ app.post('/public/currentgoal', function(req, res) {
 
 });
 
-app.post('/public/currentgift', function(req, res) {
+app.post('/public/currentgift', function(req) {
   var currentgift = req.body.currentgift;
   console.log("currentgift: "+ currentgift );
   
@@ -401,7 +401,7 @@ app.post('/public/currentgift', function(req, res) {
 
 });
 
-app.post('/public/nochzutuen', function(req, res) {
+app.post('/public/nochzutuen', function(req) {
   var nochzutuen = req.body.nochzutuen;
   console.log("nochzutuen: "+ nochzutuen );
   
@@ -412,7 +412,7 @@ app.post('/public/nochzutuen', function(req, res) {
   };
 });
 
-app.post('/public/hoehe', function(req, res) {
+app.post('/public/hoehe', function(req) {
   var hoehe = req.body.hoehe;
   console.log("hoehe: "+ hoehe);
     
