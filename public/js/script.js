@@ -29,31 +29,8 @@ const termometer = document.getElementById("Termometer");
 var toastLiveExample2 = document.getElementById('liveToast2')      
 const gift = document.querySelector('#gift');
 
-
-
-if (goalpassed == "true"){
-
-  console.log("noch nicht fertig")
-    height1 = "10"
-    height2 = "20"
-    height3 = "30"
-    height4 = "40"
-    height5 = "50"
-    height6 = "60"
-    save_height1()
-    save_height2()
-    save_height3()
-    save_height4()
-    save_height5()
-    save_height6()
-
-    goalpassed = "false"
-    save_goalpassed()
-
-    window.location.reload();
-}
-currentgiftfunction()
 goal();
+currentgiftfunction()
 masheightCheck()
 
 
@@ -103,6 +80,18 @@ function reset()
   save_erledigt()
   save_hoehe()
   save_goalpassed()
+  height1 = "10"
+  height2 = "20"
+  height3 = "30"
+  height4 = "40"
+  height5 = "50"
+  height6 = "60"
+  save_height1()
+  save_height2()
+  save_height3()
+  save_height4()
+  save_height5()
+  save_height6()
 
   window.location.reload();
 }
