@@ -46,14 +46,14 @@ if (goalpassed == "true"){
     save_height4()
     save_height5()
     save_height6()
-    
+
     goalpassed = "false"
     save_goalpassed()
 
     window.location.reload();
 }
-goal();
 currentgiftfunction()
+goal();
 masheightCheck()
 
 
