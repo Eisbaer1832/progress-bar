@@ -22,6 +22,7 @@ var passwort
 var authorized
 var goalpassed
 var min
+var saved
 load()
 
 var toastTrigger = document.getElementById('liveToastBtn')
@@ -781,6 +782,10 @@ function save_hoehe(){
     data:{'hoehe': hoehe},
     cache: false,
     url: '/public/hoehe',
+    success: function (hoehe) {
+      console.log("saved")
+      window.location.reload();
+    }
   });
 }
 

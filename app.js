@@ -413,13 +413,13 @@ app.post('/public/nochzutuen', function(req) {
   };
 });
 
-app.post('/public/hoehe', function(req) {
+app.post('/public/hoehe', function(req, res) {
   var hoehe = req.body.hoehe;
   console.log("hoehe: "+ hoehe);
-    
   try {
     fs.writeFileSync(Object.keys({hoehe})+".txt", hoehe);
   } catch (err) {
     console.error(err);
   };
+  res.send(hoehe);
 });
