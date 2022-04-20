@@ -25,6 +25,28 @@ var min
 var saved
 load()
 
+if (goalpassed == "True")
+{
+  if (height1 != "10" || height2 != "20" || height3 != "30"|| height4 != "40" || height5 != "50" || height6 != "60"){
+  console.log("noch nicht fertig")
+  height1 = "10"
+  height2 = "20"
+  height3 = "30"
+  height4 = "40"
+  height5 = "50"
+  height6 = "60"
+  save_height1()
+  save_height2()
+  save_height3()
+  save_height4()
+  save_height5()
+  save_height6()
+  }else{
+  goalpassed = "false"
+  save_goalpassed()
+  }
+}
+
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
 const termometer = document.getElementById("Termometer");
@@ -73,7 +95,7 @@ function reset()
 {
   erledigt = 0
   hoehe = 640
-  goalpassed = "true"
+  goalpassed = "True"
 
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
   document.getElementById("erledigt").innerHTML = erledigt;
@@ -82,20 +104,7 @@ function reset()
   save_erledigt()
   save_hoehe()
   save_goalpassed()
-  height1 = "10"
-  height2 = "20"
-  height3 = "30"
-  height4 = "40"
-  height5 = "50"
-  height6 = "60"
-  save_height1()
-  save_height2()
-  save_height3()
-  save_height4()
-  save_height5()
-  save_height6()
 
-  window.location.reload();
 }
 
 function hoeher() 
@@ -106,7 +115,7 @@ function hoeher()
   toast = new bootstrap.Toast(toastLiveExample)
   hoehe = hoehe - (630 / maxHoehe)
   console.log ("neue Hoehe: " + hoehe)
-
+  goalpassed = "True"
 
   erledigt++
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
@@ -118,9 +127,7 @@ function hoeher()
   goal()
   save_erledigt()
   save_hoehe()
-
-  window.location.reload();
-
+  save_goalpassed()
 
 }
 
@@ -722,7 +729,6 @@ function load(){
     traditional: true,
     type: 'POST',
     async : false,
-
     url: '/public/snochzutuen',
     success: function (lnochzutuen) {
       nochzutuen = lnochzutuen
@@ -760,6 +766,9 @@ function save_goalpassed(){
     data:{'goalpassed': goalpassed},
     cache: false,
     url: '/public/goalpassed',
+    success: function (goalpassed) {
+      window.location.reload();
+    }
   });
 }
 
@@ -797,6 +806,9 @@ function save_name1(){
     data:{'name1': name1},
     cache: false,
     url: '/public/name1',
+    success: function (name1) {
+      window.location.reload();
+    }
   });
 }
 
@@ -808,6 +820,9 @@ function save_name2(){
     data:{'name2': name2},
     cache: false,
     url: '/public/name2',
+    success: function (name2) {
+      window.location.reload();
+    }
   });
 }
 
@@ -819,6 +834,9 @@ function save_name3(){
     data:{'name3': name3},
     cache: false,
     url: '/public/name3',
+    success: function (name3) {
+      window.location.reload();
+    }
   });
 }
 
@@ -830,6 +848,9 @@ function save_name4(){
     data:{'name4': name4},
     cache: false,
     url: '/public/name4',
+    success: function (name4) {
+      window.location.reload();
+    }
   });
 }
 
@@ -841,6 +862,9 @@ function save_name5(){
     data:{'name5': name5},
     cache: false,
     url: '/public/name5',
+    success: function (name5) {
+      window.location.reload();
+    }
   });
 }
 
@@ -852,6 +876,9 @@ function save_name6(){
     data:{'name6': name6},
     cache: false,
     url: '/public/name6',
+    success: function (name6) {
+      window.location.reload();
+    }
   });
 }
 

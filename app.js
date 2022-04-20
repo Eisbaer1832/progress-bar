@@ -181,7 +181,7 @@ app.post('/public/snochzutuen', function(req, res) {
 /////////////////////////////
 
 
-app.post('/public/goalpassed', function(req) {
+app.post('/public/goalpassed', function(req, res) {
   var goalpassed = req.body.goalpassed;
   console.log("goalpassed: " + goalpassed);
   
@@ -191,7 +191,7 @@ app.post('/public/goalpassed', function(req) {
   } catch (err) {
     console.error(err);
   };
-
+  res.send(goalpassed);
 });
 
 app.post('/public/erledigt', function(req) {
@@ -220,7 +220,7 @@ app.post('/public/maxHoehe', function(req) {
 
 });
 
-app.post('/public/name1', function(req) {
+app.post('/public/name1', function(req,res) {
   var name1 = req.body.name1;
   console.log("name1: "+ name1 );
 
@@ -230,11 +230,12 @@ app.post('/public/name1', function(req) {
   } catch (err) {
     console.error(err);
   };
+  res.send(name1);
 
 });
 
 
-app.post('/public/name2', function(req) {
+app.post('/public/name2', function(req,res) {
   var name2 = req.body.name2;
   console.log("name2: "+ name2 );
   
@@ -243,11 +244,12 @@ app.post('/public/name2', function(req) {
   } catch (err) {
     console.error(err);
   };
+  res.send(name2);
 
 });
 
 
-app.post('/public/name3', function(req) {
+app.post('/public/name3', function(req,res) {
   var name3 = req.body.name3;
   console.log("name3: "+ name3 );
   console.log("name3 saving")
@@ -257,10 +259,11 @@ app.post('/public/name3', function(req) {
   } catch (err) {
     console.error(err);
   };
+  res.send(name3);
 
 });
 
-app.post('/public/name4', function(req) {
+app.post('/public/name4', function(req,res) {
   var name4 = req.body.name4;
   console.log("name4: "+ name4 );
   
@@ -269,11 +272,12 @@ app.post('/public/name4', function(req) {
   } catch (err) {
     console.error(err);
   };
+  res.send(name4);
 
 });
 
 
-app.post('/public/name5', function(req) {
+app.post('/public/name5', function(req,res) {
   var name5 = req.body.name5;
   console.log("name5: "+ name5 );
   
@@ -282,10 +286,11 @@ app.post('/public/name5', function(req) {
   } catch (err) {
     console.error(err);
   };
+  res.send(name5);
 
 });
 
-app.post('/public/name6', function(req) {
+app.post('/public/name6', function(req,res) {
   var name6 = req.body.name6;
   console.log("name6: "+ name6 );
   
@@ -294,6 +299,7 @@ app.post('/public/name6', function(req) {
   } catch (err) {
     console.error(err);
   };
+  res.send(name6);
 
 });
 
