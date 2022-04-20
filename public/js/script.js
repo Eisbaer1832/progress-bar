@@ -146,7 +146,6 @@ function am_hoechsten()
   masheightCheck()
   save_erledigt()
   save_hoehe()
-  window.location.reload();
 
 
 }
