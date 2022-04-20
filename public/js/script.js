@@ -143,9 +143,10 @@ function am_hoechsten()
   console.log("erledigt: " + erledigt)
   toast.show()
 
-  masheightCheck()
   save_erledigt()
   save_hoehe()
+  
+  window.location.reload();
 
 
 }
