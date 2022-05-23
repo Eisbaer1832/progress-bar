@@ -10,7 +10,7 @@ var name6
 var height1
 var height2
 var height3
-var height4
+var height4 
 var height5
 var height6
 var erledigt
@@ -25,27 +25,6 @@ var min
 var saved
 load()
 
-if (goalpassed == "True")
-{
-  if (height1 != "10" || height2 != "20" || height3 != "30"|| height4 != "40" || height5 != "50" || height6 != "60"){
-  console.log("noch nicht fertig")
-  height1 = "10"
-  height2 = "20"
-  height3 = "30"
-  height4 = "40"
-  height5 = "50"
-  height6 = "60"
-  save_height1()
-  save_height2()
-  save_height3()
-  save_height4()
-  save_height5()
-  save_height6()
-  }else{
-  goalpassed = "false"
-  save_goalpassed()
-  }
-}
 
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
