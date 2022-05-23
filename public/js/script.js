@@ -10,7 +10,7 @@ var name6
 var height1
 var height2
 var height3
-var height4 
+var height4
 var height5
 var height6
 var erledigt
@@ -115,7 +115,6 @@ function hoeher()
   toast = new bootstrap.Toast(toastLiveExample)
   hoehe = hoehe - (630 / maxHoehe)
   console.log ("neue Hoehe: " + hoehe)
-  goalpassed = "True"
 
   erledigt++
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
