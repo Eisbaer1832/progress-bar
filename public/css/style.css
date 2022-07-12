@@ -7,6 +7,16 @@
      
     }
 
+    .center-mobile {
+      width: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+   
+  }
+
+
     .header {
       margin-top: 0;
       margin-right: 0%;
@@ -70,4 +80,8 @@
       font-family: Georgia, 'Times New Roman', Times, serif;
       margin-left: 10%;
       margin-top: 40%;
+    }
+
+    .mobile-list{
+      size: 1000%;
     }

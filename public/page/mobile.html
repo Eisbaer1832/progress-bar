@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-bright bg-bright fixed-top">
+        <div class="container-fluid bg-light">
+            <img src="/public/assets/cropped-KL_Website_Elemente_Logo_neu.png" style="width:50%" alt="Kanzlei Lotz">
+            <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#stats" aria-label="Close">Menü</button>
+
+          </div>
+      </nav>   
+
+      <!--Offcanvas-->
+      <nav class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="true" data-bs-scroll="true">
+        <div class="offcanvas-header border-bottom">
+          <a href="/" class="d-flex align-items-center text-decoration-none offcanvas-title d-sm-block">
+            <h3>
+              <i class="offcanvas-body"></i>
+              Menü
+            </h3>
+          </a>
+          <button type="button" class="btn btn-outline-secondary" data-bs-target="#HilfeModal" data-bs-toggle="modal">Hilfe</button></button>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+        </div>
+        <div class="offcanvas-body px-0">
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div class="d-grid gap-2 col-8 mx-auto">
+                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="hoeher();">Hinzufügen!</button></button>
+                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Mehrere Hinzufügen!</button></button>                
+                <button type="button" class="btn btn-primary" data-bs-target="#resetModal" data-bs-toggle="modal">Reset</button></button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas2" aria-label="Close">Ziele</button>
+                <div class="collapse show" id="home-collapse">
+                  <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  </ul>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                  <span class="input-group-text" name="maxHoehe" id="inputGroup-sizing-sm">Maximale Anzahl</span>
+                  <input type="text" class="form-control"  id="maxHoehe" aria-describedby="inputGroup-sizing-sm">
+                  <button class="btn btn-outline-secondary" onclick="MaximaleHoehe()" type="button">Los</button>
+                </div>
+              </div>
+            </li>
+        </div>
+      </nav>
+
+      <!--Ziel Offcanvas-->
+      <nav class="offcanvas offcanvas-start" data-bs-target tabindex="-1" id="offcanvas2" data-bs-keyboard="false" data-bs-backdrop="true" data-bs-scroll="true">
+        <div class="offcanvas-header border-bottom">
+          <a href="/" class="d-flex align-items-center text-decoration-none offcanvas-title d-sm-block">
+            <h3>
+              <i class="offcanvas-body"></i>
+              Ziele
+
+            </h3>
+
+          </a>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end"></div>
+              </div>
+        </div>
+        <div class="offcanvas-body px-0" id="goals">
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div>              
+                <h4>Ziel 1</h4>
+                <div class="input-group mb-3">
+                  <input id="goal-name-1" type="text" class="form-control" placeholder="Belohnung">
+                </div>
+                
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="goal-height-1"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                  <button class="btn btn-primary"  onclick="goal(), setgoal1()"  type="button" >Fertig</button>
+                </div>
+            </div>
+          </ul>
+
+            <p></p>  
+
+            <ul class="list-unstyled ps-0">
+              <li class="offcanvas-body">
+                <div>              
+                  <h4>Ziel 2</h4>
+                  <div class="input-group mb-3">
+                    <input id="goal-name-2" type="text" class="form-control" placeholder="Belohnung">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="goal-height-2"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                    <button class="btn btn-primary"  onclick="goal(), setgoal2()"  type="button" >Fertig</button>
+                  </div>
+              </div>
+            </ul>
+
+              <p></p>
+            
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div>              
+                <h4>Ziel 3</h4>
+                <div class="input-group mb-3">
+                  <input id="goal-name-3" type="text" class="form-control" placeholder="Belohnung">
+                </div>
+                
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="goal-height-3"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                  <button class="btn btn-primary"  onclick="goal(), setgoal3()"  type="button" >Fertig</button>
+                </div>
+            </div>
+          </ul> 
+
+          <p></p>
+
+          <ul class="list-unstyled ps-0">
+            <li class="offcanvas-body">
+              <div>              
+                <h4>Ziel 4</h4>
+                <div class="input-group mb-3">
+                  <input id="goal-name-4" type="text" class="form-control" placeholder="Belohnung">
+                </div>
+                
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="goal-height-4"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                  <button class="btn btn-primary"  onclick="goal(), setgoal4()"  type="button" >Fertig</button>
+                </div>
+            </div>
+          </ul>
+
+            <p></p>
+
+            <ul class="list-unstyled ps-0">
+              <li class="offcanvas-body">
+                <div>              
+                  <h4>Ziel 5</h4>
+                  <div class="input-group mb-3">
+                    <input id="goal-name-5" type="text" class="form-control" placeholder="Belohnung">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="goal-height-5"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                    <button class="btn btn-primary"  onclick="goal(), setgoal5()"  type="button" >Fertig</button>                  
+                  </div>
+              </div>
+            </ul>     
+
+            <p></p>
+
+            <ul class="list-unstyled ps-0">
+              <li class="offcanvas-body">
+                <div>              
+                  <h4>Ziel 6</h4>
+                  <div class="input-group mb-3">
+                    <input id="goal-name-6" type="text" class="form-control" placeholder="Belohnung">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="goal-height-6"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                    <button class="btn btn-primary"  onclick="goal(), setgoal6()"  type="button" >Fertig</button>                  
+                  </div>
+              </div>
+            </ul>            
+        </div>
+      </nav>
+
+      <!--Reset Modal-->
+      <div class="modal fade" id="resetModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Moechtest du den Fortschritt wirklich zurücksetzen?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <button data-bs-target="#maxHoeheModal" data-bs-toggle="modal" class="btn btn-primary" data-bs-dismiss="modal" onclick="reset()" type="button">Ja</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Nein</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--Höher Modal-->
+      <div class="modal fade" id="hoeherModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Wie viel hast du erledigt?</h5>
+            </div>
+            <div class="modal-body">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <input type="text" placeholder="Anzahl" class="form-control"  id="am_hoechsten">
+                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="am_hoechsten()" type="button">Los</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    <!--Hilfe Modal-->
+    <div class="modal fade" id="HilfeModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Wichtige Infos / Hilfe</h5>
+            </div>
+            <div class="modal-body">
+            <p>
+                ⚫ Das Passwort ist nicht verschlüsselt! Bitte hinterlege keine häufiger verwendeten Passwörter!
+            </p>
+            <p>
+                ⚫ Bei Problemen ist das Neuladen der Seite immer gut. Wenn das nicht hilft, kannst du eine Email an tino.brinker@ewe.net schicken.
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+      <!--Passwort-->      
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="Passwort" aria-labelledby="Passwort">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Gebe das Passwort ein!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-grid gap-1">
+            <input type="text" placeholder="Passwort" class="form-control" id="passwort">
+            <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#Passwort" onclick="passwortfunction()" type="button">Los</button>         
+        </div>
+      </div>
+
+
+      <!--maxHoehe-->
+      <div class="modal fade" id="maxHoeheModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Gib deinen neuen Hoechstwert ein!</h5>
+            </div>
+            <div class="modal-body">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <input type="text" class="form-control"  id="maxHoehe2">
+                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="MaximaleHoehe2()" type="button">Los</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+        <!--Termometer-->
+        <tr>      
+        <div class="image-div" style="position:relative; margin-top: 110%; ;">
+            <img class="center-mobile " id="Termometer"  src="/public/assets/Termometer.png" alt="Termometer,animated">
+        </div>
+        </tr>
+
+        <!--List group-->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="stats" aria-labelledby="stats">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Daten</h5>
+                <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#Passwort"  aria-label="Close" >Admin</button>
+
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+            </div>
+                <div class="offcanvas-body mobile-list">
+                    <div class="offcanvas-header border-bottom">
+                        <tablestyle="width:100%">
+                            <tr>       
+                            <div class="list-group " style="margin-top: 0.8%" >
+                                <div style="margin-top: 1%;" class="list-group-item" aria-current="true">
+                                <div >
+                                    <h5 class="mb-1">Schon geschafft:</h5>
+                                </div>
+                                <p class="mb-1" id="erledigt"></p>
+                                <small>Sehr gut 👍</small>
+                                </div>
+
+                                <div class="list-group-item " aria-current="true">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Noch zu erledigen:</h5>
+                                </div>
+                                <p class="mb-1" id="nochzutuen"></p>
+                                <small></small>
+                                </div>
+
+                                <div class="list-group-item " aria-current="true">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">Anzahl bis zum nächsten Ziel:</h5>
+                                </div>
+                                <p class="mb-1" id="bis-nächstes-ziel"></p>
+                                <small></small>
+                                </div>
+
+                                <div class="list-group-item " aria-current="true">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1" >Nächste Belohnung:</h5>
+                                </div>
+                                <p class="mb-1" id="goal-text"></p>
+                                <small></small>
+                                </div>
+
+                                <div class="list-group-item " aria-current="true">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h1 id="currentgift" style="font-size: 50px;"></h1>
+                                    <img id="gift" src="/public/assets/Gift.png" alt="gift" style="width: 20%; margin-right: 40%; ">
+                                </div>
+                                </div>
+                            </table>
+                            </div>
+                        </div>        
+                    </tr>
+                </div>
+            </div>
+        </div>
+      
+      
+
+
+
+            
+
+      <!--addToast-->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="" class="rounded me-2" alt="&#127777;&#65039">
+            <strong class="me-auto">Hinzugefügt!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Es ist wärmer geworden. 😎
+          </div>
+        </div>
+      </div>
+
+      <!--Falsches  Passwort Toast-->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="passwortwrongtoast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="" class="rounded me-2" alt="🔒&#65039">
+            <strong class="me-auto">Falsches Passwort</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+              Dein Passwort ist nicht korrekt. 😕
+          </div>
+        </div>
+      </div>
+      <!--addToastGoal-->
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <img src="" class="rounded me-2" alt="&#127777;&#65039">
+            <strong class="me-auto">Geschafft!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Du hast ein Ziel erreicht 🎉
+          </div>
+        </div>
+      </div>
+      <script src="/public/js/jquery-3.6.0.min.js"></script>
+      <script src="/public/css/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/public/js/script.js"></script>
+      </body>
+
+</html>
