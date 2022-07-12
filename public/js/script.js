@@ -26,6 +26,7 @@ var saved
 load()
 
 
+
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
 const termometer = document.getElementById("Termometer");
