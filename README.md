@@ -12,12 +12,11 @@
 ### 
     Installiere nodejs und npm.
     Dann führe install.sh als root aus. 
-    Wenn du Windows nutzt kann es sein, dass du die Npm Module manuell installieren musst.
+    Wenn du Windows nutzt, musst du die Npm Module manuell installieren.
     Als nächstes, gebe deinen gewünschten Port in app.js in Zeile 4 ein.
     Wenn du diese App als webserver nutzen willst, kannst du z.B. Reverse Proxy nutzen.
     Das Admin Passwort steht in save_passwort.txt.
-    !!! Die verbindung ist standertmäßig nicht verschlüsselt oder gesichert, nutze kein eigenes Passwort oder füge
-    selbst eine Verschlüsselung hinzu.
+    !!! Die verbindung ist standertmäßig nicht verschlüsselt oder gesichert, nutze kein eigenes Passwort oder füge selbst eine Verschlüsselung hinzu. !!!
     Nun kannst du "node app.js" ausführen.
 <br>
 
