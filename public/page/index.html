@@ -14,9 +14,8 @@
     <!--Navbar-->
     <nav class="navbar navbar-bright bg-bright fixed-top">
         <div class="container-fluid">
-            <img src="/public/assets/cropped-KL_Website_Elemente_Logo_neu.png" alt="Kanzlei Lotz">
-            <p class="header">J A Challenge 2022 </p>
-            <button class="btn btn-primary " id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#PasswortModal" role="button" aria-label="Toggle menu">Menü</button>
+            <p class="header">progress-bar</p>
+            <button class="btn btn-primary " id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#PasswortModal" role="button" aria-label="Toggle menu">menu</button>
           </div>
       </nav>   
 
@@ -29,14 +28,14 @@
               Menü
             </h3>
           </a>
-          <button type="button" class="btn btn-outline-secondary" data-bs-target="#HilfeModal" data-bs-toggle="modal">Hilfe</button></button>
+          <button type="button" class="btn btn-outline-secondary" data-bs-target="#HilfeModal" data-bs-toggle="modal">Help</button></button>
         </div>
         <div class="offcanvas-body px-0">
           <ul class="list-unstyled ps-0">
             <li class="offcanvas-body">
               <div class="d-grid gap-2 col-8 mx-auto">
                 <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="hoeher();">Hinzufügen!</button></button>
-                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Mehrere Hinzufügen!</button></button>                
+                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Add multiple!</button></button>                
                 <button type="button" class="btn btn-primary" data-bs-target="#resetModal" data-bs-toggle="modal">Reset</button></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas2" aria-label="Close">Ziele</button>
                 <div class="collapse show" id="home-collapse">
@@ -46,7 +45,7 @@
                 <div class="input-group input-group-sm mb-3">
                   <span class="input-group-text" name="maxHoehe" id="inputGroup-sizing-sm">Maximale Anzahl</span>
                   <input type="text" class="form-control"  id="maxHoehe" aria-describedby="inputGroup-sizing-sm">
-                  <button class="btn btn-outline-secondary" onclick="MaximaleHoehe()" type="button">Los</button>
+                  <button class="btn btn-outline-secondary" onclick="MaximaleHoehe()" type="button">Go</button>
                 </div>
               </div>
             </li>
@@ -59,7 +58,7 @@
           <a href="/" class="d-flex align-items-center text-decoration-none offcanvas-title d-sm-block">
             <h3>
               <i class="offcanvas-body"></i>
-              Ziele
+              Goals
 
             </h3>
 
@@ -77,8 +76,8 @@
                 </div>
                 
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="goal-height-1"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                  <button class="btn btn-primary"  onclick="goal(), setgoal1()"  type="button" >Fertig</button>
+                  <input type="text" class="form-control" id="goal-height-1"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="hight" >
+                  <button class="btn btn-primary"  onclick="goal(), setgoal1()"  type="button" >done</button>
                 </div>
             </div>
           </ul>
@@ -90,12 +89,12 @@
                 <div>              
                   <h4>Ziel 2</h4>
                   <div class="input-group mb-3">
-                    <input id="goal-name-2" type="text" class="form-control" placeholder="Belohnung">
+                    <input id="goal-name-2" type="text" class="form-control" placeholder="reward">
                   </div>
                   
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="goal-height-2"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                    <button class="btn btn-primary"  onclick="goal(), setgoal2()"  type="button" >Fertig</button>
+                    <input type="text" class="form-control" id="goal-height-2"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hight" >
+                    <button class="btn btn-primary"  onclick="goal(), setgoal2()"  type="button" >Done</button>
                   </div>
               </div>
             </ul>
@@ -107,11 +106,11 @@
               <div>              
                 <h4>Ziel 3</h4>
                 <div class="input-group mb-3">
-                  <input id="goal-name-3" type="text" class="form-control" placeholder="Belohnung">
+                  <input id="goal-name-3" type="text" class="form-control" placeholder="reward">
                 </div>
                 
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="goal-height-3"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                  <input type="text" class="form-control" id="goal-height-3"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hight" >
                   <button class="btn btn-primary"  onclick="goal(), setgoal3()"  type="button" >Fertig</button>
                 </div>
             </div>
@@ -128,7 +127,7 @@
                 </div>
                 
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" id="goal-height-4"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
+                  <input type="text" class="form-control" id="goal-height-4"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hight" >
                   <button class="btn btn-primary"  onclick="goal(), setgoal4()"  type="button" >Fertig</button>
                 </div>
             </div>
@@ -141,7 +140,7 @@
                 <div>              
                   <h4>Ziel 5</h4>
                   <div class="input-group mb-3">
-                    <input id="goal-name-5" type="text" class="form-control" placeholder="Belohnung">
+                    <input id="goal-name-5" type="text" class="form-control" placeholder="reward">
                   </div>
                   
                   <div class="input-group mb-3">
@@ -163,7 +162,7 @@
                   
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" id="goal-height-6"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                    <button class="btn btn-primary"  onclick="goal(), setgoal6()"  type="button" >Fertig</button>                  
+                    <button class="btn btn-primary"  onclick="goal(), setgoal6()"  type="button" >Done</button>                  
                   </div>
               </div>
             </ul>            
@@ -175,13 +174,13 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Moechtest du den Fortschritt wirklich zurücksetzen?</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Do you really want to reset your progress?</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
-                <button data-bs-target="#maxHoeheModal" data-bs-toggle="modal" class="btn btn-primary" data-bs-dismiss="modal" onclick="reset()" type="button">Ja</button>
-                <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Nein</button>
+                <button data-bs-target="#maxHoeheModal" data-bs-toggle="modal" class="btn btn-primary" data-bs-dismiss="modal" onclick="reset()" type="button">Yes</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" type="button">No</button>
               </div>
             </div>
 
@@ -196,12 +195,12 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Wie viel hast du erledigt?</h5>
+              <h5 class="modal-title" id="exampleModalLabel">How much did you finished?</h5>
             </div>
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
                 <input type="text" placeholder="Anzahl" class="form-control"  id="am_hoechsten">
-                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="am_hoechsten()" type="button">Los</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="am_hoechsten()" type="button">Go</button>
               </div>
             </div>
 
@@ -221,9 +220,6 @@
               <p>
                 ⚫ Das Passwort ist nicht verschlüsselt! Bitte hinterlege keine häufiger verwendeten Passwörter!
               </p>
-              <p>
-                ⚫ Bei Problemen ist das Neuladen der Seite immer gut. Wenn das nicht hilft, kannst du eine Email an tino.brinker@ewe.net schicken.
-              </p>
             </div>
           </div>
         </div>
@@ -234,7 +230,7 @@
           <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Gebe das Passwort ein! 🔑</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Enter your password! 🔑</h5>
                 </div>
                 <div class="modal-body">
                   <div class="d-grid gap-2 col-6 mx-auto">
@@ -274,7 +270,7 @@
                 <h5 class="mb-1">Schon geschafft:</h5>
               </div>
               <p class="mb-1" id="erledigt"></p>
-              <small>Sehr gut 👍</small>
+              <small>Great 👍</small>
             </div>
 
             <div class="list-group-item " aria-current="true">
@@ -333,7 +329,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
           <div class="toast-body">
-            Es ist wärmer geworden. 😎
+            Its hotter now. 😎
           </div>
         </div>
       </div>
@@ -347,7 +343,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
           <div class="toast-body">
-              Dein Passwort ist nicht korrekt. 😕
+              The password you entered is false. 😕
           </div>
         </div>
       </div>
@@ -360,7 +356,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
           <div class="toast-body">
-            Du hast ein Ziel erreicht 🎉
+            You reached a goal 🎉
           </div>
         </div>
       </div>
