@@ -11,7 +11,8 @@
 ## Installation
 ### 
     Install nodejs and npm.
-    Then run install.sh as root. 
+    Then run install.sh as root.
+    Just follow the instructions given by the script.
     On Windows you have to install npm dependencys manually.
     Next enter your wished Port in the app.js line 4.
     If you want to use it on a webser setup a reverse Proxy.
