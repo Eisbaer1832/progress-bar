@@ -21,6 +21,16 @@ touch name6.txt
 touch nochzutuen.txt
 touch saved_passwort.txt
 touch text.txt
+echo "Goal1" >> name1.txt
+echo "Goal2" >> name2.txt
+echo "Goal3" >> name3.txt
+echo "Goal4" >> name4.txt
+echo "Goal5" >> name5.txt
+echo "Goal6" >> name6.txt
+echo "0" >> erledigt.txt
+echo "640" >> hoehe.txt
+echo "True" >> goalpassed.txt
+
 echo "Please enter your administrator Password. It will be needet to add goals, increase Values, usw."
 read Password
 echo Password >> saved_password.txt
