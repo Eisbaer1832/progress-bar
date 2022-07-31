@@ -80,7 +80,9 @@
                 
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" id="goal-height-1"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                  <button class="btn btn-primary"  onclick="goal(), setgoal1()"  type="button" >Fertig</button>
+                  <button class="btn btn-primary"  onclick="goal(), setgoal1()"  type="button" >
+                    
+                    </button>
                 </div>
             </div>
           </ul>
@@ -97,7 +99,7 @@
                   
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" id="goal-height-2"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                    <button class="btn btn-primary"  onclick="goal(), setgoal2()"  type="button" >Fertig</button>
+                    <button class="btn btn-primary"  onclick="goal(), setgoal2()"  type="button" >done</button>
                   </div>
               </div>
             </ul>
@@ -114,7 +116,7 @@
                 
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" id="goal-height-3"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                  <button class="btn btn-primary"  onclick="goal(), setgoal3()"  type="button" >Fertig</button>
+                  <button class="btn btn-primary"  onclick="goal(), setgoal3()"  type="button" >done</button>
                 </div>
             </div>
           </ul> 
@@ -131,7 +133,7 @@
                 
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" id="goal-height-4"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                  <button class="btn btn-primary"  onclick="goal(), setgoal4()"  type="button" >Fertig</button>
+                  <button class="btn btn-primary"  onclick="goal(), setgoal4()"  type="button" >done</button>
                 </div>
             </div>
           </ul>
@@ -148,7 +150,7 @@
                   
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" id="goal-height-5"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                    <button class="btn btn-primary"  onclick="goal(), setgoal5()"  type="button" >Fertig</button>                  
+                    <button class="btn btn-primary"  onclick="goal(), setgoal5()"  type="button" >done</button>                  
                   </div>
               </div>
             </ul>     
@@ -165,7 +167,7 @@
                   
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" id="goal-height-6"  ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode>=48 && event.charCode<=57" pattern="[0-640]+" placeholder="Hoehe" >
-                    <button class="btn btn-primary"  onclick="goal(), setgoal6()"  type="button" >Fertig</button>                  
+                    <button class="btn btn-primary"  onclick="goal(), setgoal6()"  type="button" >done</button>                  
                   </div>
               </div>
             </ul>            
@@ -183,7 +185,7 @@
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
                 <button data-bs-target="#maxHoeheModal" data-bs-toggle="modal" class="btn btn-primary" data-bs-dismiss="modal" onclick="reset()" type="button">Ja</button>
-                <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Nein</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" type="button">no</button>
               </div>
             </div>
 
@@ -203,7 +205,7 @@
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
                 <input type="text" placeholder="Anzahl" class="form-control"  id="am_hoechsten">
-                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="am_hoechsten()" type="button">Los</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="am_hoechsten()" type="button">go</button>
               </div>
             </div>
 
@@ -221,10 +223,7 @@
             </div>
             <div class="modal-body">
             <p>
-                ⚫ Das Passwort ist nicht verschlüsselt! Bitte hinterlege keine häufiger verwendeten Passwörter!
-            </p>
-            <p>
-                ⚫ Bei Problemen ist das Neuladen der Seite immer gut. Wenn das nicht hilft, kannst du eine Email an tino.brinker@ewe.net schicken.
+                ⚫ The password is`nt encryptet! Dont use multple times used passwords!
             </p>
             </div>
         </div>
@@ -239,7 +238,7 @@
         </div>
         <div class="offcanvas-body d-grid gap-1">
             <input type="text" placeholder="Passwort" class="form-control" id="passwort">
-            <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#Passwort" onclick="passwortfunction()" type="button">Los</button>         
+            <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#Passwort" onclick="passwortfunction()" type="button">go</button>         
         </div>
       </div>
 
@@ -254,7 +253,7 @@
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
                 <input type="text" class="form-control"  id="maxHoehe2">
-                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="MaximaleHoehe2()" type="button">Los</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="MaximaleHoehe2()" type="button">go</button>
               </div>
             </div>
 
@@ -285,15 +284,15 @@
                             <div class="list-group " style="margin-top: 0.8%" >
                                 <div style="margin-top: 1%;" class="list-group-item" aria-current="true">
                                 <div >
-                                    <h5 class="mb-1">Schon geschafft:</h5>
+                                    <h5 class="mb-1">Already done:</h5>
                                 </div>
                                 <p class="mb-1" id="erledigt"></p>
-                                <small>Sehr gut 👍</small>
+                                <small>Well done 👍</small>
                                 </div>
 
                                 <div class="list-group-item " aria-current="true">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">Noch zu erledigen:</h5>
+                                    <h5 class="mb-1">Left:</h5>
                                 </div>
                                 <p class="mb-1" id="nochzutuen"></p>
                                 <small></small>
@@ -301,7 +300,7 @@
 
                                 <div class="list-group-item " aria-current="true">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">Anzahl bis zum nächsten Ziel:</h5>
+                                    <h5 class="mb-1">Until next goal:</h5>
                                 </div>
                                 <p class="mb-1" id="bis-nächstes-ziel"></p>
                                 <small></small>
@@ -309,7 +308,7 @@
 
                                 <div class="list-group-item " aria-current="true">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1" >Nächste Belohnung:</h5>
+                                    <h5 class="mb-1" >Next suprise:</h5>
                                 </div>
                                 <p class="mb-1" id="goal-text"></p>
                                 <small></small>
@@ -344,7 +343,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
           <div class="toast-body">
-            Es ist wärmer geworden. 😎
+            It`s hotter now. 😎
           </div>
         </div>
       </div>
@@ -354,11 +353,11 @@
         <div id="passwortwrongtoast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header">
             <img src="" class="rounded me-2" alt="🔒&#65039">
-            <strong class="me-auto">Falsches Passwort</strong>
+            <strong class="me-auto">Wrong password</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
           <div class="toast-body">
-              Dein Passwort ist nicht korrekt. 😕
+              The password you entered isnt correct. 😕
           </div>
         </div>
       </div>
@@ -371,7 +370,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
           <div class="toast-body">
-            Du hast ein Ziel erreicht 🎉
+            You achieved a goal 🎉
           </div>
         </div>
       </div>
