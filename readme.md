@@ -1,10 +1,9 @@
 
 <h1 align="center">
-  <br>
-  <br>
+
   Progress-Bar
-  <br>
 </h1>
+<br/><br/>
 
 ## Description 
 This progress bar is a simple website that can show your current progress and
@@ -12,7 +11,7 @@ can create Goals. All values needed, can be customized.
 
 If you have improvements, feel free to create a pull requests or open an issued.
 
-
+<br/><br/>
 ## Installation (Linux only)
 Install nodejs and npm.
 ```
@@ -30,7 +29,7 @@ Finally just run
 ```
 $ node app.js 
 ```
-
+<br/><br/>
 ## Installation (Windows, not officially supported)
 
 Install nodejs and npm.
@@ -43,13 +42,13 @@ If you have node correctly set up run:
 ```
 $ node app.js
 ```
-otherwise [tis might help](ttps://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows)
-
+otherwise [this might help](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
+<br/><br/>
 ## Used dependencys
 * nodeJs
 * bootstrap
 * jquery
-
+<br/><br/>
 ### Npm packages
     express 
     io
