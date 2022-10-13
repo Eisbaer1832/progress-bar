@@ -37,7 +37,7 @@ Now you have to Install all npm packages listed down below.
 Next create txt Files listed in Install.sh
 Next enter your wished Port in the app.js line 4.
 The Admin Pasword is saved in saved_passwort.txt.
-!!! The connection is`nt encrypted out of the box, you may have to encrypt it or don`t use your own password.
+!!! The connection isnt encrypted out of the box, you may have to encrypt it or dont use your own password.
 If you have node correctly set up run:
 ```
 $ node app.js
