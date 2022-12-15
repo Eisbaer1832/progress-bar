@@ -135,6 +135,13 @@ class APIResourceRequest {
         let json = null;
 
         if (expectJSON || (res.headers['content-type'] || '').split(';')[0] === 'application/json') {
+          if (res.statusCode === 204 && body.byteLength === 0) {
+            return resolve({
+              body: body,
+              headers: res.headers,
+              statusCode: res.statusCode
+            });
+          }
           let str = body.toString();
           try {
             json = JSON.parse(str);
