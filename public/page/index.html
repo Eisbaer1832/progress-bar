@@ -267,17 +267,27 @@
         </div>
       </div>
 
+
     <!--Goal-->
-      <div class="content" >
-        <h1 id="currentgift" class="goal-class gifttext animate__animated animate__backInDown"></h1>
+      <div class="content" style="margin-top: 11rem !important; float: right; width: 60%; padding-bottom:15rem !important;" >
+        <h1 class="giftheader"> Aktuelle Belohnung:</h1>
+        <h2 id="currentgift" class="goal-class gifttext animate__animated animate__backInDown"></h2>
       </div>
 
-      <div class="content ">
+      <!--Termometer-->
+      <div class="content image-div" style="margin-top: 11rem !important">
+        <div class="image-div" style="position:relative; margin-top: 1%">
+         <img class="center " id="Termometer"  src="/public/assets/Termometer2.png" alt="Termometer,animated">
+       </div>
+     </div>
+
+
+      <div class="content" style="width: 60%; padding-bottom: 0rem !important; float: right">
         <!--List group-->
         <table style="width:100%">
           <tr >
-             <div class="list-group list" style="margin-top: -1rem" >
-              <div style="margin-top: 40%;" class="list-group-item clist" aria-current="true">
+             <div class="list-group listcontainer">
+              <div style="border-top-left-radius: 1rem; border-top-right-radius: 1rem" class="list-group-item clist"  aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">Schon geschafft:</h5>
                 </div>
@@ -301,7 +311,7 @@
                 <small></small>
               </div>
 
-              <div style="border-bottom-left-radius: 2rem" class="list-group-item clist" aria-current="true">
+              <div style="border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem" class="list-group-item clist" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1" >Nächste Belohnung:</h5>
                 </div>
@@ -312,13 +322,7 @@
           </div>
         </tr>
       </table>
-
       </div>
-
-         <!--Termometer-->
-            <div class="image-div" style="position:relative; margin-top: 1%">
-              <img class="center " id="Termometer"  src="/public/assets/Termometer2.png" alt="Termometer,animated">
-            </div>
 
 
 
@@ -372,7 +376,7 @@
         }else{
         };
       </script>
-      </body>
+  </body>
 
 <script>
   let height = document.documentElement.clientHeight

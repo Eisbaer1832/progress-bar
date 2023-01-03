@@ -1,11 +1,20 @@
 .center {
-  width: 150px;
-  left: 7rem;
-  margin-top: -40%;
-  margin-right: 4rem;
+  width: 10rem;
   position: absolute;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  margin-top: -3rem;
 }
 
+.image-div {
+  padding-top: 12rem;
+  width: 30%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .center-mobile {
   width: 200px;
   position: absolute;
@@ -67,17 +76,32 @@ body {
 
 .gifttext{
   position: absolute;
-  margin-top: 5rem;
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-top: 4.5rem;
+  width: 40%;
+  margin-left: 10%;
+  margin-right: 10%;
   background-color: #181926;
   text-align: center;
-  color: white;
-  font-size: 4rem;
+  color: #cad3f5;
+  font-size: 3rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
+}
+
+.giftheader {
+  position: absolute;
+  margin-top: 2rem;
+  width: 40%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #181926;
+  text-align: center;
+  color: #cad3f5;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  padding: 0.5rem;
 }
 
 .mobile-list{
@@ -92,7 +116,7 @@ body {
 .cnavbar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   border-radius: 1rem;
-  background-color: #ccd0da;
+  background-color: #b8c0e0;
   margin: 0.8rem;
   position: absolute;
 }
@@ -103,15 +127,19 @@ body {
 }
 
 .clist {
-  background-color: #ccd0da;
+  color:#cad3f5;
+  background-color: #5b6078;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  margin-left: 18rem;
 }
 
 .content {
   border-radius: 1rem;
   padding-bottom: 20rem;
   margin: 1rem;
-  margin-top:11rem !important;
+  margin-top: 2rem !important;
   background-color: #24273a;
+}
+
+.listcontainer {
+  margin: 2.5rem;
 }
