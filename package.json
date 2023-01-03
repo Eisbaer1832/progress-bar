@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "ajax": "^0.0.4",
+    "animate.css": "^4.1.1",
     "express": "^4.18.1",
     "io": "^1.0.5",
     "jquery": "^3.6.1",

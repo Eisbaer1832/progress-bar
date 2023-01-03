@@ -7,18 +7,20 @@
     <title>Progress Bar</title>
     <link rel="stylesheet" type="text/css" href="public/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
-<body>
+<body >
     <!--Navbar-->
-    <nav class="navbar navbar-bright bg-bright fixed-top">
+    <nav class="navbar cnavbar navbar-light fixed-top"  >
         <div class="container-fluid">
-            <img src="/public/assets/cropped-KL_Website_Elemente_Logo_neu.png" alt="Kanzlei Lotz">
-            <p class="header">J A Challenge 2022 </p>
-            <button class="btn btn-primary " id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#PasswortModal" role="button" aria-label="Toggle menu">Menü</button>
+            <a class="navbar-brand header" href="#">
+              <img id="title" class="title-image" src="/public/assets/cropped-KL_Website_Elemente_Logo_neu.png" alt="Kanzlei Lotz">
+                | J A Challenge 2022
+            </a>
+            <button class="btn btn-primary cbutton" id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#PasswortModal" role="button" aria-label="Toggle menu">Menü</button>
           </div>
-      </nav>   
+      </nav>
 
       <!--Offcanvas-->
       <nav class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="true" data-bs-scroll="true">
@@ -265,64 +267,60 @@
         </div>
       </div>
 
-      <!--List group-->
-      <table style="width:100%">
-        <tr>       
-           <div class="list-group list" style="margin-top: 0.8%" >
-            <div style="margin-top: 40%;" class="list-group-item " aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Schon geschafft:</h5>
-              </div>
-              <p class="mb-1" id="erledigt"></p>
-              <small>Sehr gut 👍</small>
-            </div>
+    <!--Goal-->
+      <div class="content" >
+        <h1 id="currentgift" class="goal-class gifttext animate__animated animate__backInDown"></h1>
+      </div>
 
-            <div class="list-group-item " aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Noch zu erledigen:</h5>
+      <div class="content ">
+        <!--List group-->
+        <table style="width:100%">
+          <tr >
+             <div class="list-group list" style="margin-top: -1rem" >
+              <div style="margin-top: 40%;" class="list-group-item clist" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Schon geschafft:</h5>
+                </div>
+                <p class="mb-1" id="erledigt"></p>
+                <small>Sehr gut 👍</small>
               </div>
-              <p class="mb-1" id="nochzutuen"></p>
-              <small></small>
-            </div>
 
-            <div class="list-group-item " aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Anzahl bis zum nächsten Ziel:</h5>
+              <div class="list-group-item clist" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Noch zu erledigen:</h5>
+                </div>
+                <p class="mb-1" id="nochzutuen"></p>
+                <small></small>
               </div>
-              <p class="mb-1" id="bis-nächstes-ziel"></p>
-              <small></small>
-            </div>
 
-            <div class="list-group-item " aria-current="true">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1" >Nächste Belohnung:</h5>
+              <div class="list-group-item clist" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1">Anzahl bis zum nächsten Ziel:</h5>
+                </div>
+                <p class="mb-1" id="bis-nächstes-ziel"></p>
+                <small></small>
               </div>
-              <p class="mb-1" id="goal-text"></p>
-              <small></small>
-            </div>
-          </div>
-        </div>        
-      </tr>
-      
-       <!--Termometer-->
-        <tr>      
-          <div class="image-div" style="position:relative; margin-top: 1%">
-            <img class="center " id="Termometer"  src="/public/assets/Termometer.png" alt="Termometer,animated">
-          </div>
-        </tr>
 
-      <!--Goal-->
-        <tr>        
-          <div class="goal-class" style="margin-top: -23%;">
-            <h1 id="currentgift" class=""></h1>
-            <img class=" " id="gift" src="/public/assets/Gift.png" alt="gift" style=" margin-left:3%; width: 80%;">
+              <div style="border-bottom-left-radius: 2rem" class="list-group-item clist" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1" >Nächste Belohnung:</h5>
+                </div>
+                <p class="mb-1" id="goal-text"></p>
+                <small></small>
+              </div>
+            </div>
           </div>
         </tr>
-
       </table>
 
+      </div>
 
-            
+         <!--Termometer-->
+            <div class="image-div" style="position:relative; margin-top: 1%">
+              <img class="center " id="Termometer"  src="/public/assets/Termometer2.png" alt="Termometer,animated">
+            </div>
+
+
 
       <!--addToast-->
       <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
@@ -337,7 +335,6 @@
           </div>
         </div>
       </div>
-
       <!--Falsches  Passwort Toast-->
       <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="passwortwrongtoast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -377,4 +374,29 @@
       </script>
       </body>
 
+<script>
+  let height = document.documentElement.clientHeight
+  let width = document.documentElement.clientWidth
+  const title = document.getElementById('title');
+  const currentgiftid = document.getElementById('currentgift');
+
+  navedit()
+  function navedit() {
+    if (width < 1300) {
+      console.log("Futsch")
+      title.style.display = "none"
+      currentgiftid.style.fontSize = "40px"
+
+    } else {
+      title.style.display = "inline"
+    }
+  }
+
+  addEventListener("resize", (event) => {});
+  onresize = (event) => {
+    height = document.documentElement.clientHeight
+    width = document.documentElement.clientWidth
+    navedit()
+  }
+</script>
 </html>

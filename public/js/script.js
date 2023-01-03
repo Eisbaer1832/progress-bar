@@ -4,7 +4,6 @@ var name1
 var name2
 var name3
 var name4
-var name4
 var name5
 var name6
 var height1
@@ -23,8 +22,16 @@ var authorized
 var goalpassed
 var min
 var saved
-load()
 
+
+
+addEventListener("resize", (event) => {});
+onresize = (event) => {
+  height = document.documentElement.clientHeight
+  width = document.documentElement.clientWidth
+  navedit()
+}
+load()
 
 
 var toastTrigger = document.getElementById('liveToastBtn')
@@ -37,7 +44,6 @@ min = (Math.min(height1, height2, height3, height4, height5, height6));
 currentgiftfunction()
 masheightCheck()
 
-
 termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
 document.getElementById("erledigt").innerHTML = erledigt;
 document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
@@ -45,13 +51,8 @@ document.getElementById("goal-text").innerHTML = currentgoal;
 
 
 console.log (passwort)
-console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe, currentgoal, nochzutuen)
+//console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe, currentgoal, nochzutuen)
 
-  gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-  gift.addEventListener('animationend', () => {
-      gift.classList.  goalpassed = "False"
-      document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
-    });
 document.getElementById("bis-nächstes-ziel").innerHTML = min - erledigt;
 
 
@@ -94,14 +95,12 @@ function hoeher()
 
   toast = new bootstrap.Toast(toastLiveExample)
   hoehe = hoehe - (630 / maxHoehe)
-  console.log ("neue Hoehe: " + hoehe)
-
   erledigt++
+  termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
 
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
-  console.log("erledigt: " + erledigt)
   toast.show()
   goal()
   save_erledigt()
@@ -118,7 +117,6 @@ function am_hoechsten()
 
   toast = new bootstrap.Toast(toastLiveExample)
   hoehe = hoehe - ((630 / maxHoehe)*am_hoechsten)
-  console.log ("neue Hoehe: " + hoehe)
 
 
   erledigt = erledigt+1*am_hoechsten
@@ -127,7 +125,6 @@ function am_hoechsten()
 
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
-  console.log("erledigt: " + erledigt)
   toast.show()
 
   masheightCheck()
@@ -173,63 +170,41 @@ function masheightCheck(){
 }
 
 function currentgiftfunction(){
-  console.log("currentgiftfunction")
-  
+
   if(height1 != 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99996 && height6 != 99995){
     currentgift = "Noch kein Ziel erreicht."
     currentgoal = name1
     document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
     save_currentgift()
-    const gift = document.querySelector('#gift');
-    gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-    gift.addEventListener('animationend', () => {
-        gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-        gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-        document.getElementById("currentgift").innerHTML = currentgift;
-        document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
+    document.getElementById("currentgift").innerHTML = currentgift;
 
-  })};
+  }
     if(height1 == 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
       currentgift = name1
       currentgoal = name2
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
       save_currentgift()
-      const gift = document.querySelector('#gift');
-      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-      gift.addEventListener('animationend', () => {
-          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-          document.getElementById("currentgift").innerHTML = currentgift;
-          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
-    })};
+      document.getElementById("currentgift").innerHTML = currentgift;
+
+    }
 
     if(height1 == 999999 && height2 == 999998 && height3 != 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
           currentgift = name2
           currentgoal = name3
           document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
           save_currentgift()
-          const gift = document.querySelector('#gift');
-          gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-          gift.addEventListener('animationend', () => {
-              gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-              gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-              document.getElementById("currentgift").innerHTML = currentgift;
-              document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
-    })};
+          document.getElementById("currentgift").innerHTML = currentgift;
+
+    }
     
     if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
       currentgift = name3
       currentgoal = name4
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
       save_currentgift()
-      const gift = document.querySelector('#gift');
-      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-      gift.addEventListener('animationend', () => {
-          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-          document.getElementById("currentgift").innerHTML = currentgift;
-          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
-    })};
+      document.getElementById("currentgift").innerHTML = currentgift;
+
+    }
 
     if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 != 99995 && height6 != 99994){
       currentgift = name4
@@ -237,13 +212,9 @@ function currentgiftfunction(){
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
       save_currentgift()
       const gift = document.querySelector('#gift');
-      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-      gift.addEventListener('animationend', () => {
-          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-          document.getElementById("currentgift").innerHTML = currentgift;
-          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
-      })};
+      document.getElementById("currentgift").innerHTML = currentgift;
+
+    }
 
 
     if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 99995 && height6 != 99994){
@@ -251,31 +222,19 @@ function currentgiftfunction(){
       currentgoal = name6
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
       save_currentgift()
-      const gift = document.querySelector('#gift');
-      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-      gift.addEventListener('animationend', () => {
-          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-          document.getElementById("currentgift").innerHTML = currentgift;
-          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
-      })};
+      document.getElementById("currentgift").innerHTML = currentgift;
+
+    }
 
     
     if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 999995 && height6 == 999994){
-      console.log("Alles erledigt")
       currentgoal = "keine Preise mehr 😕"
       currentgift = name6
       document.getElementById("bis-nächstes-ziel").innerHTML = "Nichts mehr zu erledigen"
       document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
       save_currentgift()
-      const gift = document.querySelector('#gift');
-      gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
-      gift.addEventListener('animationend', () => {
-          gift.classList.remove("animate__wobble", "animate__animated", "animate__repeat-3");
-          gift.classList.add("animate__animated", "animate__repeat-1", "animate__bounceOutDown");
-          document.getElementById("currentgift").innerHTML = currentgift;
-          document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
-      })};
+      document.getElementById("currentgift").innerHTML = currentgift;
+    };
 }
 
 
@@ -291,7 +250,6 @@ function passwortfunction()
     var showOffcanvas = new bootstrap.Offcanvas(offcanvas)
     showOffcanvas.show()
   }else{
-    console.log("falsches Passwort")
     var showtoast = new bootstrap.Toast(toast)
     showtoast.show()
   }
@@ -377,13 +335,11 @@ function goal()
             document.getElementById("currentgift").innerHTML = currentgift;
             document.getElementById("currentgift").classList.add("animate__animated", "animate__repeat-1","animate__bounceInDown", "goal-text");
           });
-          
+
     }
         
     if (height1 == erledigt){
-        console.log("erledigt: " +erledigt)
         height1 = 999999
-        console.log("height1: " + height1)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name2;
         currentgift = name1
         currentgoal = name2
@@ -396,7 +352,6 @@ function goal()
     
     if (height2 == erledigt){
         height2 = 999998
-        console.log("height2: " + height2)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name3;
          currentgoal = name3
          currentgift = name2
@@ -408,7 +363,6 @@ function goal()
     
     if (height3 == erledigt){
         height3 = 99997
-        console.log("height3: " + height3)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name4;
          currentgoal = name4
          currentgift = name3
@@ -419,7 +373,6 @@ function goal()
     
     if (height4 == erledigt){
         height4 = 999996
-        console.log("height4: " + height4)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name5;
          currentgoal = name5
          currentgift = name4
@@ -430,7 +383,6 @@ function goal()
 
     if (height5 == erledigt){
         height5 = 999995
-        console.log("height: " + height5)
         document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name6;
          currentgoal = name6
          currentgift = name5
@@ -442,7 +394,6 @@ function goal()
 
     if (height6 == erledigt){
         height6 = 999994
-        console.log("height: " + height6)
         currentgift = name6
       save_height6()
       save_currentgoal()
@@ -464,7 +415,6 @@ function goal()
 /////////////////////////////
 
 function load(){
-  console.log("load")
 
   $.ajax({
     dataType: "JSON",
@@ -541,7 +491,6 @@ function load(){
     async : false,
     success: function (lgoalpassed) {
       goalpassed = lgoalpassed
-      console.log ("goalpassed: " + goalpassed)      
       }
   });
 
@@ -771,8 +720,7 @@ function save_hoehe(){
     cache: false,
     url: '/public/hoehe',
     success: function (hoehe) {
-      console.log("saved")
-      window.location.reload();
+        window.location.reload();
     }
   });
 }
