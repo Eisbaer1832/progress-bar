@@ -16,7 +16,7 @@
         <div class="container-fluid">
             <a class="navbar-brand header" href="#">
               <img id="title" class="title-image" src="/public/assets/cropped-KL_Website_Elemente_Logo_neu.png" alt="Kanzlei Lotz">
-                | J A Challenge 2022
+                | JAB-CHALLENGE
             </a>
             <button class="btn btn-primary cbutton" id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#PasswortModal" role="button" aria-label="Toggle menu">Menü</button>
           </div>
@@ -38,7 +38,7 @@
             <li class="offcanvas-body">
               <div class="d-grid gap-2 col-8 mx-auto">
                 <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="hoeher();">Hinzufügen!</button></button>
-                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Mehrere Hinzufügen!</button></button>                
+                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Mehrere hinzufügen!</button></button>                
                 <button type="button" class="btn btn-primary" data-bs-target="#resetModal" data-bs-toggle="modal">Reset</button></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas2" aria-label="Close">Ziele</button>
                 <div class="collapse show" id="home-collapse">
@@ -275,24 +275,24 @@
       </div>
 
       <!--Termometer-->
-      <div class="content image-div" style="margin-top: 11rem !important">
+      <div class="content image-div" style="margin-top: 11rem !important; padding-bottom: 22.5rem !important">
         <div class="image-div" style="position:relative; margin-top: 1%">
          <img class="center " id="Termometer"  src="/public/assets/Termometer2.png" alt="Termometer,animated">
        </div>
      </div>
 
 
-      <div class="content" style="width: 60%; padding-bottom: 0rem !important; float: right">
+      <div class="content" style="width: 60%; padding-bottom: 0rem !important; float: right; ">
         <!--List group-->
         <table style="width:100%">
           <tr >
              <div class="list-group listcontainer">
               <div style="border-top-left-radius: 1rem; border-top-right-radius: 1rem" class="list-group-item clist"  aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Schon geschafft:</h5>
+                  <h5 class="mb-1" style="float:inline-end;">Schon geschafft:</h5>
                 </div>
                 <p class="mb-1" id="erledigt"></p>
-                <small>Sehr gut 👍</small>
+                <small style="float: right; ">Sehr gut 👍</small>
               </div>
 
               <div class="list-group-item clist" aria-current="true">
@@ -300,6 +300,7 @@
                   <h5 class="mb-1">Noch zu erledigen:</h5>
                 </div>
                 <p class="mb-1" id="nochzutuen"></p>
+                <p></p>
                 <small></small>
               </div>
 
@@ -308,7 +309,8 @@
                   <h5 class="mb-1">Anzahl bis zum nächsten Ziel:</h5>
                 </div>
                 <p class="mb-1" id="bis-nächstes-ziel"></p>
-                <small></small>
+                <small style="float: right; ">Bald geschafft 😃</small>
+
               </div>
 
               <div style="border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem" class="list-group-item clist" aria-current="true">
@@ -317,6 +319,7 @@
                 </div>
                 <p class="mb-1" id="goal-text"></p>
                 <small></small>
+                <p></p>
               </div>
             </div>
           </div>

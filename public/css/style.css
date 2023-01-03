@@ -32,7 +32,7 @@
 
 
 body {
-  background-color:;
+  background-color: #ffff;
   margin: 0;
   padding: 0;
 }
@@ -117,7 +117,7 @@ body {
 .cnavbar {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   border-radius: 1rem;
-  background-color: #a6aecc;
+  background-color: #b7bdf8;
   margin: 0.8rem;
   position: absolute;
 }
@@ -128,8 +128,8 @@ body {
 }
 
 .clist {
-  color:#cad3f5;
-  background-color: #5b6078;
+  color:#00475c;
+  background-color: #b7bdf8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -139,8 +139,18 @@ body {
   margin: 1rem;
   margin-top: 2rem !important;
   background-color: #24273a;
+
 }
 
 .listcontainer {
   margin: 2.5rem;
 }
+
+.mobile-content {
+  padding-top: 25rem !important;
+  margin-top: 8rem !important;
+  width: 90% !important;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
