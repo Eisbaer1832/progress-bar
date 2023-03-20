@@ -22,8 +22,33 @@ var authorized
 var goalpassed
 var min
 var saved
+let time_to_display
+const timer_text = document.getElementById("timeleft")
+
+async function getTimestampInSeconds () {
+  while (true)
+  {
+    let time_max = 1706740199
+    let time = Math.floor(Date.now() / 1000)
+    let time_left = new Date ((time_max-time))
+    var d = Math.floor(time_left / (3600*24));
+    var h = Math.floor(time_left % (3600*24) / 3600);
+    var m = Math.floor(time_left % 3600 / 60);
+    var s = Math.floor(time_left % 60);
+    
+    if (h < 10) {h = "0" + h}
+    if (d < 10) {d = "0" + d}
+    if (m < 10) {m = "0" + m}
+
+    //time_to_display = d + " Tage, " + h + " Stunden, " + m + " Minuten, " + s + " Sekunden"
+    time_to_display = d + ":" + h + ":" + m + ":" + s
+    timer_text.innerHTML = time_to_display
+    await new Promise(resolve => setTimeout(resolve, 1000));  
+  }
+}
 
 
+getTimestampInSeconds()
 
 addEventListener("resize", (event) => {});
 onresize = (event) => {
