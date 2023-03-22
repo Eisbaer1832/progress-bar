@@ -24,7 +24,7 @@
 }
 
 .header {
-  font-size: 400%;
+  font-size: 200%;
   color: #00475c !important;
   font-weight: 500;
   font-family: "Noto Sans";
@@ -56,11 +56,24 @@ body {
 }
 
 .line{
-  margin-top: 16.5%;
-  left: 47.67%;
-  width: 300px;
-  position:absolute;
-  border: 3px rgb(109, 223, 223) dotted;
+  z-index: 9;
+  left: 50%;
+  bottom: 227px;
+  max-width: 600px;
+  width: 400px;
+  position:relative;
+  border: 3px #c6a0f6 solid;
+  border-radius: 9px;
+}
+
+.linetext{
+  font-size: 150%;
+  z-index: 9;
+  left: 17%;
+  bottom: 234px;
+  width: 80px;
+  position:relative;
+  color: #c6a0f6;
 }
 
 .image-div{
@@ -90,6 +103,9 @@ body {
   padding: 0.5rem;
 }
 
+#Termometer {
+  animation-direction: reverse;
+}
 .giftheader {
   position: absolute;
   margin-top: 2rem;
@@ -110,6 +126,7 @@ body {
 }
 
 .title-image {
+  height: 2rem;
   margin-right: 1rem;
   margin-top: -1rem;
 }
@@ -120,6 +137,7 @@ body {
   background-color: #b7bdf8;
   margin: 0.8rem;
   position: absolute;
+  height: 5rem;
 }
 
 .cbutton {
@@ -137,7 +155,6 @@ body {
   border-radius: 1rem;
   padding-bottom: 20rem;
   margin: 1rem;
-  margin-top: 2rem !important;
   background-color: #24273a;
 
 }
@@ -153,4 +170,3 @@ body {
   margin-right: 5%;
   margin-left: 5%;
 }
-

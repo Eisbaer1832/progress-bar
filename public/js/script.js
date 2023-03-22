@@ -67,7 +67,6 @@ onresize = (event) => {
 }
 load()
 
-
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
 const termometer = document.getElementById("Termometer");
@@ -78,7 +77,13 @@ min = (Math.min(height1, height2, height3, height4, height5, height6));
 currentgiftfunction()
 masheightCheck()
 
-termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
+termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px 510px");
+
+$('#Termometer').animate({
+  'background-position-y': hoehe + "px"
+}, 1000, 'linear');
+
+
 document.getElementById("erledigt").innerHTML = erledigt;
 document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
 
@@ -86,7 +91,14 @@ document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
 console.log (passwort)
 //console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe, currentgoal, nochzutuen)
 
-document.getElementById("bis-nächstes-ziel").innerHTML = height1 - erledigt;
+        
+if (height1 == 999999){
+  document.getElementById("bis-nächstes-ziel").innerHTML = "keine Ziele mehr"
+}else{
+  document.getElementById("bis-nächstes-ziel").innerHTML = height1 - erledigt;
+}
+
+
 
 
 function MaximaleHoehe()
