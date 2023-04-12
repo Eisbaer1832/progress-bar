@@ -8,7 +8,9 @@
 }
 
 .image-div {
-  padding-top: 12rem;
+  margin-top: 10%;
+  padding-top: 5rem;
+  padding-bottom: 2.72rem !important;
   width: 30%;
   float: left;
   display: flex;
@@ -55,29 +57,31 @@ body {
   width: 10px;
 }
 
+.linecontainer{
+  transform: translateY(12px); /* center the text horizontally */
+  z-index: 8;
+  width: 2px;
+  height: 500px;
+  margin: auto;
+  padding-top: .8rem;
+}
+
 .line{
-  z-index: 9;
-  left: 50%;
-  bottom: 227px;
-  max-width: 600px;
-  width: 400px;
-  position:relative;
-  border: 3px #c6a0f6 solid;
+  margin-bottom: 105px;
+  width: 100px; /* width of the line */
+  height: 5px; /* height of the line */
+  border: 5px #b7bdf8 solid;
   border-radius: 9px;
 }
 
 .linetext{
-  font-size: 150%;
-  z-index: 9;
-  left: 17%;
-  bottom: 234px;
-  width: 80px;
-  position:relative;
-  color: #c6a0f6;
-}
-
-.image-div{
-  margin-top: 10%;
+  position: absolute; /* add absolute positioning to the text */
+  top: -28px; /* position the text above the line */
+  left: 70%; /* center the text horizontally */
+  transform: translateX(-50%); /* center the text horizontally */
+  font-size: 18px; /* set the font size */
+  font-family: Arial, sans-serif; /* set the font family */
+  color: #b7bdf8;
 }
 
 
@@ -89,6 +93,21 @@ body {
 }
 
 .gifttext{
+  position: absolute;
+  margin-top: 4.5rem;
+  width: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #181926;
+  text-align: center;
+  color: #cad3f5;
+  font-size: 3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.gifttext-mobile{
   position: absolute;
   margin-top: 4.5rem;
   width: 40%;
@@ -104,6 +123,7 @@ body {
 }
 
 #Termometer {
+  z-index: 5;
   animation-direction: reverse;
 }
 .giftheader {
@@ -156,7 +176,6 @@ body {
   padding-bottom: 20rem;
   margin: 1rem;
   background-color: #24273a;
-
 }
 
 .listcontainer {
@@ -169,4 +188,13 @@ body {
   width: 90% !important;
   margin-right: 5%;
   margin-left: 5%;
+}
+
+.goal{
+  width: 44%;
+  padding-top:1.5rem !important;  
+  margin-left: -1rem ;
+}
+.disabled:hover {
+  cursor: not-allowed !important;
 }

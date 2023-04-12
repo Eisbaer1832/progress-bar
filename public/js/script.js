@@ -4,7 +4,7 @@ var name1
 var name2
 var name3
 var name4
-var name5
+var name5 
 var name6
 var height1
 var height2
@@ -17,45 +17,17 @@ var currentgoal
 var currentgift
 var nochzutuen
 var saved_passwort
+let time_max
 var passwort
 var authorized
 var goalpassed
 var min
+let savetime
 var saved
 let time_to_display
 const timer_text = document.getElementById("timeleft")
 
-async function getTimestampInSeconds () {
-  while (true)
-  {
-    let time_max = 1706740199
-    let time = Math.floor(Date.now() / 1000)
-    let time_left = new Date ((time_max-time))
-    var d = Math.floor(time_left / (3600*24));
-    var h = Math.floor(time_left % (3600*24) / 3600);
-    var m = Math.floor(time_left % 3600 / 60);
-    var s = Math.floor(time_left % 60);
-
-    if (time >= time_max)
-    {
-      time_to_display = d + "T : " + h + "St : " + m + "M : " + s + "Se"
-      timer_text.innerHTML = time_to_display
-      document.getElementById("currentgift").innerHTML = "Ihr wahrt zu langsam";
-    }else{
-    
-      if (h < 10) {h = "0" + h}
-      if (d < 10) {d = "0" + d}
-      if (m < 10) {m = "0" + m}
-      if (m < 10) {s = "0" + s}
-  
-      time_to_display = d + " T. - " + h + " St. - " + m + " M. - " + s + " Se."
-      timer_text.innerHTML = time_to_display
-  
-    }
-    await new Promise(resolve => setTimeout(resolve, 1000));  
-
-  }
-}
+//TODO: Implement time stop when goal is reached and save current time to backend to set a highscore
 
 getTimestampInSeconds()
 
@@ -67,6 +39,70 @@ onresize = (event) => {
 }
 load()
 
+async function getTimestampInSeconds () {
+  await load()
+  console.log(savetime)
+  if (savetime == 0)
+  {
+    while (true)
+    {
+      time_max = 1706740199
+      let time = Math.floor(Date.now() / 1000)
+      let time_left = new Date ((time_max-time))
+      var d = Math.floor(time_left / (3600*24));
+      var h = Math.floor(time_left % (3600*24) / 3600);
+      var m = Math.floor(time_left % 3600 / 60);
+      var s = Math.floor(time_left % 60);
+
+      if (time >= time_max)
+      {
+        time_to_display = "- " + "0 Tage - <br> - " + "0 Stunden - <br> - " + "0 Minuten - <br> - " + "0 Sekunden - "
+        timer_text.innerHTML = time_to_display
+        document.getElementById("currentgift").innerHTML = "Ihr wahrt zu langsam";
+        document.getElementById("liveToastBtn").classList.add("disabled")
+        document.getElementById("disable").classList.add("disabled")    
+      }else{
+      
+        if (h < 10) {h = "0" + h}
+        if (d < 10) {d = "0" + d}
+        if (m < 10) {m = "0" + m}
+        if (m < 10) {s = "0" + s}
+    
+        if (window.location.pathname === '/')
+        {
+          time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+        }else{
+          time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+        }
+        timer_text.innerHTML = time_to_display
+    
+      }
+      await new Promise(resolve => setTimeout(resolve, 1000));  
+
+    }
+  }else{
+
+    var d = Math.floor(savetime / (3600*24));
+    var h = Math.floor(savetime % (3600*24) / 3600);
+    var m = Math.floor(savetime % 3600 / 60);
+    var s = Math.floor(savetime % 60);
+    if (h < 10) {h = "0" + h}
+    if (d < 10) {d = "0" + d}
+    if (m < 10) {m = "0" + m}
+    if (m < 10) {s = "0" + s}
+
+    if (window.location.pathname === '/')
+    {
+      time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+    }else{
+      time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+    }
+
+    timer_text.innerHTML = time_to_display
+
+  }
+}
+
 var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')      
 const termometer = document.getElementById("Termometer");
@@ -77,7 +113,7 @@ min = (Math.min(height1, height2, height3, height4, height5, height6));
 currentgiftfunction()
 masheightCheck()
 
-termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px 510px");
+termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px 522px");
 
 $('#Termometer').animate({
   'background-position-y': hoehe + "px"
@@ -99,8 +135,6 @@ if (height1 == 999999){
 }
 
 
-
-
 function MaximaleHoehe()
 { 
   maxHoehe = Number(document.getElementById("maxHoehe").value);
@@ -120,7 +154,7 @@ function MaximaleHoehe2()
 function reset()
 {
   erledigt = 0
-  hoehe = 510
+  hoehe = 522
   goalpassed = "True"
 
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
@@ -171,16 +205,14 @@ function am_hoechsten()
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
   toast.show()
-
+  goal()
   masheightCheck()
   save_erledigt()
   save_hoehe()
-
-
-
 }
 function masheightCheck(){
-  if (erledigt > height1){
+  if (erledigt >=
+     height1){
     height1 = 999999
     save_height1()
   }
@@ -217,11 +249,11 @@ function masheightCheck(){
 function currentgiftfunction(){
 
   if(height1 != 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99996 && height6 != 99995){
-    currentgift = "Irgendwat wird gemietet"
+    currentgift = "Der Wintergarten von Athos wird gemietet."
     save_currentgift()
     document.getElementById("currentgift").innerHTML = currentgift;
   }else{
-    currentgift = "Irgendwat wird gemietet"
+    currentgift = "Der Wintergarten von Athos wird gemietet."
     save_currentgift()
     document.getElementById("currentgift").innerHTML = currentgift;
   }
@@ -265,7 +297,7 @@ function goal()
     toast2 = new bootstrap.Toast(toastLiveExample2)
     toast2.show()
 
- 
+
     document.getElementById("bis-nächstes-ziel").innerHTML = height1 - erledigt;
     if (erledigt == min) {
         document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
@@ -279,10 +311,12 @@ function goal()
           });
 
     }
-        
-    if (height1 == erledigt){
+    if (height1 <= erledigt){
+        document.getElementById("bis-nächstes-ziel").innerHTML = "keine Ziele mehr"
+        savetime = time_max - Math.floor(Date.now() / 1000)
+        console.log(savetime)
+        save_savetime()
         height1 = 999999
-        document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name2;
         currentgift = name1
         currentgoal = name2
         save_height1()
@@ -383,6 +417,18 @@ function load(){
     async : false,
     success: function (lgoalpassed) {
       goalpassed = lgoalpassed
+      }
+  });
+
+
+  $.ajax({
+    dataType: "text",
+    traditional: true,
+    type: 'POST',
+    url: '/public/lsavetime',
+    async : false,
+    success: function (lsavetime) {
+      savetime = lsavetime
       }
   });
 
@@ -558,4 +604,14 @@ function nochzutuen(){
   });
 }
 
-
+function save_savetime(){
+  console.log(savetime)
+  $.ajax({
+    method: "POST",
+    dataType: "text",
+    traditional: true,
+    data:{'savetime': savetime},
+    cache: false,
+    url: '/public/savetime',
+  });
+}

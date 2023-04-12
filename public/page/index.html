@@ -38,7 +38,7 @@
             <li class="offcanvas-body">
               <div class="d-grid gap-2 col-8 mx-auto">
                 <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="hoeher();">Hinzufügen!</button></button>
-                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Mehrere hinzufügen!</button></button>                
+                <button type="button" class="btn btn-primary" id="disable" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Mehrere hinzufügen!</button></button>                
                 <button type="button" class="btn btn-primary" data-bs-target="#resetModal" data-bs-toggle="modal">Reset</button></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas2" aria-label="Close">Ziele</button>
                 <div class="collapse show" id="home-collapse">
@@ -269,62 +269,72 @@
 
 
      <!--Time left-->
-      <div class="content" style="margin-top: 8rem !important; padding-bottom:14rem !important;">
-        <h1 class="giftheader" style="width: 80% !important;"> Übrige Zeit: </h1>
-        <h2 id="timeleft" style="width: 80% !important; color:#ed8796" class="goal-class gifttext animate__animated animate__backInDown">121231</h2>
+      <div class="content" style="display: table;  margin-top: 8rem !important; padding-bottom:16rem !important; float: right; width: 60%; min-height: 350px;">
+        <h1 class="giftheader" style="width: 40% !important;"> Übrige Zeit: </h1>
+        <h2 id="timeleft" style="display: table-row; width: 50% !important; color:#ed8796;" class="goal-class gifttext animate__animated animate__backInDown">121231</h2>
       </div>
     
-    <!--Goal-->
-      <div class="content" style="float: right; width: 60%; padding-bottom:17.5rem !important; padding-top:1.5rem !important;" >
-        <h1 class="giftheader"> Belohnung:</h1>
-        <h2 id="currentgift" class="goal-class gifttext animate__animated animate__backInDown"></h2>
-      </div>
+
 
       <!--Termometer-->
-      <div class="content image-div" >
+      <div class="content image-div" style="margin-top: 8rem;" >
         <div class="image-div" style="position:relative; margin-top: 1%">
          <img class="center " id="Termometer"  src="/public/assets/Termometer2.png" alt="Termometer,animated">
-         <div class="line"></div>
-         <p class="linetext">75%</p> 
+         <div class="linecontainer">
+          <div class="line" style="transform: translateY(7px);">
+            <p class="linetext">75%</p>
+          </div>
+          <div class="line" style="transform: translateY(20px);">
+            <p class="linetext">50%</p>
+          </div>
+          <div class="line" style="transform: translateY(32px);"">
+            <p class="linetext">25%</p>
+          </div>
+        </div>
         </div>
      </div>
 
-
-      <div class="content" style="width: 60%; padding: 2rem !important; float: right; ">
-        <!--List group-->
-        <table style="width:100%">
-          <tr >
-             <div class="list-group listcontainer">
-              <div style="border-top-left-radius: 1rem; border-top-right-radius: 1rem" class="list-group-item clist"  aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1" style="float:inline-end;">Schon geschafft:</h5>
+     <div style="width: 60%; display: flex; float:right; max-height:400px">
+      <!--Goal-->
+      <div class="content goal">
+        <h1 class="giftheader" style="width: 17%; margin-right:5%; margin-left:5%;"> Belohnung:</h1>
+        <p id="currentgift" style="width: 22%; margin-right:2%; margin-left:2%; font-size:40px !important;" class="goal-class gifttext animate__animated animate__backInDown"></p>
+      </div>
+        <div class="content" style="width: 53%; padding-bottom: 1rem !important;">
+          <!--List group-->
+          <table>
+            <tr >
+              <div class="list-group listcontainer">
+                <div style="border-top-left-radius: 1rem; border-top-right-radius: 1rem" class="list-group-item clist"  aria-current="true">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1" style="float:inline-end;">Schon geschafft:</h5>
+                  </div>
+                  <p class="mb-1" id="erledigt"></p>
+                  <small id="motivation1" style="float: right; ">Sehr gut 👍</smarqll>
                 </div>
-                <p class="mb-1" id="erledigt"></p>
-                <small style="float: right; ">Sehr gut 👍</small>
-              </div>
 
-              <div class="list-group-item clist" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Noch zu erledigen:</h5>
+                <div class="list-group-item clist" aria-current="true">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Noch zu erledigen:</h5>
+                  </div>
+                  <p class="mb-1" id="nochzutuen"></p>
+                  <p></p>
+                  <small></small>
                 </div>
-                <p class="mb-1" id="nochzutuen"></p>
-                <p></p>
-                <small></small>
-              </div>
 
-              <div class="list-group-item clist" style="border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Anzahl bis zum nächsten Ziel:</h5>
+                <div class="list-group-item clist" style="border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem" aria-current="true">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Anzahl bis zum nächsten Ziel:</h5>
+                  </div>
+                  <p class="mb-1" id="bis-nächstes-ziel"></p>
+                  <small id="motivation2" style="float: right; ">Bald geschafft 😃</small>
                 </div>
-                <p class="mb-1" id="bis-nächstes-ziel"></p>
-                <small style="float: right; ">Bald geschafft 😃</small>
               </div>
             </div>
-          </div>
-        </tr>
-      </table>
-      </div>
-
+          </tr>
+        </table>
+        </div>
+    </div>
 
 
       <!--addToast-->
@@ -357,7 +367,7 @@
       <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="liveToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header">
-            <img src="" class="rounded me-2" alt="&#127777;&#65039">
+            <img src="" class="rounded me-2" alt="&#127777;&#65039">public/page/index.html
             <strong class="me-auto">Geschafft!</strong>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
@@ -382,21 +392,32 @@
 <script>
   let height = document.documentElement.clientHeight
   let width = document.documentElement.clientWidth
+  const motivation1 = document.getElementById('motivation1');
+  const motivation2 = document.getElementById('motivation2');
   const title = document.getElementById('title');
   const currentgiftid = document.getElementById('currentgift');
-
   navedit()
   function navedit() {
-    if (width < 1300) {
+    if (width < 1100) {
       console.log("Futsch")
       title.style.display = "none"
-      currentgiftid.style.fontSize = "40px"
-
+      currentgiftid.style.fontSize = "30px"
+      if (width < 800) { 
+        console.log("mobile")
+        window.location.href = "./public/page/mobile.html"
+      }
     } else {
+      currentgiftid.style.fontSize = "33px"
       title.style.display = "inline"
     }
-  }
-
+    if (width > 890) {
+      motivation1.style.display = "block"
+      motivation2.style.display = "block"
+    }else {
+      motivation1.style.display = "none"
+      motivation2.style.display = "none"
+    }
+}
   addEventListener("resize", (event) => {});
   onresize = (event) => {
     height = document.documentElement.clientHeight

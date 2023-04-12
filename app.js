@@ -106,7 +106,11 @@ app.post('/public/snochzutuen', function(req, res) {
   
 });
 
-
+app.post('/public/lsavetime', function(req, res) {
+  var lsavetime = fs.readFileSync(("savetime")+ ".txt")
+  res.send(lsavetime);
+  
+});
 /////////////////////////////
 //                         //
 //   ___  ______   _____   //
@@ -139,6 +143,19 @@ app.post('/public/erledigt', function(req) {
   try {
     fs.writeFileSync(Object.keys({erledigt})+".txt", erledigt);
     console.log("erledigt: " + erledigt)
+  } catch (err) {
+    console.error(err);
+  };
+
+});
+
+app.post('/public/savetime', function(req) {
+  console.log("savetime req.body: " + req.body.savetime)
+  var savetime = req.body.savetime;
+  console.log("savetime: " + savetime);
+  
+  try {
+    fs.writeFileSync(Object.keys({savetime})+".txt", savetime);
   } catch (err) {
     console.error(err);
   };
@@ -185,17 +202,6 @@ app.post('/public/height1', function(req) {
 });
 
 
-app.post('/public/currentgoal', function(req) {
-  var currentgoal = req.body.currentgoal;
-  console.log("currentgoal: "+ currentgoal );
-  
-  try {
-    fs.writeFileSync(Object.keys({currentgoal})+".txt", currentgoal);
-  } catch (err) {
-    console.error(err);
-  };
-
-});
 
 app.post('/public/currentgift', function(req) {
   var currentgift = req.body.currentgift;
