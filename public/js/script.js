@@ -409,17 +409,6 @@ function load(){
     }
   });
 
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sgoalpassed',
-    async : false,
-    success: function (lgoalpassed) {
-      goalpassed = lgoalpassed
-      }
-  });
-
 
   $.ajax({
     dataType: "text",
@@ -432,16 +421,7 @@ function load(){
       }
   });
 
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sname1',    
-    async : false,
-    success: function (lname1) {
-      name1 = lname1
-    }
-  });
+
 
 
 
