@@ -249,7 +249,7 @@ function masheightCheck(){
 function currentgiftfunction(){
 
   if(height1 != 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99996 && height6 != 99995){
-    currentgift = "Der Wintergarten von Athos wird gemietet."
+    currentgift = "Party im Restaurant Athos"
     save_currentgift()
     document.getElementById("currentgift").innerHTML = currentgift;
   }else{
