@@ -46,7 +46,7 @@ async function getTimestampInSeconds () {
   {
     while (true)
     {
-      time_max = 1706740199
+      time_max = 1738364399
       let time = Math.floor(Date.now() / 1000)
       let time_left = new Date ((time_max-time))
       var d = Math.floor(time_left / (3600*24));
@@ -58,15 +58,15 @@ async function getTimestampInSeconds () {
       {
         time_to_display = "- " + "0 Tage - <br> - " + "0 Stunden - <br> - " + "0 Minuten - <br> - " + "0 Sekunden - "
         timer_text.innerHTML = time_to_display
-        document.getElementById("currentgift").innerHTML = "Ihr wahrt zu langsam";
-        document.getElementById("liveToastBtn").classList.add("disabled")
-        document.getElementById("disable").classList.add("disabled")    
+        document.getElementById("currentgift").innerHTML = "Ihr wart zu langsam";
+        //document.getElementById("liveToastBtn").classList.add("disabled")
+        //document.getElementById("disable").classList.add("disabled")    
       }else{
       
         if (h < 10) {h = "0" + h}
         if (d < 10) {d = "0" + d}
         if (m < 10) {m = "0" + m}
-        if (m < 10) {s = "0" + s}
+        if (s < 10) {s = "0" + s}
     
         if (window.location.pathname === '/')
         {
