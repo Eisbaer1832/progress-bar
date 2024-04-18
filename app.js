@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const app = express();
-const port = 1950;
+const port = 212;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { json } = require('express');
@@ -49,7 +49,6 @@ app.post('/public/smaxhoehe', function(req, res) {
 app.post('/public/sgoalpassed', function(req, res) {
   var lgoalpassed = fs.readFileSync(("goalpassed")+ ".txt")
   res.send(lgoalpassed);
-  console.log ("goalpassed: " + lgoalpassed)
   
 });
 
@@ -67,7 +66,6 @@ app.post('/public/shoehe', function(req, res) {
 
 app.post('/public/sname1', function(req, res) {
   var lname1 = fs.readFileSync(("name1")+ ".txt")
-  console.log("name1" + lname1)
   res.send(lname1);
   
 });
@@ -77,8 +75,6 @@ app.post('/public/sheight1', function(req, res) {
   
   var lheight1 = fs.readFileSync(("height1")+ ".txt")
   res.send(lheight1);
-    console.log("height1: "+lheight1)
-
 });
 
 
@@ -121,24 +117,20 @@ app.post('/public/lsavetime', function(req, res) {
 //                         //                                        
 /////////////////////////////
 
+app.post('/public/logs', function(req, res) {
+  console.log(logs)
+  var logs = req.body.logs;
+  fs.appendFileSync("logs.txt", logs + "\n");
+});
 
 app.post('/public/goalpassed', function(req, res) {
   var goalpassed = req.body.goalpassed;
-  console.log("goalpassed: " + goalpassed);
-  
-  try {
-    fs.writeFileSync(Object.keys({goalpassed})+".txt", goalpassed);
-    console.log("goalpassed: " + goalpassed)
-  } catch (err) {
-    console.error(err);
-  };
-  res.send(goalpassed);
+    fs.writeFileSync("goalpassed.txt", goalpassed);
 });
 
 app.post('/public/erledigt', function(req) {
   console.log("erledigt req.body: " + req.body.erledigt)
   var erledigt = req.body.erledigt;
-  console.log("erledigt: " + erledigt);
   
   try {
     fs.writeFileSync(Object.keys({erledigt})+".txt", erledigt);

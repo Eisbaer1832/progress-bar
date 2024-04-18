@@ -25,6 +25,7 @@ var min
 let savetime
 var saved
 let time_to_display
+let logs
 const timer_text = document.getElementById("timeleft")
 
 //TODO: Implement time stop when goal is reached and save current time to backend to set a highscore
@@ -181,6 +182,8 @@ function hoeher()
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
   toast.show()
+  logs=Date.now() + ";" + "1"
+  save_logs()
   goal()
   save_erledigt()
   save_hoehe()
@@ -593,5 +596,16 @@ function save_savetime(){
     data:{'savetime': savetime},
     cache: false,
     url: '/public/savetime',
+  });
+}
+
+function save_logs(){
+  $.ajax({
+    method: "POST",
+    dataType: "text",
+    traditional: true,
+    data:{'logs': logs},
+    cache: false,
+    url: '/public/logs',
   });
 }
