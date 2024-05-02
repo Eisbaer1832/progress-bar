@@ -210,6 +210,7 @@ function am_hoechsten()
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
   toast.show()
   goal()
+  logs=Date.now() + ";" + "1"
   masheightCheck()
   save_erledigt()
   save_hoehe()
