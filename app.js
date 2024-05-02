@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const app = express();
-const port = 212;
+const port = 1950;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { json } = require('express');

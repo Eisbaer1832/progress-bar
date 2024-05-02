@@ -43,8 +43,9 @@ load()
 async function getTimestampInSeconds () {
   await load()
   console.log(savetime)
-  if (savetime == 0)
+  if (savetime != 0)
   {
+	  console.log("wuuuusch")
     while (true)
     {
       time_max = 1738364399
