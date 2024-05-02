@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const app = express();
-const port = 1950;
+const port = 1951;
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { json } = require('express');
@@ -20,6 +20,10 @@ app.use('/public',express.static('public'));
 
 app.get('/', (_, res) => {
   res.sendFile('public/page/index.html', {root: __dirname })});
+
+app.get('/statistics', (_, res) => {
+  res.sendFile('public/page/statistics.html', {root: __dirname })});
+
 
 
 app.listen(port, () => {

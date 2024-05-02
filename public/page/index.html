@@ -37,7 +37,7 @@
           <ul class="list-unstyled ps-0">
             <li class="offcanvas-body">
               <div class="d-grid gap-2 col-8 mx-auto">
-                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="hoeher();">Hinzufügen!</button></button>
+                <button type="button" class="btn btn-primary" id="liveToastBtn" data-bs-dismiss="offcanvas" onclick="hoeher(1);">Hinzufügen!</button></button>
                 <button type="button" class="btn btn-primary" id="disable" data-bs-dismiss="offcanvas" data-bs-target="#hoeherModal" data-bs-toggle="modal">Mehrere hinzufügen!</button></button>                
                 <button type="button" class="btn btn-primary" data-bs-target="#resetModal" data-bs-toggle="modal">Reset</button></button>
                 <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas2" aria-label="Close">Ziele</button>
@@ -202,8 +202,8 @@
             </div>
             <div class="modal-body">
               <div class="d-grid gap-2 col-6 mx-auto">
-                <input type="text" placeholder="Anzahl" class="form-control"  id="am_hoechsten">
-                <button class="btn btn-primary" data-bs-dismiss="modal" onclick="am_hoechsten()" type="button">Los</button>
+                <input type="text" placeholder="Anzahl" class="form-control"  id="n_higher_input">
+                <button class="btn btn-primary" data-bs-dismiss="modal" id="n_higher_button" type="button">Los</button>
               </div>
             </div>
 
@@ -287,7 +287,7 @@
           <div class="line" style="transform: translateY(20px);">
             <p class="linetext">50%</p>
           </div>
-          <div class="line" style="transform: translateY(32px);"">
+          <div class="line" style="transform: translateY(32px);">
             <p class="linetext">25%</p>
           </div>
         </div>
