@@ -160,35 +160,6 @@ function hoeher(count)
   goal()
   logs=Date.now() + ";" + count
   save_logs()
-<<<<<<< HEAD
-  goal()
-  save_erledigt()
-  save_hoehe()
-  save_goalpassed()
-
-}
-
-
-function am_hoechsten() 
-{ 
-
-  var am_hoechsten = document.getElementById("am_hoechsten").value;
-
-  toast = new bootstrap.Toast(toastLiveExample)
-  hoehe = hoehe - ((510 / maxHoehe)*am_hoechsten)
-
-
-  erledigt = erledigt+1*am_hoechsten
-
-  termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
-
-  document.getElementById("erledigt").innerHTML = erledigt;
-  document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
-  toast.show()
-  goal()
-  logs=Date.now() + ";" + "1"
-=======
->>>>>>> 11579bfbced83ec4d9406f63b1ea14d493604807
   masheightCheck()
   save_erledigt()
   save_hoehe()
