@@ -111,6 +111,12 @@ app.post('/public/lsavetime', function(req, res) {
   res.send(lsavetime);
   
 });
+
+
+app.post('/public/slogs', function(req, res) {
+  var llogs = fs.readFileSync("logs.txt")
+  res.send(llogs); 
+});
 /////////////////////////////
 //                         //
 //   ___  ______   _____   //

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 
-<body >
+<body>
     <!--Navbar-->
     <nav class="navbar cnavbar navbar-light fixed-top"  >
         <div class="container-fluid">
@@ -23,43 +23,17 @@
           </div>
       </nav>
 
-    <div style="float:left" class="chart-container">
+    <div class="chart-container">
         <canvas id="graph"></canvas>
         <div id="custom-legend" class="custom-legend"></div>
     </div>
 
 
 
-  </body>
-  <script type="module" src="/public/js/chart.js"></script>
-  <script src="/public/js/jquery-3.6.0.min.js"></script>
-  <!-- <script src="/public/js/script.js"></script>-->
-  <script src="/public/css/bootstrap/js/bootstrap.min.js"></script>
-  <script src="/public/js/statistics.js"></script>
-
-
-<script>
-  let height = document.documentElement.clientHeight
-  let width = document.documentElement.clientWidth
-  const title = document.getElementById('title');
-  navedit()
-  function navedit() {
-    if (width < 1100) {
-      title.style.display = "none"
-      if (width < 800) { 
-        console.log("mobile")
-        window.location.href = "./public/page/mobile.html"
-      }
-    } else {
-      title.style.display = "inline"
-    }
-
-}
-  addEventListener("resize", (event) => {});
-  onresize = (event) => {
-    height = document.documentElement.clientHeight
-    width = document.documentElement.clientWidth
-    navedit()
-  }
-</script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/public/js/jquery-3.6.0.min.js"></script>
+<script src="/public/js/statistics.js">
+<script src="/public/css/bootstrap/js/bootstrap.min.js"></script>
+<script src="/public/js/script.js"></script>
 </html>

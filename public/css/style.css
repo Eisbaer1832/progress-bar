@@ -198,3 +198,8 @@ body {
 .disabled:hover {
   cursor: not-allowed !important;
 }
+
+.chart-container {
+	margin: 5rem;
+	margin-top: 8rem;
+}
