@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+
+<body >
+    <!--Navbar-->
+    <nav class="navbar cnavbar navbar-light fixed-top"  >
+        <div class="container-fluid">
+            <a class="navbar-brand header" href="#">
+              <img id="title" class="title-image" src="/public/assets/cropped-KL_Website_Elemente_Logo_neu.png" alt="Kanzlei Lotz">
+                | JAB-CHALLENGE
+            </a>
+            <button class="btn btn-primary cbutton" id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#PasswortModal" role="button" aria-label="Toggle menu">Menü</button>
+          </div>
+      </nav>
+
+    <div style="float:left" class="chart-container">
+        <canvas id="graph"></canvas>
+        <div id="custom-legend" class="custom-legend"></div>
+    </div>
+
+
+
+  </body>
+  <script type="module" src="/public/js/chart.js"></script>
+  <script src="/public/js/jquery-3.6.0.min.js"></script>
+  <!-- <script src="/public/js/script.js"></script>-->
+  <script src="/public/css/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/public/js/statistics.js"></script>
+
+
+<script>
+  let height = document.documentElement.clientHeight
+  let width = document.documentElement.clientWidth
+  const title = document.getElementById('title');
+  navedit()
+  function navedit() {
+    if (width < 1100) {
+      title.style.display = "none"
+      if (width < 800) { 
+        console.log("mobile")
+        window.location.href = "./public/page/mobile.html"
+      }
+    } else {
+      title.style.display = "inline"
+    }
+
+}
+  addEventListener("resize", (event) => {});
+  onresize = (event) => {
+    height = document.documentElement.clientHeight
+    width = document.documentElement.clientWidth
+    navedit()
+  }
+</script>
+</html>
