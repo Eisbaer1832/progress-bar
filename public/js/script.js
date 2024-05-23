@@ -158,7 +158,7 @@ function hoeher(count)
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
   toast.show()
   goal()
-  logs=Date.now() + ";" + count
+  logs=Date.now()/1000 + ";" + count
   save_logs()
   masheightCheck()
   save_erledigt()
@@ -404,6 +404,7 @@ function load(){
       currentgoal = lcurrentgoal
     }
   });
+
 
 }
 
