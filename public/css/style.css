@@ -8,7 +8,9 @@
 }
 
 .image-div {
-  padding-top: 12rem;
+  margin-top: 10%;
+  padding-top: 5rem;
+  padding-bottom: 2.72rem !important;
   width: 30%;
   float: left;
   display: flex;
@@ -24,7 +26,7 @@
 }
 
 .header {
-  font-size: 400%;
+  font-size: 200%;
   color: #00475c !important;
   font-weight: 500;
   font-family: "Noto Sans";
@@ -55,16 +57,31 @@ body {
   width: 10px;
 }
 
-.line{
-  margin-top: 16.5%;
-  left: 47.67%;
-  width: 300px;
-  position:absolute;
-  border: 3px rgb(109, 223, 223) dotted;
+.linecontainer{
+  transform: translateY(12px); /* center the text horizontally */
+  z-index: 8;
+  width: 2px;
+  height: 500px;
+  margin: auto;
+  padding-top: .8rem;
 }
 
-.image-div{
-  margin-top: 10%;
+.line{
+  margin-bottom: 105px;
+  width: 100px; /* width of the line */
+  height: 5px; /* height of the line */
+  border: 5px #b7bdf8 solid;
+  border-radius: 9px;
+}
+
+.linetext{
+  position: absolute; /* add absolute positioning to the text */
+  top: -28px; /* position the text above the line */
+  left: 70%; /* center the text horizontally */
+  transform: translateX(-50%); /* center the text horizontally */
+  font-size: 18px; /* set the font size */
+  font-family: Arial, sans-serif; /* set the font family */
+  color: #b7bdf8;
 }
 
 
@@ -76,6 +93,21 @@ body {
 }
 
 .gifttext{
+  position: absolute;
+  margin-top: 4.5rem;
+  width: 50%;
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #181926;
+  text-align: center;
+  color: #cad3f5;
+  font-size: 3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.gifttext-mobile{
   position: absolute;
   margin-top: 4.5rem;
   width: 40%;
@@ -90,6 +122,10 @@ body {
   padding: 0.5rem;
 }
 
+#Termometer {
+  z-index: 5;
+  animation-direction: reverse;
+}
 .giftheader {
   position: absolute;
   margin-top: 2rem;
@@ -110,6 +146,7 @@ body {
 }
 
 .title-image {
+  height: 2rem;
   margin-right: 1rem;
   margin-top: -1rem;
 }
@@ -120,6 +157,7 @@ body {
   background-color: #b7bdf8;
   margin: 0.8rem;
   position: absolute;
+  height: 5rem;
 }
 
 .cbutton {
@@ -137,9 +175,7 @@ body {
   border-radius: 1rem;
   padding-bottom: 20rem;
   margin: 1rem;
-  margin-top: 2rem !important;
   background-color: #24273a;
-
 }
 
 .listcontainer {
@@ -154,3 +190,16 @@ body {
   margin-left: 5%;
 }
 
+.goal{
+  width: 44%;
+  padding-top:1.5rem !important;  
+  margin-left: -1rem ;
+}
+.disabled:hover {
+  cursor: not-allowed !important;
+}
+
+.chart-container {
+	margin: 5rem;
+	margin-top: 8rem;
+}

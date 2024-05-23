@@ -1,59 +1,115 @@
-var hoehe
-var maxHoehe
-var name1
-var name2
-var name3
-var name4
-var name5
-var name6
-var height1
-var height2
-var height3
-var height4 
-var height5
-var height6
-var erledigt
-var currentgoal
-var currentgift
-var nochzutuen
-var saved_passwort
-var passwort
-var authorized
-var goalpassed
-var min
-var saved
+//TODO: Implement time stop when goal is reached and save current time to backend to set a highscore
+
+let hoehe, maxHoehe, name1, height1, height2, height3, height4, height5, height6, erledigt, currentgoal, currentgift, saved_passwort, time_max, passwort, authorized, goalpassed, savetime, saved, time_to_display, logs
+const timer_text = document.getElementById("timeleft")
+
+load()
+getTimestampInSeconds()
+currentgiftfunction()
+masheightCheck()
+
+document.getElementById("erledigt").innerHTML = erledigt;
+document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')      
+const termometer = document.getElementById("Termometer");
+const toastLiveExample2 = document.getElementById('liveToast2')      
+const gift = document.querySelector('#gift');
 
 
+//n_higher event listener
+document.getElementById("n_higher_button").addEventListener ("click" , function(){
+	hoeher(document.getElementById("n_higher_input").value)
+}, false);
 
+//resive event listener
 addEventListener("resize", (event) => {});
 onresize = (event) => {
   height = document.documentElement.clientHeight
   width = document.documentElement.clientWidth
   navedit()
 }
-load()
 
 
-var toastTrigger = document.getElementById('liveToastBtn')
-var toastLiveExample = document.getElementById('liveToast')      
-const termometer = document.getElementById("Termometer");
-var toastLiveExample2 = document.getElementById('liveToast2')      
-const gift = document.querySelector('#gift');
-min = (Math.min(height1, height2, height3, height4, height5, height6));
+async function getTimestampInSeconds () {
+  await load()
+  console.log(savetime)
+  if (savetime != 0)
+  {
+	  console.log("wuuuusch")
+    while (true)
+    {
+      time_max = 1738364399
+      let time = Math.floor(Date.now() / 1000)
+      let time_left = new Date ((time_max-time))
+      var d = Math.floor(time_left / (3600*24));
+      var h = Math.floor(time_left % (3600*24) / 3600);
+      var m = Math.floor(time_left % 3600 / 60);
+      var s = Math.floor(time_left % 60);
 
-currentgiftfunction()
-masheightCheck()
+      if (time >= time_max)
+      {
+        time_to_display = "- " + "0 Tage - <br> - " + "0 Stunden - <br> - " + "0 Minuten - <br> - " + "0 Sekunden - "
+        timer_text.innerHTML = time_to_display
+        document.getElementById("currentgift").innerHTML = "Ihr wart zu langsam";
+        //document.getElementById("liveToastBtn").classList.add("disabled")
+        //document.getElementById("disable").classList.add("disabled")    
+      }else{
+      
+        if (h < 10) {h = "0" + h}
+        if (d < 10) {d = "0" + d}
+        if (m < 10) {m = "0" + m}
+        if (s < 10) {s = "0" + s}
+    
+        if (window.location.pathname === '/')
+        {
+          time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+        }else{
+          time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+        }
+        timer_text.innerHTML = time_to_display
+    
+      }
+      await new Promise(resolve => setTimeout(resolve, 1000));  
 
-termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
-document.getElementById("erledigt").innerHTML = erledigt;
-document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
-document.getElementById("goal-text").innerHTML = currentgoal;
+    }
+  }else{
+
+    var d = Math.floor(savetime / (3600*24));
+    var h = Math.floor(savetime % (3600*24) / 3600);
+    var m = Math.floor(savetime % 3600 / 60);
+    var s = Math.floor(savetime % 60);
+    if (h < 10) {h = "0" + h}
+    if (d < 10) {d = "0" + d}
+    if (m < 10) {m = "0" + m}
+    if (m < 10) {s = "0" + s}
+
+    if (window.location.pathname === '/')
+    {
+      time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+    }else{
+      time_to_display = "- " + d + " Tage - <br> - " + h + " Stunden - <br> - " + m + " Minuten - <br> - " + s + " Sekunden - "
+    }
+
+    timer_text.innerHTML = time_to_display
+
+  }
+}
 
 
-console.log (passwort)
-//console.log("read: " + goalpassed ,erledigt, hoehe,name1,name2,name3,name4,name5,name6,height1,height2,height3,height4,height5,height6,maxHoehe, currentgoal, nochzutuen)
+termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px 522px");
 
-document.getElementById("bis-nächstes-ziel").innerHTML = min - erledigt;
+$('#Termometer').animate({
+  'background-position-y': hoehe + "px"
+}, 1000, 'linear');
+
+
+        
+if (height1 == 999999){
+  document.getElementById("bis-nächstes-ziel").innerHTML = "keine Ziele mehr"
+}else{
+  document.getElementById("bis-nächstes-ziel").innerHTML = height1 - erledigt;
+}
 
 
 function MaximaleHoehe()
@@ -75,7 +131,7 @@ function MaximaleHoehe2()
 function reset()
 {
   erledigt = 0
-  hoehe = 640
+  hoehe = 522
   goalpassed = "True"
 
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
@@ -88,54 +144,30 @@ function reset()
 
 }
 
-function hoeher() 
+function hoeher(count) 
 { 
-  console.log ("Hoehe: " + hoehe)
-  console.log ("maxHoehe: " + maxHoehe)
 
   toast = new bootstrap.Toast(toastLiveExample)
-  hoehe = hoehe - (630 / maxHoehe)
-  erledigt++
-  termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
+  hoehe = hoehe - ((510 / maxHoehe)*count)
+
+  erledigt = erledigt+1*count
+
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
 
   document.getElementById("erledigt").innerHTML = erledigt;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
   toast.show()
   goal()
-  save_erledigt()
-  save_hoehe()
-  save_goalpassed()
-
-}
-
-
-function am_hoechsten() 
-{ 
-
-  var am_hoechsten = document.getElementById("am_hoechsten").value;
-
-  toast = new bootstrap.Toast(toastLiveExample)
-  hoehe = hoehe - ((630 / maxHoehe)*am_hoechsten)
-
-
-  erledigt = erledigt+1*am_hoechsten
-
-  termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x; background-position: 1000px "+hoehe+"px;");
-
-  document.getElementById("erledigt").innerHTML = erledigt;
-  document.getElementById("nochzutuen").innerHTML = maxHoehe-erledigt;
-  toast.show()
-
+  logs=Date.now()/1000 + ";" + count
+  save_logs()
   masheightCheck()
   save_erledigt()
   save_hoehe()
-
-
-
 }
+
 function masheightCheck(){
-  if (erledigt > height1){
+  if (erledigt >=
+     height1){
     height1 = 999999
     save_height1()
   }
@@ -172,69 +204,14 @@ function masheightCheck(){
 function currentgiftfunction(){
 
   if(height1 != 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99996 && height6 != 99995){
-    currentgift = "Noch kein Ziel erreicht."
-    currentgoal = name1
-    document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
+    currentgift = "Party im Restaurant Athos"
     save_currentgift()
     document.getElementById("currentgift").innerHTML = currentgift;
-
+  }else{
+    currentgift = "Der Wintergarten von Athos wird gemietet."
+    save_currentgift()
+    document.getElementById("currentgift").innerHTML = currentgift;
   }
-    if(height1 == 999999 && height2 != 999998 && height3 != 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
-      currentgift = name1
-      currentgoal = name2
-      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
-      save_currentgift()
-      document.getElementById("currentgift").innerHTML = currentgift;
-
-    }
-
-    if(height1 == 999999 && height2 == 999998 && height3 != 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
-          currentgift = name2
-          currentgoal = name3
-          document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
-          save_currentgift()
-          document.getElementById("currentgift").innerHTML = currentgift;
-
-    }
-    
-    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 != 999996 && height5 != 99995 && height6 != 99994){
-      currentgift = name3
-      currentgoal = name4
-      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
-      save_currentgift()
-      document.getElementById("currentgift").innerHTML = currentgift;
-
-    }
-
-    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 != 99995 && height6 != 99994){
-      currentgift = name4
-      currentgoal = name5
-      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
-      save_currentgift()
-      const gift = document.querySelector('#gift');
-      document.getElementById("currentgift").innerHTML = currentgift;
-
-    }
-
-
-    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 99995 && height6 != 99994){
-      currentgift = name5
-      currentgoal = name6
-      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
-      save_currentgift()
-      document.getElementById("currentgift").innerHTML = currentgift;
-
-    }
-
-    
-    if(height1 == 999999 && height2 == 999998 && height3 == 999997 && height4 == 999996 && height5 == 999995 && height6 == 999994){
-      currentgoal = "keine Preise mehr 😕"
-      currentgift = name6
-      document.getElementById("bis-nächstes-ziel").innerHTML = "Nichts mehr zu erledigen"
-      document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
-      save_currentgift()
-      document.getElementById("currentgift").innerHTML = currentgift;
-    };
 }
 
 
@@ -268,64 +245,15 @@ function setgoal1()
   document.getElementById("goal-text").innerHTML = "Nächster Preis: " + currentgoal;
 }
 
-function setgoal2(){
-  name2 = document.getElementById("goal-name-2").value 
-  height2 = document.getElementById("goal-height-2").value 
-  goalpassed = "True"
-  save_height2()
-  save_name2()
-  goal()
-}
-    
-
-function setgoal3(){
-  name3 = document.getElementById("goal-name-3").value 
-  height3 = document.getElementById("goal-height-3").value     
-  goalpassed = "True"
-  save_height3()
-  save_name3()
-  goal()  
-}
-
-function setgoal4(){
-  name4 = document.getElementById("goal-name-4").value 
-  height4 = document.getElementById("goal-height-4").value 
-  goalpassed = "True"
-  save_height4()
-  save_name4()
-  goal()
-
-}
-
-function setgoal5(){
-  name5 = document.getElementById("goal-name-5").value 
-  height5 = document.getElementById("goal-height-5").value 
-  goalpassed = "True"
-  save_height5()
-  save_name5()
-  goal()
-}
-
-function setgoal6(){
-  name6 = document.getElementById("goal-name-6").value 
-  height6 = document.getElementById("goal-height-6").value 
-  goalpassed = "True"
-  save_height6()
-  save_name6()
-  goal()
-}
 
 function goal()
 {
-    console.log("goal function executed")
     toast2 = new bootstrap.Toast(toastLiveExample2)
     toast2.show()
 
- 
-    min = (Math.min(height1, height2, height3, height4, height5, height6));
-    console.log("min: " + min)
-    document.getElementById("bis-nächstes-ziel").innerHTML = min - erledigt;
-    if (erledigt == min) {
+
+    document.getElementById("bis-nächstes-ziel").innerHTML = height1 - erledigt;
+    if (erledigt == height1) {
         document.getElementById("goal-text").innerHTML = "Verdienter preis:" + currentgift;
         const gift = document.querySelector('#gift');
         gift.classList.add("animate__wobble", "animate__animated", "animate__repeat-3");
@@ -337,68 +265,20 @@ function goal()
           });
 
     }
-        
-    if (height1 == erledigt){
+    if (height1 <= erledigt){
+        document.getElementById("bis-nächstes-ziel").innerHTML = "keine Ziele mehr"
+        savetime = time_max - Math.floor(Date.now() / 1000)
+        console.log(savetime)
+        save_savetime()
         height1 = 999999
-        document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name2;
         currentgift = name1
-        currentgoal = name2
+        currentgoal = "es gibt keine Ziele mehr"
         save_height1()
         save_currentgoal()
         save_currentgift()
         
     }
 
-    
-    if (height2 == erledigt){
-        height2 = 999998
-        document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name3;
-         currentgoal = name3
-         currentgift = name2
-        save_height2()
-        save_currentgoal()
-        save_currentgift()
-    }
-
-    
-    if (height3 == erledigt){
-        height3 = 99997
-        document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name4;
-         currentgoal = name4
-         currentgift = name3
-        save_height3()
-        save_currentgoal()
-        save_currentgift()
-    }
-    
-    if (height4 == erledigt){
-        height4 = 999996
-        document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name5;
-         currentgoal = name5
-         currentgift = name4
-        save_height4()
-        save_currentgoal()
-        save_currentgift()
-    }
-
-    if (height5 == erledigt){
-        height5 = 999995
-        document.getElementById("goal-text").innerHTML = "Nächster Preis: " + name6;
-         currentgoal = name6
-         currentgift = name5
-        save_height5()
-        save_currentgoal()
-        save_currentgift()
-    }
-
-
-    if (height6 == erledigt){
-        height6 = 999994
-        currentgift = name6
-      save_height6()
-      save_currentgoal()
-      save_currentgift()
-    }
 
 }
 
@@ -483,85 +363,20 @@ function load(){
     }
   });
 
+
   $.ajax({
     dataType: "text",
     traditional: true,
     type: 'POST',
-    url: '/public/sgoalpassed',
+    url: '/public/lsavetime',
     async : false,
-    success: function (lgoalpassed) {
-      goalpassed = lgoalpassed
+    success: function (lsavetime) {
+      savetime = lsavetime
       }
   });
 
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sname1',    
-    async : false,
-    success: function (lname1) {
-      name1 = lname1
-    }
-  });
 
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sname2',
-       async : false,
 
-    success: function (lname2) {
-      name2 = lname2
-    }
-  });
-
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sname3',
-    async : false,
-    success: function (lname3) {
-      name3 = lname3
-    }
-  });
-
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sname4',
-    async : false,
-
-    success: function (lname4) {
-      name4 = lname4
-    }
-  });
-  
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sname5',
-    async : false,
-
-    success: function (lname5) {
-      name5 = lname5
-    }
-  });
-
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sname6',
-    async : false,
-    success: function (lname6) {
-      name6 = lname6
-    }
-  });
 
 
   $.ajax({
@@ -573,67 +388,6 @@ function load(){
 
     success: function (lheight1) {
       height1 = lheight1
-    }
-  });
-
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    url: '/public/sheight2',
-    async : false,
-
-    success: function (lheight2) {
-      height2 = lheight2
-    }
-  });
-
-
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    async : false,
-
-    url: '/public/sheight3',
-    success: function (lheight3) {
-      height3 = lheight3
-    }
-  });
-
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    async : false,
-
-    url: '/public/sheight4',
-    success: function (lheight4) {
-      height4 = lheight4
-    }
-  });
-
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    async : false,
-
-    url: '/public/sheight5',
-    success: function (lheight5) {
-      height5 = lheight5
-    }
-  });
-
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    async : false,
-
-    url: '/public/sheight6',
-    success: function (lheight6) {
-      height6 = lheight6
     }
   });
 
@@ -652,16 +406,6 @@ function load(){
   });
 
 
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    async : false,
-    url: '/public/snochzutuen',
-    success: function (lnochzutuen) {
-      nochzutuen = lnochzutuen
-    }
-  });
 }
 
 /////////////////////////////
@@ -739,76 +483,6 @@ function save_name1(){
   });
 }
 
-function save_name2(){
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    data:{'name2': name2},
-    cache: false,
-    url: '/public/name2',
-    success: function (name2) {
-      window.location.reload();
-    }
-  });
-}
-
-function save_name3(){
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    data:{'name3': name3},
-    cache: false,
-    url: '/public/name3',
-    success: function (name3) {
-      window.location.reload();
-    }
-  });
-}
-
-function save_name4(){
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    data:{'name4': name4},
-    cache: false,
-    url: '/public/name4',
-    success: function (name4) {
-      window.location.reload();
-    }
-  });
-}
-
-function save_name5(){
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    data:{'name5': name5},
-    cache: false,
-    url: '/public/name5',
-    success: function (name5) {
-      window.location.reload();
-    }
-  });
-}
-
-function save_name6(){
-  $.ajax({
-    dataType: "text",
-    traditional: true,
-    type: 'POST',
-    data:{'name6': name6},
-    cache: false,
-    url: '/public/name6',
-    success: function (name6) {
-      window.location.reload();
-    }
-  });
-}
-
 function save_height1(){
 
   $.ajax({
@@ -818,61 +492,6 @@ function save_height1(){
     data:{'height1': height1},
     cache: false,
     url: '/public/height1',
-  });
-}
-
-function save_height2(){
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    data:{'height2': height2},
-    cache: false,
-    url: '/public/height2',
-  });
-}
-
-function save_height3(){
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    data:{'height3': height3},
-    cache: false,
-    url: '/public/height3',
-  });
-}
-
-function save_height4(){
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    data:{'height4': height4},
-    cache: false,
-    url: '/public/height4',
-  });
-}
-
-function save_height5(){
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    data:{'height5': height5},
-    cache: false,
-    url: '/public/height5',
-  });
-}
-
-function save_height6(){
-  $.ajax({
-    dataType: "JSON",
-    traditional: true,
-    type: 'POST',
-    data:{'height6': height6},
-    cache: false,
-    url: '/public/height6',
   });
 }
 
@@ -899,14 +518,25 @@ function save_currentgift(){
   });
 }
 
-function nochzutuen(){
+function save_savetime(){
+  console.log(savetime)
   $.ajax({
-    dataType: "JSON",
+    method: "POST",
+    dataType: "text",
     traditional: true,
-    data:{'nochzutuen': nochzutuen},
+    data:{'savetime': savetime},
     cache: false,
-    url: '/public/nochzutuen',
+    url: '/public/savetime',
   });
 }
 
-
+function save_logs(){
+  $.ajax({
+    method: "POST",
+    dataType: "text",
+    traditional: true,
+    data:{'logs': logs},
+    cache: false,
+    url: '/public/logs',
+  });
+}
