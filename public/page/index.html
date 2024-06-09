@@ -18,7 +18,7 @@
               <img id="title" class="title-image" src="/public/assets/cropped-KL_Website_Elemente_Logo_neu.png" alt="Kanzlei Lotz">
                 | JAB-CHALLENGE
             </a>
-            <button class="btn btn-primary cbutton" id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#PasswortModal" role="button" aria-label="Toggle menu">Menü</button>
+            <button class="btn btn-primary cbutton" id="sidebarCollapse" class="float-end" data-bs-toggle="modal" data-bs-target="#passwordModal" role="button" aria-label="Toggle menu">Menü</button>
           </div>
       </nav>
 
@@ -232,7 +232,7 @@
       </div>
 
       <!--Passwort Modal-->
-        <div class="modal fade" id="PasswortModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
+        <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="reset" aria-hidden="true">
           <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -240,8 +240,8 @@
                 </div>
                 <div class="modal-body">
                   <div class="d-grid gap-2 col-6 mx-auto">
-                    <input type="text" placeholder="Passwort" class="form-control"  id="passwort">
-                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="passwortfunction()" type="button">Los</button>
+                    <input type="text" placeholder="password" class="form-control"  id="password">
+                    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="passwordfunction()" type="button">Los</button>
                   </div>
                 </div>
               </div>
@@ -350,9 +350,9 @@
           </div>
         </div>
       </div>
-      <!--Falsches  Passwort Toast-->
+      <!--Falsches  password Toast-->
       <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="passwortwrongtoast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="passwordwrongtoast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header">
             <img src="" class="rounded me-2" alt="🔒&#65039">
             <strong class="me-auto">Falsches Passwort</strong>
