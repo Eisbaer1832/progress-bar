@@ -1,12 +1,11 @@
 //TODO: Implement time stop when goal is reached and save current time to backend to set a highscore
-let hoehe, finishtime, maxHoehe, name1, height1, done, currentgoal, currentgift, saved_password, time_max, password, authorized, goalpassed, savetime, time_to_display, logs
 let data
+let finishtime, maxHoehe, name1, height1, done, currentgoal, currentgift, saved_password, time_max, password, authorized, logs
 
 
 load()
-document.getElementById("currentgift").innerHTML = name1;
-hoehe = 522 - ((510 / maxHoehe)*done)
 
+document.getElementById("currentgift").innerHTML = name1;
 document.getElementById("erledigt").innerHTML = done;
 document.getElementById("nochzutuen").innerHTML = maxHoehe-done;
 const toastTrigger = document.getElementById('liveToastBtn')
@@ -15,6 +14,13 @@ const termometer = document.getElementById("Termometer");
 const toastLiveExample2 = document.getElementById('liveToast2')      
 const gift = document.querySelector('#gift');
 const timer_text = document.getElementById("timeleft")
+
+// animate the termometer
+let hoehe = 522 - ((510 / maxHoehe)*done)
+termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px 522px");
+$('#Termometer').animate({
+  'background-position-y': hoehe + "px"
+}, 1000, 'linear');
 
 
 //n_higher event listener
@@ -31,9 +37,8 @@ onresize = (event) => {
 }
 
 getTimestampInSeconds()
-
-
 async function getTimestampInSeconds () {
+  let time_to_display
   await load()
   console.log(finishtime)
   if (done < height1)
@@ -42,7 +47,6 @@ async function getTimestampInSeconds () {
     while (true)
     {
       let time
-      time_max = 1738364399
       time = Math.floor(Date.now() / 1000)
 
 
@@ -102,15 +106,6 @@ async function getTimestampInSeconds () {
   }
 }
 
-
-termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px 522px");
-
-$('#Termometer').animate({
-  'background-position-y': hoehe + "px"
-}, 1000, 'linear');
-
-
-        
 if (height1 <= done){
   document.getElementById("bis-nächstes-ziel").innerHTML = "Ihr habt euer Ziel erreicht!"
 }else{
@@ -137,19 +132,15 @@ function reset()
 {
   done = 0
   hoehe = 522
-  goalpassed = "True"
 
   termometer.setAttribute("style","background:url(/public/assets/red.png); background-repeat: repeat-x;  background-position: 1000px "+hoehe+"px");
   document.getElementById("erledigt").innerHTML = done;
   document.getElementById("nochzutuen").innerHTML = maxHoehe-done;
-
   save()
-
 }
 
 function hoeher(count) 
 { 
-
   toast = new bootstrap.Toast(toastLiveExample)
   hoehe = hoehe - ((510 / maxHoehe)*count)
 
@@ -187,7 +178,6 @@ function setgoal1()
 {
   name1 = document.getElementById("goal-name-1").value 
   height1 = document.getElementById("goal-height-1").value 
-  goalpassed = "True"
   goal()
   save()
   document.getElementById("goal-text").innerhtml = "Nächster Preis:" + name1;
@@ -206,12 +196,9 @@ function goal()
 
     if (height1 <= done){
         document.getElementById("bis-nächstes-ziel").innerHTML = "Ihr habt euer Ziel erreicht";
-        savetime = time_max - Math.floor(Date.now() / 1000)
-        console.log(savetime)
         currentgift = name1
         currentgoal = "Ihr habt euer Ziel erreicht"
         finishtime = time_max - Math.floor(Date.now() / 1000)
-
     }
     save()
 
@@ -243,10 +230,10 @@ function load(){
       done = parseInt(data.done)
       maxHoehe = data.max
       saved_password = data.password
-      savetime = data.timeleft
       name1 = data.goal.name
       height1 = data.goal.height
       finishtime = data.finishtime
+      time_max = data.maxtime
       
     }
   });
@@ -266,10 +253,10 @@ function save() {
   data.done = done
   data.max = maxHoehe
   data.password = saved_password
-  data.timeleft = savetime
   data.goal.name = name1
   data.goal.height = height1
   data.finishtime = finishtime
+  data.maxtime = time_max
   console.log(data)
 
   $.ajax({
