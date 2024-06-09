@@ -24,6 +24,7 @@ app.get('/', (_, res) => {
 app.get('/statistics', (_, res) => {
   res.sendFile('public/page/statistics.html', {root: __dirname })});
 
+app.get
 
 
 app.listen(port, () => {
@@ -109,7 +110,12 @@ app.post('/public/snochzutuen', function(req, res) {
 app.post('/public/lsavetime', function(req, res) {
   var lsavetime = fs.readFileSync(("savetime")+ ".txt")
   res.send(lsavetime);
-  
+});
+
+
+app.post('/public/loadlogs', function(req, res) {
+  var logs = fs.readFileSync("logs.txt")
+  res.send(logs); 
 });
 /////////////////////////////
 //                         //
@@ -122,7 +128,6 @@ app.post('/public/lsavetime', function(req, res) {
 /////////////////////////////
 
 app.post('/public/logs', function(req, res) {
-  console.log(logs)
   var logs = req.body.logs;
   fs.appendFileSync("logs.txt", logs + "\n");
 });
@@ -133,12 +138,10 @@ app.post('/public/goalpassed', function(req, res) {
 });
 
 app.post('/public/erledigt', function(req) {
-  console.log("erledigt req.body: " + req.body.erledigt)
   var erledigt = req.body.erledigt;
   
   try {
     fs.writeFileSync(Object.keys({erledigt})+".txt", erledigt);
-    console.log("erledigt: " + erledigt)
   } catch (err) {
     console.error(err);
   };
@@ -146,9 +149,7 @@ app.post('/public/erledigt', function(req) {
 });
 
 app.post('/public/savetime', function(req) {
-  console.log("savetime req.body: " + req.body.savetime)
   var savetime = req.body.savetime;
-  console.log("savetime: " + savetime);
   
   try {
     fs.writeFileSync(Object.keys({savetime})+".txt", savetime);
@@ -160,7 +161,6 @@ app.post('/public/savetime', function(req) {
 
 app.post('/public/maxHoehe', function(req) {
   var maxHoehe = req.body.maxHoehe;
-  console.log("maxHoehe: "+ maxHoehe);
   
   try {
     fs.writeFileSync(Object.keys({maxHoehe})+".txt", maxHoehe);
@@ -172,7 +172,6 @@ app.post('/public/maxHoehe', function(req) {
 
 app.post('/public/name1', function(req,res) {
   var name1 = req.body.name1;
-  console.log("name1: "+ name1 );
 
   
   try {
@@ -187,7 +186,6 @@ app.post('/public/name1', function(req,res) {
 
 app.post('/public/height1', function(req) {
   var height1 = req.body.height1;
-  console.log("height1: "+ height1 );
   
   try {
     fs.writeFileSync(Object.keys({height1})+".txt", height1);
@@ -201,7 +199,6 @@ app.post('/public/height1', function(req) {
 
 app.post('/public/currentgift', function(req) {
   var currentgift = req.body.currentgift;
-  console.log("currentgift: "+ currentgift );
   
   try {
     fs.writeFileSync(Object.keys({currentgift})+".txt", currentgift);
@@ -213,7 +210,6 @@ app.post('/public/currentgift', function(req) {
 
 app.post('/public/nochzutuen', function(req) {
   var nochzutuen = req.body.nochzutuen;
-  console.log("nochzutuen: "+ nochzutuen );
   
   try {
     fs.writeFile (Object.keys({nochzutuen})+".txt", nochzutuen);
@@ -224,7 +220,6 @@ app.post('/public/nochzutuen', function(req) {
 
 app.post('/public/hoehe', function(req, res) {
   var hoehe = req.body.hoehe;
-  console.log("hoehe: "+ hoehe);
   try {
     fs.writeFileSync(Object.keys({hoehe})+".txt", hoehe);
   } catch (err) {
