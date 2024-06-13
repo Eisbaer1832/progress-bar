@@ -14,14 +14,16 @@ ja_month[1] = new Array(12).fill(0);
 
 // reading the logs
 var lines = stats.split("\n");
+console.log(lines)
 var numLines = lines.length;
 
 for (i = 0; i < numLines - 1; i++){
 	let entry = lines[i].split(";");
-	date=new Date(entry[0]*1000)
+	date=new Date(entry[0]*1)
 	month=date.getMonth()
 	year=date.getYear()
 	console.log(year)
+	console.log(date)
 	value=parseInt(entry[1])
 
 	// dynamic year switching
@@ -29,7 +31,7 @@ for (i = 0; i < numLines - 1; i++){
 		yearindex++
 		latestyear = year
 	}
-	console.log(yearindex)
+	console.log(ja_month)
 	ja_month[yearindex][month]+= value
 }
 
@@ -38,7 +40,7 @@ console.log(ja_month)
 const ctx = document.getElementById('graph');
 
 const labels = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-const data = {
+const graphdata = {
 	  labels: labels,
 	  datasets: [{
 		      label: 'Abschlüsse pro Monat 2022',
@@ -62,7 +64,7 @@ const data = {
 
 new Chart(ctx, {
 	type: 'line',
-	data: data,
+	data: graphdata,
 	options: {
 		   scales: {
 			 y: {
