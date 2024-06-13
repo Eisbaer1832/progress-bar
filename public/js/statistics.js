@@ -29,6 +29,7 @@ for (i = 0; i < numLines - 1; i++){
 		yearindex++
 		latestyear = year
 	}
+	console.log(yearindex)
 	ja_month[yearindex][month]+= value
 }
 
